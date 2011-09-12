@@ -59,7 +59,8 @@ bool Balance::isConnected() const
 
 void Balance::setServerAddr(const std::string &addr)
 {
-
+	mNewSocketName = CL_SocketName(addr, "23");
+	mSocketNameChanged = true;
 }
 
 std::string Balance::getParam(const std::string &name) const
@@ -159,6 +160,9 @@ void Balance::run()
 			{
 				if (mStopThread.get() != 0)
 					return;
+
+				if (mSocketNameChanged)
+					break;
 
 				int elapsedTime = CL_System::get_time() - startTime;
 				if (elapsedTime >= POLL_INTERVAL)
