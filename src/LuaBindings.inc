@@ -1,6 +1,6 @@
 /*
 ** Lua binding: LuaBindings
-** Generated automatically by tolua++-1.0.92 on 09/09/11 17:38:57.
+** Generated automatically by tolua++-1.0.92 on 09/12/11 17:39:47.
 */
 
 #ifndef __cplusplus
@@ -390,6 +390,40 @@ static int tolua_LuaBindings_Balance_isConnected00(lua_State* tolua_S)
 #ifndef TOLUA_RELEASE
  tolua_lerror:
  tolua_error(tolua_S,"#ferror in function 'isConnected'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: setServerAddr of class  Balance */
+#ifndef TOLUA_DISABLE_tolua_LuaBindings_Balance_setServerAddr00
+static int tolua_LuaBindings_Balance_setServerAddr00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Balance",0,&tolua_err) ||
+     !tolua_iscppstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Balance* self = (Balance*)  tolua_tousertype(tolua_S,1,0);
+  const std::string addr = ((const std::string)  tolua_tocppstring(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setServerAddr'", NULL);
+#endif
+  {
+   self->setServerAddr(addr);
+   tolua_pushcppstring(tolua_S,(const char*)addr);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'setServerAddr'.",&tolua_err);
  return 0;
 #endif
 }
@@ -3199,6 +3233,7 @@ TOLUA_API int tolua_LuaBindings_open (lua_State* tolua_S)
   tolua_cclass(tolua_S,"Balance","Balance","",NULL);
   tolua_beginmodule(tolua_S,"Balance");
    tolua_function(tolua_S,"isConnected",tolua_LuaBindings_Balance_isConnected00);
+   tolua_function(tolua_S,"setServerAddr",tolua_LuaBindings_Balance_setServerAddr00);
    tolua_function(tolua_S,"getParam",tolua_LuaBindings_Balance_getParam00);
    tolua_function(tolua_S,"getIntParam",tolua_LuaBindings_Balance_getIntParam00);
    tolua_function(tolua_S,"getFloatParam",tolua_LuaBindings_Balance_getFloatParam00);

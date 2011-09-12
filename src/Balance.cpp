@@ -131,7 +131,7 @@ void Balance::onUpdate(int delta)
 
 void Balance::run()
 {
-	//CL_ConsoleWindow console("Balance", 80, 100);
+	CL_ConsoleWindow console("Balance", 80, 100);
 
 	for (;;)
 	{
@@ -219,6 +219,7 @@ void Balance::run()
 		catch (const std::exception &exception)
 		{
 			CL_Console::write_line(cl_format("*** FAIL: %1 ***", exception.what()));
+			CL_System::sleep(1000);
 		}
 		catch (...)
 		{
