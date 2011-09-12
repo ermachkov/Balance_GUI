@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="WINDOWS-1251"?>
+<resources>
+	<sprite name="spriteStartPanel" x="93" y="496">
+		<image file="start_panel.png"/>
+	</sprite>
+	<sprite name="spriteTouchscreenCalibrationText" x="778" y="540">
+		<image file="touchscreen_calibration_text.png"/>
+	</sprite>
+	<sprite name="spriteBalanceCalibrationText" x="558" y="540">
+		<image file="balance_calibration_text.png"/>
+	</sprite>
+	<sprite name="spriteStartWorkText" x="362" y="540">
+		<image file="start_work_text.png"/>
+	</sprite>
+	<sprite name="spriteTouchscreenCalibrationButton" x="753" y="418">
+		<image file="touchscreen_calibration_button_normal.png"/>
+		<image file="touchscreen_calibration_button_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="-8" y="-8"/>
+	</sprite>
+	<sprite name="spriteBalanceCalibrationButton" x="555" y="388">
+		<image file="balance_calibration_button_normal.png"/>
+		<image file="balance_calibration_button_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="-8" y="-8"/>
+	</sprite>
+	<sprite name="spriteStartWorkButton" x="232" y="365">
+		<image file="start_work_button_normal.png"/>
+		<image file="start_work_button_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="-6" y="-5"/>
+	</sprite>
+</resources>

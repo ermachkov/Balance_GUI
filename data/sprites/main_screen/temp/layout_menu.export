@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="WINDOWS-1251"?>
+<resources>
+	<sprite name="spriteLayoutMenu" x="62" y="32">
+		<image file="dyn_menu.png"/>
+		<image file="stat_menu.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteLayoutSubmenu" x="77" y="72">
+		<image file="dyn_submenu.png"/>
+		<image file="stat_submenu.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="199"/>
+	</sprite>
+	<sprite name="spriteStatMenuDie" x="98" y="464">
+		<image file="stat_menu_die.png"/>
+	</sprite>
+	<sprite name="spriteStatDie5" x="620" y="542">
+		<image file="stat_die_5.png"/>
+	</sprite>
+	<sprite name="spriteStatDie4" x="390" y="542">
+		<image file="stat_die_4.png"/>
+	</sprite>
+	<sprite name="spriteStatDie3" x="850" y="322">
+		<image file="stat_die_3.png"/>
+	</sprite>
+	<sprite name="spriteStatDie2" x="620" y="322">
+		<image file="stat_die_2.png"/>
+	</sprite>
+	<sprite name="spriteStatDie1" x="390" y="322">
+		<image file="stat_die_1.png"/>
+	</sprite>
+	<sprite name="spriteStatMenuText" x="120" y="691">
+		<image file="stat_menu_text_en.png"/>
+		<image file="stat_menu_text_ru.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="-16" y="1"/>
+	</sprite>
+	<sprite name="spriteDynMenuDie" x="98" y="93">
+		<image file="dyn_menu_die.png"/>
+	</sprite>
+	<sprite name="spriteDynDie24" x="850" y="344">
+		<image file="dyn_die_24.png"/>
+	</sprite>
+	<sprite name="spriteDynDie23" x="620" y="345">
+		<image file="dyn_die_23.png"/>
+	</sprite>
+	<sprite name="spriteDynDie13" x="390" y="344">
+		<image file="dyn_die_13.png"/>
+	</sprite>
+	<sprite name="spriteDynDie14" x="850" y="124">
+		<image file="dyn_die_14.png"/>
+	</sprite>
+	<sprite name="spriteDynDie25" x="620" y="124">
+		<image file="dyn_die_25.png"/>
+	</sprite>
+	<sprite name="spriteDynDie15" x="390" y="124">
+		<image file="dyn_die_15.png"/>
+	</sprite>
+	<sprite name="spriteDynMenuText" x="132" y="324">
+		<image file="dyn_menu_text_en.png"/>
+		<image file="dyn_menu_text_ru.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="-6" y="1"/>
+	</sprite>
+</resources>

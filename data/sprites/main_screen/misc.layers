@@ -1,0 +1,10 @@
+sprites =
+[
+	["spriteProgressBack", ["progress_back"]],
+	["spriteProgressFront", ["progress_front"]],
+	["spriteProgressText", ["progress_text_en", "progress_text_ru"]],
+
+	["spriteSpeedometerArrow", ["speedometer_arrow"]],
+	["spriteSpeedometerCenter", ["speedometer_center"]],
+	["spriteSpeedometerText", ["speedometer_text_en", "speedometer_text_ru"]]
+]

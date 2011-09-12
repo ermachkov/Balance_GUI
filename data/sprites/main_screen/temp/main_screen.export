@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="WINDOWS-1251"?>
+<resources>
+	<sprite name="spriteMainScreenBack2" x="0" y="0">
+		<image file="main_screen_back_2.png"/>
+	</sprite>
+	<sprite name="spriteRightBack2" x="880" y="382">
+		<image file="right_back_2.png"/>
+	</sprite>
+	<sprite name="spriteRightGreenBack2" x="880" y="382">
+		<image file="right_green_back_2.png"/>
+	</sprite>
+	<sprite name="spriteRightBottomArrow2" x="1065" y="554">
+		<image file="right_bottom_arrow_2_off.png"/>
+		<image file="right_bottom_arrow_2_on.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteRightTopArrow2" x="1065" y="244">
+		<image file="right_top_arrow_2_off.png"/>
+		<image file="right_top_arrow_2_on.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteRightWeight2" x="895" y="397">
+		<image file="right_weight_2_normal.png"/>
+		<image file="right_weight_2_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteRightBottomAngle" x="1024" y="435">
+		<image file="right_bottom_angle_empty.png"/>
+		<image file="right_bottom_angle_0.png"/>
+		<image file="right_bottom_angle_1.png"/>
+		<image file="right_bottom_angle_2.png"/>
+		<image file="right_bottom_angle_3.png"/>
+		<image file="right_bottom_angle_4.png"/>
+		<image file="right_bottom_angle_5.png"/>
+		<image file="right_bottom_angle_6.png"/>
+		<image file="right_bottom_angle_7.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+		<frame nr="2" x="0" y="0"/>
+		<frame nr="3" x="0" y="0"/>
+		<frame nr="4" x="0" y="0"/>
+		<frame nr="5" x="0" y="0"/>
+		<frame nr="6" x="0" y="0"/>
+		<frame nr="7" x="0" y="0"/>
+		<frame nr="8" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteRightTopAngle" x="1022" y="123">
+		<image file="right_top_angle_empty.png"/>
+		<image file="right_top_angle_0.png"/>
+		<image file="right_top_angle_1.png"/>
+		<image file="right_top_angle_2.png"/>
+		<image file="right_top_angle_3.png"/>
+		<image file="right_top_angle_4.png"/>
+		<image file="right_top_angle_5.png"/>
+		<image file="right_top_angle_6.png"/>
+		<image file="right_top_angle_7.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+		<frame nr="2" x="0" y="-2"/>
+		<frame nr="3" x="0" y="-2"/>
+		<frame nr="4" x="0" y="-2"/>
+		<frame nr="5" x="0" y="-2"/>
+		<frame nr="6" x="0" y="-2"/>
+		<frame nr="7" x="0" y="-2"/>
+		<frame nr="8" x="0" y="-2"/>
+	</sprite>
+	<sprite name="spriteRightGreenBack" x="1057" y="326">
+		<image file="right_green_back.png"/>
+	</sprite>
+	<sprite name="spriteRightBottomArrow" x="1069" y="527">
+		<image file="right_bottom_arrow_off.png"/>
+		<image file="right_bottom_arrow_on.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteRightTopArrow" x="1069" y="257">
+		<image file="right_top_arrow_off.png"/>
+		<image file="right_top_arrow_on.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteRightWeight" x="1084" y="397">
+		<image file="right_weight_normal.png"/>
+		<image file="right_weight_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteLeftBottomAngle" x="-40" y="435">
+		<image file="left_bottom_angle_empty.png"/>
+		<image file="left_bottom_angle_0.png"/>
+		<image file="left_bottom_angle_1.png"/>
+		<image file="left_bottom_angle_2.png"/>
+		<image file="left_bottom_angle_3.png"/>
+		<image file="left_bottom_angle_4.png"/>
+		<image file="left_bottom_angle_5.png"/>
+		<image file="left_bottom_angle_6.png"/>
+		<image file="left_bottom_angle_7.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+		<frame nr="2" x="0" y="0"/>
+		<frame nr="3" x="0" y="0"/>
+		<frame nr="4" x="0" y="0"/>
+		<frame nr="5" x="0" y="0"/>
+		<frame nr="6" x="0" y="0"/>
+		<frame nr="7" x="0" y="0"/>
+		<frame nr="8" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteLeftTopAngle" x="-40" y="123">
+		<image file="left_top_angle_empty.png"/>
+		<image file="left_top_angle_0.png"/>
+		<image file="left_top_angle_1.png"/>
+		<image file="left_top_angle_2.png"/>
+		<image file="left_top_angle_3.png"/>
+		<image file="left_top_angle_4.png"/>
+		<image file="left_top_angle_5.png"/>
+		<image file="left_top_angle_6.png"/>
+		<image file="left_top_angle_7.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+		<frame nr="2" x="0" y="-2"/>
+		<frame nr="3" x="0" y="-2"/>
+		<frame nr="4" x="0" y="-2"/>
+		<frame nr="5" x="0" y="-2"/>
+		<frame nr="6" x="0" y="-2"/>
+		<frame nr="7" x="0" y="-2"/>
+		<frame nr="8" x="0" y="-2"/>
+	</sprite>
+	<sprite name="spriteLeftGreenBack" x="-8" y="326">
+		<image file="left_green_back.png"/>
+	</sprite>
+	<sprite name="spriteLeftBottomArrow" x="147" y="527">
+		<image file="left_bottom_arrow_off.png"/>
+		<image file="left_bottom_arrow_on.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteLeftTopArrow" x="147" y="257">
+		<image file="left_top_arrow_off.png"/>
+		<image file="left_top_arrow_on.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteLeftWeight" x="14" y="397">
+		<image file="left_weight_normal.png"/>
+		<image file="left_weight_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteOfsBack" x="188" y="107">
+		<image file="ofs_back.png"/>
+	</sprite>
+	<sprite name="spriteOfsButton" x="200" y="131">
+		<image file="ofs_button_normal.png"/>
+		<image file="ofs_button_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="1"/>
+	</sprite>
+	<sprite name="spriteOfsIcon" x="333" y="118">
+		<image file="ofs_icon_normal.png"/>
+		<image file="ofs_icon_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="1"/>
+	</sprite>
+	<sprite name="spriteWidthStickBack" x="853" y="108">
+		<image file="width_stick_back.png"/>
+	</sprite>
+	<sprite name="spriteWidthStickButton" x="947" y="131">
+		<image file="width_stick_button_normal.png"/>
+		<image file="width_stick_button_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteStickIcon" x="864" y="119">
+		<image file="stick_icon_normal.png"/>
+		<image file="stick_icon_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteWidthIcon" x="864" y="119">
+		<image file="width_icon_normal.png"/>
+		<image file="width_icon_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteDiamBack" x="176" y="680">
+		<image file="diam_back.png"/>
+	</sprite>
+	<sprite name="spriteDiamIcon" x="320" y="692">
+		<image file="diam_icon_normal.png"/>
+		<image file="diam_icon_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteDiamButton" x="187" y="705">
+		<image file="diam_button_normal.png"/>
+		<image file="diam_button_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteDiskButton" x="384" y="860">
+		<image file="disk_button_normal.png"/>
+		<image file="disk_button_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="1"/>
+	</sprite>
+	<sprite name="spriteDiskButtonText" x="506" y="909">
+		<image file="disk_button_text_en_normal.png"/>
+		<image file="disk_button_text_en_pressed.png"/>
+		<image file="disk_button_text_ru_normal.png"/>
+		<image file="disk_button_text_ru_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="1" y="2"/>
+		<frame nr="2" x="-12" y="0"/>
+		<frame nr="3" x="-12" y="2"/>
+	</sprite>
+	<sprite name="spriteDiskIcon" x="406" y="885">
+		<image file="disk_icon_alu.png"/>
+		<image file="disk_icon_steel.png"/>
+		<image file="disk_icon_truck.png"/>
+		<image file="disk_icon_abs.png"/>
+		<image file="disk_icon_stat.png"/>
+		<image file="disk_icon_alu_3.png"/>
+		<image file="disk_icon_alu_4.png"/>
+		<image file="disk_icon_alu_5.png"/>
+		<image file="disk_icon_alu_6.png"/>
+		<image file="disk_icon_alu_7.png"/>
+		<image file="disk_icon_alu_8.png"/>
+		<image file="disk_icon_alu_9.png"/>
+		<image file="disk_icon_alu_10.png"/>
+		<image file="disk_icon_alu_11.png"/>
+		<image file="disk_icon_alu_12.png"/>
+		<image file="disk_icon_alu_13.png"/>
+		<image file="disk_icon_alu_14.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="-1" y="0"/>
+		<frame nr="2" x="-1" y="0"/>
+		<frame nr="3" x="-2" y="1"/>
+		<frame nr="4" x="0" y="1"/>
+		<frame nr="5" x="0" y="-2"/>
+		<frame nr="6" x="0" y="-2"/>
+		<frame nr="7" x="0" y="-2"/>
+		<frame nr="8" x="0" y="-2"/>
+		<frame nr="9" x="0" y="-2"/>
+		<frame nr="10" x="0" y="-2"/>
+		<frame nr="11" x="0" y="-2"/>
+		<frame nr="12" x="0" y="-2"/>
+		<frame nr="13" x="0" y="-2"/>
+		<frame nr="14" x="0" y="-2"/>
+		<frame nr="15" x="0" y="-2"/>
+		<frame nr="16" x="0" y="-2"/>
+	</sprite>
+	<sprite name="spriteLayoutButton" x="62" y="860">
+		<image file="layout_button_normal.png"/>
+		<image file="layout_button_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteLayoutButtonText" x="179" y="909">
+		<image file="layout_button_text_en_normal.png"/>
+		<image file="layout_button_text_en_pressed.png"/>
+		<image file="layout_button_text_ru_normal.png"/>
+		<image file="layout_button_text_ru_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="1" y="1"/>
+		<frame nr="2" x="1" y="0"/>
+		<frame nr="3" x="1" y="2"/>
+	</sprite>
+	<sprite name="spriteLayoutIcon" x="86" y="890">
+		<image file="layout_icon_dyn_15.png"/>
+		<image file="layout_icon_dyn_25.png"/>
+		<image file="layout_icon_dyn_14.png"/>
+		<image file="layout_icon_dyn_13.png"/>
+		<image file="layout_icon_dyn_23.png"/>
+		<image file="layout_icon_dyn_24.png"/>
+		<image file="layout_icon_stat_1.png"/>
+		<image file="layout_icon_stat_2.png"/>
+		<image file="layout_icon_stat_3.png"/>
+		<image file="layout_icon_stat_4.png"/>
+		<image file="layout_icon_stat_5.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+		<frame nr="2" x="0" y="0"/>
+		<frame nr="3" x="0" y="0"/>
+		<frame nr="4" x="0" y="0"/>
+		<frame nr="5" x="0" y="0"/>
+		<frame nr="6" x="0" y="0"/>
+		<frame nr="7" x="0" y="0"/>
+		<frame nr="8" x="0" y="0"/>
+		<frame nr="9" x="0" y="0"/>
+		<frame nr="10" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteStopButton" x="957" y="846">
+		<image file="stop_button_normal.png"/>
+		<image file="stop_button_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteStopButtonText" x="1014" y="901">
+		<image file="stop_button_text_en_normal.png"/>
+		<image file="stop_button_text_en_pressed.png"/>
+		<image file="stop_button_text_ru_normal.png"/>
+		<image file="stop_button_text_ru_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="2" y="2"/>
+		<frame nr="2" x="1" y="0"/>
+		<frame nr="3" x="1" y="2"/>
+	</sprite>
+	<sprite name="spriteStartButton" x="667" y="846">
+		<image file="start_button_normal.png"/>
+		<image file="start_button_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteStartButtonText" x="712" y="901">
+		<image file="start_button_text_en_normal.png"/>
+		<image file="start_button_text_en_pressed.png"/>
+		<image file="start_button_text_ru_normal.png"/>
+		<image file="start_button_text_ru_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="2" y="2"/>
+		<frame nr="2" x="3" y="0"/>
+		<frame nr="3" x="2" y="2"/>
+	</sprite>
+	<sprite name="spriteHelpButton" x="1132" y="20">
+		<image file="help_button_normal.png"/>
+		<image file="help_button_pressed.png"/>
+		<image file="help_button_disabled.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+		<frame nr="2" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteHelpButtonText" x="1154" y="47">
+		<image file="help_button_text_en_normal.png"/>
+		<image file="help_button_text_en_pressed.png"/>
+		<image file="help_button_text_en_disabled.png"/>
+		<image file="help_button_text_ru_normal.png"/>
+		<image file="help_button_text_ru_pressed.png"/>
+		<image file="help_button_text_ru_disabled.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="1" y="2"/>
+		<frame nr="2" x="0" y="0"/>
+		<frame nr="3" x="-3" y="0"/>
+		<frame nr="4" x="-2" y="2"/>
+		<frame nr="5" x="-2" y="0"/>
+	</sprite>
+	<sprite name="spriteSaveButton" x="995" y="20">
+		<image file="save_button_normal.png"/>
+		<image file="save_button_pressed.png"/>
+		<image file="save_button_disabled.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+		<frame nr="2" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteSaveButtonText" x="1015" y="47">
+		<image file="save_button_text_en_normal.png"/>
+		<image file="save_button_text_en_pressed.png"/>
+		<image file="save_button_text_en_disabled.png"/>
+		<image file="save_button_text_ru_normal.png"/>
+		<image file="save_button_text_ru_pressed.png"/>
+		<image file="save_button_text_ru_disabled.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="1" y="2"/>
+		<frame nr="2" x="0" y="0"/>
+		<frame nr="3" x="-2" y="0"/>
+		<frame nr="4" x="-2" y="2"/>
+		<frame nr="5" x="-2" y="0"/>
+	</sprite>
+	<sprite name="spriteLoadButton" x="161" y="20">
+		<image file="load_button_normal.png"/>
+		<image file="load_button_pressed.png"/>
+		<image file="load_button_disabled.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+		<frame nr="2" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteLoadButtonText" x="181" y="47">
+		<image file="load_button_text_en_normal.png"/>
+		<image file="load_button_text_en_pressed.png"/>
+		<image file="load_button_text_en_disabled.png"/>
+		<image file="load_button_text_ru_normal.png"/>
+		<image file="load_button_text_ru_pressed.png"/>
+		<image file="load_button_text_ru_disabled.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="1" y="2"/>
+		<frame nr="2" x="0" y="0"/>
+		<frame nr="3" x="-3" y="0"/>
+		<frame nr="4" x="-2" y="2"/>
+		<frame nr="5" x="-2" y="0"/>
+	</sprite>
+	<sprite name="spriteMenuButton" x="24" y="20">
+		<image file="menu_button_normal.png"/>
+		<image file="menu_button_pressed.png"/>
+		<image file="menu_button_disabled.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+		<frame nr="2" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteMenuButtonText" x="43" y="47">
+		<image file="menu_button_text_en_normal.png"/>
+		<image file="menu_button_text_en_pressed.png"/>
+		<image file="menu_button_text_en_disabled.png"/>
+		<image file="menu_button_text_ru_normal.png"/>
+		<image file="menu_button_text_ru_pressed.png"/>
+		<image file="menu_button_text_ru_disabled.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="2" y="2"/>
+		<frame nr="2" x="0" y="0"/>
+		<frame nr="3" x="-5" y="0"/>
+		<frame nr="4" x="-3" y="2"/>
+		<frame nr="5" x="-3" y="0"/>
+	</sprite>
+	<sprite name="spriteUsersBack" x="854" y="674">
+		<image file="users_back.png"/>
+	</sprite>
+	<sprite name="spriteUsersLed" x="990" y="710">
+		<image file="users_led.png"/>
+	</sprite>
+	<sprite name="spriteUser2" x="867" y="689">
+		<image file="user_2_normal.png"/>
+		<image file="user_2_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteUser2Text" x="1006" y="717">
+		<image file="user_2_text_en.png"/>
+	</sprite>
+	<sprite name="spriteUser1" x="867" y="689">
+		<image file="user_1_normal.png"/>
+		<image file="user_1_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteUser1Text" x="1008" y="718">
+		<image file="user_1_text_en.png"/>
+	</sprite>
+</resources>

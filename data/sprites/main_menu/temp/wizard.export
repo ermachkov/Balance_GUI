@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="WINDOWS-1251"?>
+<resources>
+	<sprite name="spriteWizardBack" x="253" y="138">
+		<image file="wizard_back.png"/>
+	</sprite>
+	<sprite name="spriteWizardText" x="458" y="294">
+		<image file="wizard_text.png"/>
+	</sprite>
+	<sprite name="spriteWizardText2" x="292" y="387">
+		<image file="wizard_text_2.png"/>
+	</sprite>
+	<sprite name="spriteWizardHeader" x="460" y="226">
+		<image file="wizard_header.png"/>
+	</sprite>
+	<sprite name="spriteWizardIcon" x="290" y="228">
+		<image file="wizard_icon.png"/>
+	</sprite>
+	<sprite name="spriteWizardIconGlass" x="290" y="228">
+		<image file="wizard_icon_glass.png"/>
+	</sprite>
+	<sprite name="spriteWizardCloseButton" x="973" y="148">
+		<image file="wizard_close_button_normal.png"/>
+		<image file="wizard_close_button_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteWizardCancelButton" x="778" y="673">
+		<image file="wizard_cancel_button_normal.png"/>
+		<image file="wizard_cancel_button_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="1" y="0"/>
+	</sprite>
+	<sprite name="spriteWizardCancelButtonText" x="794" y="692">
+		<image file="wizard_cancel_button_text_en_normal.png"/>
+		<image file="wizard_cancel_button_text_en_pressed.png"/>
+		<image file="wizard_cancel_button_text_ru_normal.png"/>
+		<image file="wizard_cancel_button_text_ru_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="3"/>
+		<frame nr="2" x="-4" y="0"/>
+		<frame nr="3" x="-4" y="3"/>
+	</sprite>
+	<sprite name="spriteWizardNextButton" x="546" y="674">
+		<image file="wizard_next_button_normal.png"/>
+		<image file="wizard_next_button_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteWizardNextButtonText" x="595" y="692">
+		<image file="wizard_next_button_text_en_normal.png"/>
+		<image file="wizard_next_button_text_en_pressed.png"/>
+		<image file="wizard_next_button_text_ru_normal.png"/>
+		<image file="wizard_next_button_text_ru_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="3"/>
+		<frame nr="2" x="-21" y="0"/>
+		<frame nr="3" x="-21" y="3"/>
+	</sprite>
+</resources>

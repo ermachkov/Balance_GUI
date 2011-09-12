@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="WINDOWS-1251"?>
+<resources>
+	<sprite name="spriteWheelBack" x="448" y="110">
+		<image file="wheel_back.png"/>
+	</sprite>
+	<sprite name="spriteWheelText" x="237" y="238">
+		<image file="wheel_text.png"/>
+	</sprite>
+	<sprite name="spriteWheelRightWeight" x="633" y="348">
+		<image file="wheel_right_weight.png"/>
+	</sprite>
+	<sprite name="spriteWheelRightCircle" x="618" y="331">
+		<image file="wheel_right_circle.png"/>
+	</sprite>
+	<sprite name="spriteWheelRightArrow" x="343" y="331">
+		<image file="wheel_right_arrow_forward.png"/>
+		<image file="wheel_right_arrow_backward.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="-11" y="-1"/>
+	</sprite>
+	<sprite name="spriteWheelLeftWeight" x="529" y="341">
+		<image file="wheel_left_weight.png"/>
+	</sprite>
+	<sprite name="spriteWheelLeftCircle" x="513" y="323">
+		<image file="wheel_left_circle.png"/>
+	</sprite>
+	<sprite name="spriteWheelLeftArrow" x="233" y="322">
+		<image file="wheel_left_arrow_forward.png"/>
+		<image file="wheel_left_arrow_backward.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="-13" y="0"/>
+	</sprite>
+	<sprite name="spriteWheelOffsetTarget3" x="628" y="339">
+		<image file="wheel_offset_target_3.png"/>
+	</sprite>
+	<sprite name="spriteWheelOffsetTarget2" x="523" y="332">
+		<image file="wheel_offset_target_2.png"/>
+	</sprite>
+	<sprite name="spriteWheelOffsetTarget1" x="501" y="311">
+		<image file="wheel_offset_target_1.png"/>
+	</sprite>
+	<sprite name="spriteWheelOffsetArrow" x="221" y="299">
+		<image file="wheel_offset_arrow.png"/>
+	</sprite>
+</resources>

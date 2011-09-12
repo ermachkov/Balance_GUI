@@ -1,0 +1,18 @@
+sprites =
+[
+	["spriteWheelBack", ["wheel_back"]],
+	["spriteWheelText", ["wheel_text"]],
+
+	["spriteWheelOffsetArrow", ["wheel_offset_arrow"]],
+	["spriteWheelOffsetTarget1", ["wheel_offset_target_1"]],
+	["spriteWheelOffsetTarget2", ["wheel_offset_target_2"]],
+	["spriteWheelOffsetTarget3", ["wheel_offset_target_3"]],
+
+	["spriteWheelLeftArrow", ["wheel_left_arrow_forward", "wheel_left_arrow_backward"]],
+	["spriteWheelLeftCircle", ["wheel_left_circle"]],
+	["spriteWheelLeftWeight", ["wheel_left_weight"]],
+
+	["spriteWheelRightArrow", ["wheel_right_arrow_forward", "wheel_right_arrow_backward"]],
+	["spriteWheelRightCircle", ["wheel_right_circle"]],
+	["spriteWheelRightWeight", ["wheel_right_weight"]]
+]

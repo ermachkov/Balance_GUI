@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="WINDOWS-1251"?>
+<resources>
+	<sprite name="spriteMainSubmenu" x="426" y="49">
+		<image file="main_submenu.png"/>
+	</sprite>
+	<sprite name="spriteMainMenu" x="23" y="31">
+		<image file="main_menu.png"/>
+		<image file="user_1_menu.png"/>
+		<image file="user_2_menu.png"/>
+		<image file="calibration_menu.png"/>
+		<image file="diagnostics_menu.png"/>
+		<image file="options_menu.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+		<frame nr="2" x="0" y="0"/>
+		<frame nr="3" x="0" y="0"/>
+		<frame nr="4" x="0" y="0"/>
+		<frame nr="5" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteOptionsMenuIcon" x="38" y="727">
+		<image file="options_menu_icon.png"/>
+	</sprite>
+	<sprite name="spriteDiagnosticsMenuIcon" x="38" y="571">
+		<image file="diagnostics_menu_icon.png"/>
+	</sprite>
+	<sprite name="spriteCalibrationMenuIcon" x="38" y="416">
+		<image file="calibration_menu_icon.png"/>
+	</sprite>
+	<sprite name="spriteUser2MenuIcon" x="38" y="260">
+		<image file="user_2_menu_icon.png"/>
+	</sprite>
+	<sprite name="spriteUser1MenuIcon" x="38" y="104">
+		<image file="user_1_menu_icon.png"/>
+	</sprite>
+	<sprite name="spriteMainMenuScrollBack" x="1187" y="162">
+		<image file="main_menu_scroll_back.png"/>
+	</sprite>
+	<sprite name="spriteMainMenuScrollFront" x="1189" y="163">
+		<image file="main_menu_scroll_front.png"/>
+	</sprite>
+	<sprite name="spriteMainMenuItemSelected" x="507" y="590">
+		<image file="main_menu_item_selected.png"/>
+	</sprite>
+	<sprite name="spriteMainMenuItemPressed" x="507" y="762">
+		<image file="main_menu_item_pressed.png"/>
+	</sprite>
+	<sprite name="spriteMainMenuTrianglePressed" x="1140" y="877">
+		<image file="main_menu_triangle_pressed.png"/>
+	</sprite>
+	<sprite name="spriteMainMenuItemNormal" x="507" y="110">
+		<image file="main_menu_item_normal.png"/>
+	</sprite>
+	<sprite name="spriteMainMenuTriangleNormal" x="1140" y="225">
+		<image file="main_menu_triangle_normal.png"/>
+	</sprite>
+	<sprite name="spriteMainMenuDownButton" x="603" y="947">
+		<image file="main_menu_down_button_normal.png"/>
+		<image file="main_menu_down_button_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="-1" y="-1"/>
+	</sprite>
+	<sprite name="spriteMainMenuUpButton" x="602" y="53">
+		<image file="main_menu_up_button_normal.png"/>
+		<image file="main_menu_up_button_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteMainMenuCloseButton" x="1149" y="65">
+		<image file="main_menu_close_button_normal.png"/>
+		<image file="main_menu_close_button_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteMainMenuBackButton" x="428" y="153">
+		<image file="main_menu_back_button_normal.png"/>
+		<image file="main_menu_back_button_pressed.png"/>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="0" y="0"/>
+	</sprite>
+	<sprite name="spriteMainMenuItemValue" x="980" y="125">
+		<image file="main_menu_item_value.png"/>
+	</sprite>
+	<sprite name="spriteMainMenuItemText" x="682" y="183">
+		<image file="main_menu_item_text.png"/>
+	</sprite>
+	<sprite name="spriteMainMenuItemHeader" x="681" y="128">
+		<image file="main_menu_item_header.png"/>
+	</sprite>
+	<sprite name="spriteMainMenuItemIcon" x="517" y="121">
+		<image file="main_menu_item_icon.png"/>
+	</sprite>
+</resources>
