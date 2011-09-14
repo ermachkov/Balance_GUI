@@ -39,10 +39,12 @@ $(BIN) : $(PCH) $(OBJ)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 install:
-	mkdir -p $(PREFIX)/bin
-	mkdir -p $(PREFIX)/share/balance
-	cp $(BIN) $(PREFIX)/bin
+	install $(BIN) $(PREFIX)/bin
 	cp -rf data/* $(PREFIX)/share/balance
+
+uninstall:
+	rm -f $(PREFIX)/bin/$(BIN)
+	rm -rf $(PREFIX)/share/balance
 
 clean:
 	rm -f $(PCH) $(OBJ) $(BIN)
