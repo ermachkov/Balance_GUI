@@ -11,5 +11,5 @@ sprites =
 	["spriteMessageOkButton", ["message_ok_button_normal", "message_ok_button_pressed"]],
 	["spriteMessageOkButtonText", ["message_ok_button_text_en_normal", "message_ok_button_text_en_pressed", "message_ok_button_text_ru_normal", "message_ok_button_text_ru_pressed"]],
 
-	["spriteMessageIcon", ["message_warning_icon", "message_error_icon"]]
+	["spriteMessageIcon", ["message_warning_icon", "message_error_icon", "message_no_touchscreen_icon"]]
 ]

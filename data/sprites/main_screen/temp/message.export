@@ -57,7 +57,9 @@
 	<sprite name="spriteMessageIcon" x="333" y="324">
 		<image file="message_warning_icon.png"/>
 		<image file="message_error_icon.png"/>
+		<image file="message_no_touchscreen_icon.png"/>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="9" y="11"/>
+		<frame nr="2" x="-6" y="14"/>
 	</sprite>
 </resources>

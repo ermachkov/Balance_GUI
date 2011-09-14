@@ -39,8 +39,8 @@ function onInit()
 	-- disable vertical synchronization
 	--graphics:setVSync(false)
 
-	-- set current language
-	setLanguage(LANG_RU)
+	-- set the current language
+	setLanguage(profile:getInt("language", 0))
 
 	-- initialize the application
 	onMainScreenInit()
@@ -58,7 +58,13 @@ function onInit()
 		mouse:hideCursor()
 	end
 
+	-- show the start screen
 	showStartScreen()
+
+	-- show warning if touchscreen not found
+	if profile:getInt("input_dev") == 0 then
+		showMessage(tr("{no_touchscreen_text}"), MESSAGE_OK, MESSAGE_NO_TOUCHSCREEN)
+	end
 end
 
 function onUpdate(delta)

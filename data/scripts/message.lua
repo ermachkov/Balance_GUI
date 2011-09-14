@@ -8,6 +8,7 @@ MESSAGE_YES_NO = 1
 -- Message icons
 MESSAGE_WARNING = 0
 MESSAGE_ERROR = 1
+MESSAGE_NO_TOUCHSCREEN = 2
 
 local messageQueue = {}
 local messageTime = 0

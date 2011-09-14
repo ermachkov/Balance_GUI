@@ -54,6 +54,7 @@ function main_screen_createSprites()
 	spriteKey1Text = Sprite("spriteKey1Text", 87, 386)
 	spriteKey0 = Sprite("spriteKey0", 62, 468)
 	spriteKey0Text = Sprite("spriteKey0Text", 136, 483)
+	spriteKeyboardDisplayPassword = Sprite("spriteKeyboardDisplayPassword", 66, 65)
 	spriteKeyboardDisplay = Sprite("spriteKeyboardDisplay", 66, 65)
 	spriteKeyboardDisplayBack = Sprite("spriteKeyboardDisplayBack", 80, 83)
 	spriteKeyboardDisplayText = Sprite("spriteKeyboardDisplayText", 305, 83)
@@ -148,11 +149,12 @@ function main_screen_createSprites()
 	spriteProgressText = Sprite("spriteProgressText", 220, 377)
 	spriteStartPanel1 = Sprite("spriteStartPanel1", 1116, 496)
 	spriteStartPanel0 = Sprite("spriteStartPanel0", 93, 496)
+	spriteMouseStatusIcon = Sprite("spriteMouseStatusIcon", 994, 741)
 	spriteTouchscreenCalibrationText = Sprite("spriteTouchscreenCalibrationText", 778, 540)
-	spriteBalanceCalibrationText = Sprite("spriteBalanceCalibrationText", 558, 540)
-	spriteStartWorkText = Sprite("spriteStartWorkText", 362, 540)
 	spriteTouchscreenCalibrationButton = Sprite("spriteTouchscreenCalibrationButton", 753, 418)
+	spriteBalanceCalibrationText = Sprite("spriteBalanceCalibrationText", 558, 540)
 	spriteBalanceCalibrationButton = Sprite("spriteBalanceCalibrationButton", 555, 388)
+	spriteStartWorkText = Sprite("spriteStartWorkText", 362, 540)
 	spriteStartWorkButton = Sprite("spriteStartWorkButton", 232, 365)
 	spriteWheelBack = Sprite("spriteWheelBack", 448, 110)
 	spriteWheelText = Sprite("spriteWheelText", 237, 238)
@@ -224,6 +226,7 @@ function main_screen_deleteSprites()
 	spriteKey1Text = nil
 	spriteKey0 = nil
 	spriteKey0Text = nil
+	spriteKeyboardDisplayPassword = nil
 	spriteKeyboardDisplay = nil
 	spriteKeyboardDisplayBack = nil
 	spriteKeyboardDisplayText = nil
@@ -318,11 +321,12 @@ function main_screen_deleteSprites()
 	spriteProgressText = nil
 	spriteStartPanel1 = nil
 	spriteStartPanel0 = nil
+	spriteMouseStatusIcon = nil
 	spriteTouchscreenCalibrationText = nil
-	spriteBalanceCalibrationText = nil
-	spriteStartWorkText = nil
 	spriteTouchscreenCalibrationButton = nil
+	spriteBalanceCalibrationText = nil
 	spriteBalanceCalibrationButton = nil
+	spriteStartWorkText = nil
 	spriteStartWorkButton = nil
 	spriteWheelBack = nil
 	spriteWheelText = nil

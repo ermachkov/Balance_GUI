@@ -45,6 +45,18 @@ local function showProfileValue(item)
 	return profile:getString(item.param)
 end
 
+-- Checks the entered password
+local function checkPassword(value)
+	if value == profile:getString("password", "679") then
+		password = value
+		keyboardActive = false
+		return true
+	else
+		showMessage(tr("{invalid_password}"), MESSAGE_OK, MESSAGE_ERROR, function() keyboardActive = false end)
+		return false
+	end
+end
+
 -- Initializes the menus table
 local function initMenus()
 	menus =
@@ -283,6 +295,7 @@ local function initMenus()
 				icon = spriteBalanceCalIcon,
 				header = tr("{balance_cal_header}"),
 				text = tr("{balance_cal_text}"),
+				password = true,
 				{
 					icon = spriteBalanceCal0Icon,
 					header = tr("{balance_cal_0_header}"),
@@ -320,6 +333,7 @@ local function initMenus()
 				icon = spriteRulerCalIcon,
 				header = tr("{ruler_cal_header}"),
 				text = tr("{ruler_cal_text}"),
+				password = true,
 				{
 					icon = spriteRulerCal0Icon,
 					header = tr("{ruler_cal_0_header}"),
@@ -510,19 +524,19 @@ local function initMenus()
 					icon = spriteEnglishIcon,
 					header = tr("{english_header}"),
 					text = tr("{english_text}"),
-					onClick = function(item) setLanguage(LANG_EN); item.parent.selItem = lang + 1; item.parent.icon = spriteEnglishIcon; updateSpritesLanguage() end
+					onClick = function(item) setLanguage(LANG_EN); item.parent.selItem = lang + 1; item.parent.icon = spriteEnglishIcon; updateSpritesLanguage(); profile:setInt("language", 0); profile:save() end
 				},
 				{
 					icon = spriteRussianIcon,
 					header = tr("{russian_header}"),
 					text = tr("{russian_text}"),
-					onClick = function(item) setLanguage(LANG_RU); item.parent.selItem = lang + 1; item.parent.icon = spriteRussianIcon; updateSpritesLanguage() end
+					onClick = function(item) setLanguage(LANG_RU); item.parent.selItem = lang + 1; item.parent.icon = spriteRussianIcon; updateSpritesLanguage(); profile:setInt("language", 1); profile:save() end
 				},
 				{
 					icon = spriteChineseIcon,
 					header = tr("{chinese_header}"),
 					text = tr("{chinese_text}"),
-					onClick = function(item) setLanguage(LANG_CN); item.parent.selItem = lang + 1; item.parent.icon = spriteChineseIcon; updateSpritesLanguage() end
+					onClick = function(item) setLanguage(LANG_CN); item.parent.selItem = lang + 1; item.parent.icon = spriteChineseIcon; updateSpritesLanguage(); profile:setInt("language", 2); profile:save() end
 				}
 			},
 			{
@@ -540,8 +554,8 @@ local function initMenus()
 					text = tr("{server_addr_text}"),
 					format = showProfileValue,
 					param = "server_addr",
-					type = TYPE_IP
-					--onEnter = function(item, value) balance:setServerAddr(value) end
+					type = TYPE_IP,
+					password = true
 				},
 				{
 					icon = spriteLocalAddrIcon,
@@ -576,6 +590,7 @@ local function initMenus()
 					selItem = profile:getBool("remote_control") and 2 or 1,
 					header = tr("{remote_control_header}"),
 					text = tr("{remote_control_text}"),
+					password = true,
 					{
 						icon = spriteRemoteControlDisabledIcon,
 						header = tr("{remote_control_disabled_header}"),
@@ -593,12 +608,14 @@ local function initMenus()
 			{
 				icon = spriteSoftwareUpdateIcon,
 				header = tr("{software_update_header}"),
-				text = tr("{software_update_text}")
+				text = tr("{software_update_text}"),
+				password = true
 			},
 			{
 				icon = spriteFactorySettingsIcon,
 				header = tr("{factory_settings_header}"),
 				text = tr("{factory_settings_text}"),
+				password = true,
 				onClick = function() balance:setParam("loaddef"); hideMainMenu() end
 			},
 			{
@@ -935,8 +952,28 @@ function onMainMenuMouseUp(x, y, key)
 	elseif selMenu and isPointInside(x, y, clipX, clipY, clipX + clipWidth, clipY + clipHeight) and not scrollActive then
 		local selItem = math.floor((y - clipY + selMenu.scrollPos) / spriteMainMenuItemNormal:getHeight()) + 1
 		if selItem <= #selMenu then
-			-- execute the click handler
+			-- make the item visible
 			local item = selMenu[selItem]
+			if #item ~= 0 or item.type then
+				local y1, y2 = (selItem - 1) * spriteMainMenuItemNormal:getHeight(), selItem * spriteMainMenuItemNormal:getHeight()
+				if selMenu.scrollPos > y1 and selMenu.scrollPos < y2 then
+					selMenu.scrollPos = y1
+				elseif selMenu.scrollPos + clipHeight > y1 and selMenu.scrollPos + clipHeight < y2 then
+					selMenu.scrollPos = y2 - clipHeight
+				end
+			end
+
+			-- check for password
+			if item.password and not password then
+				local left = (SCREEN_WIDTH - (spriteRightFasteners.x + spriteRightFasteners:getWidth())) / 2
+				local top = SCREEN_HEIGHT - (spriteBottomFasteners.y + spriteBottomFasteners:getHeight())
+				showKeyboard(left, top, left, SCREEN_HEIGHT, "passwd", TYPE_PASSWORD, spriteBottomFasteners, selItem,
+					function(value) if checkPassword(value) then onMainMenuMouseUp(x, y, key) end end)
+				keyboardActive = true
+				return true
+			end
+
+			-- execute the click handler
 			if item.onClick then
 				item.onClick(item)
 			end
@@ -947,14 +984,6 @@ function onMainMenuMouseUp(x, y, key)
 				selMenu = item
 				selMenu.scrollPos = 0
 			elseif item.type then
-				-- make the item visible
-				local y1, y2 = (selItem - 1) * spriteMainMenuItemNormal:getHeight(), selItem * spriteMainMenuItemNormal:getHeight()
-				if selMenu.scrollPos > y1 and selMenu.scrollPos < y2 then
-					selMenu.scrollPos = y1
-				elseif selMenu.scrollPos + clipHeight > y1 and selMenu.scrollPos + clipHeight < y2 then
-					selMenu.scrollPos = y2 - clipHeight
-				end
-
 				-- show keyboard
 				local posY = spriteMainMenuItemValue.y + spriteMainMenuItemValue:getHeight() - selMenu.scrollPos + (selItem - 1) * spriteMainMenuItemNormal:getHeight()
 				if posY + spriteKeyboardBack.y + spriteKeyboardBack:getHeight() < SCREEN_HEIGHT then
