@@ -182,6 +182,11 @@ TRANSLATION_EN =
     ["{dns_text}"] = "",
     ["{remote_control_text}"] = "",
 
+    ["{remote_control_disabled_header}"] = "",
+    ["{remote_control_enabled_header}"] = "",
+    ["{remote_control_disabled_text}"] = "",
+    ["{remote_control_enabled_text}"] = "",
+
     ["{invalid_password}"] = "The password invalid.\nTry again.",
     ["{no_touchscreen_text}"] = "Touchscreen not found in your\nbalancing machine.\nPlease check connection !!!",
 
