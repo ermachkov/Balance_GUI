@@ -40,6 +40,7 @@ $(BIN) : $(PCH) $(OBJ)
 
 install:
 	install $(BIN) $(PREFIX)/bin
+	mkdir -p $(PREFIX)/share/balance
 	cp -rf data/* $(PREFIX)/share/balance
 
 uninstall:
