@@ -168,4 +168,21 @@ TRANSLATION_EN =
     ["{wizard_ruler_cal_3_text}"] = "On this step will be calibrated ruler init position.",
     ["{wizard_ruler_cal_3_text_2}"] = "Return ruler to init position.\nRuler must touch with plastic cover.\nHolding ruler at this position press «Next» key",
 
+    ["{server_addr_header}"] = "",
+    ["{local_addr_header}"] = "",
+    ["{netmask_header}"] = "",
+    ["{gateway_header}"] = "",
+    ["{dns_header}"] = "",
+    ["{remote_control_header}"] = "",
+
+    ["{server_addr_text}"] = "IP",
+    ["{local_addr_text}"] = "",
+    ["{netmask_text}"] = "",
+    ["{gateway_text}"] = "",
+    ["{dns_text}"] = "",
+    ["{remote_control_text}"] = "",
+
+    ["{invalid_password}"] = "The password invalid.\nTry again.",
+    ["{no_touchscreen_text}"] = "Touchscreen not found in your\nbalancing machine.\nPlease check connection !!!",
+
 }
