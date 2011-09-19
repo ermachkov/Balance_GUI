@@ -42,10 +42,20 @@ install:
 	install $(BIN) $(PREFIX)/bin
 	mkdir -p $(PREFIX)/share/balance
 	cp -rf data/* $(PREFIX)/share/balance
+	install files/balance_remote $(PREFIX)/bin
+	chmod +x $(PREFIX)/bin/balance_remote
+	cp /etc/crontab /tmp/crontab
+	grep -v balance_remote /tmp/crontab > /etc/crontab 
+	rm /tmp/crontab
+	echo "* * * * * bm /usr/bin/balance_remote" >> /etc/crontab
 
 uninstall:
 	rm -f $(PREFIX)/bin/$(BIN)
 	rm -rf $(PREFIX)/share/balance
+	rm -f $(PREFIX)/bin/balance_remote
+	cp /etc/crontab /tmp/crontab
+	grep -v balance_remote /tmp/crontab > /etc/crontab
+	rm /tmp/crontab
 
 clean:
 	rm -f $(PCH) $(OBJ) $(BIN)
