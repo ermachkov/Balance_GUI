@@ -101,6 +101,7 @@ function onStartScreenMouseUp(x, y, key)
 				balance:setParam("keycal0")
 				hideStartScreen()
 			elseif pressedButton == spriteTouchscreenCalibrationButton then
+				os.execute("calc")
 			end
 		end
 		pressedButton.frame = 0

@@ -78,6 +78,7 @@ end
 -- Hides the keyboard
 function hideKeyboard()
 	keyboardActive = false
+	currItem = nil
 end
 
 -- Handles Enter key
