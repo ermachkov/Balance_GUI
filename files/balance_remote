@@ -1,0 +1,11 @@
+#!/bin/sh
+
+#Remote Control
+if [ `cat /home/bm/.Sibek/Balance/3.0/Balance.xml | grep remote_control | grep true -c` -eq 1 ]; then
+  sudo /etc/init.d/sshd start > /dev/null 2> /dev/null&
+  sudo /etc/init.d/freenx-server start  > /dev/null 2> /dev/null&
+else
+  sudo /etc/init.d/sshd stop > /dev/null 2> /dev/null&
+  sudo /etc/init.d/freenx-server stop  > /dev/null 2> /dev/null&
+fi
+
