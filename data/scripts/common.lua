@@ -75,6 +75,7 @@ NUM_ANGLES = 720
 TYPE_INT = 0
 TYPE_FLOAT = 1
 TYPE_IP = 2
+TYPE_PASSWORD = 3
 
 -- Main menu item states
 ITEM_NORMAL = 0

@@ -26,6 +26,7 @@ Balance::Balance(Profile &profile)
 		mParams.insert(std::make_pair(PARAMS[i], "0"));
 
 	mSocketName = CL_SocketName(profile.getString("server_addr", "192.168.0.1"), "23");
+	profile.setInt("language", profile.getInt("language", 0));
 	profile.setString("server_addr", mSocketName.get_address());
 	profile.setString("local_addr", profile.getString("local_addr", "127.0.0.1"));
 	profile.setString("netmask", profile.getString("netmask", "255.255.255.0"));

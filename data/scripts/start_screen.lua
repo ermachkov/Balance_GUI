@@ -55,6 +55,11 @@ function onStartScreenUpdate(delta)
 	drawLabel(spriteStartWorkText, tr("START\nWORK"), spriteStartWorkButton)
 	drawLabel(spriteBalanceCalibrationText, tr("BALANCE\nCALIBRATION"), spriteBalanceCalibrationButton)
 	drawLabel(spriteTouchscreenCalibrationText, tr("TOUCHSCREEN\nCALIBRATION"), spriteTouchscreenCalibrationButton)
+
+	-- status icon
+	if profile:getInt("input_dev") == 1 then
+		spriteMouseStatusIcon:draw()
+	end
 end
 
 function onStartScreenMouseDown(x, y, key)

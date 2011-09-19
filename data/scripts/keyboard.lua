@@ -11,42 +11,29 @@ local endX, endY
 local currType
 local currFasteners
 local currItem
+local currHandler
 local firstPress
 local numPoints
 local pressedKey, pressedKeyText
 local keys, keyTexts
 
--- Shows the keyboard
-function showKeyboard(x, y, x0, y0, param, type, fasteners, item)
-	if not keyboardActive then
-		keyboardActive = true
-		keyboardTime = 0
-		keyboardParam = param
-		keyboardValue = type ~= TYPE_IP and formatNumber(balance:getFloatParam(param)) or profile:getString(param)
-		startX, startY = x0, y0
-		endX, endY = x, y
-		currType = type
-		currFasteners = fasteners
-		currItem = item
-		firstPress = true
-		numPoints = getNumChars(keyboardValue, ".")
-		pressedKey, pressedKeyText = nil, nil
+-- Returns the current keyboard value
+local function getKeyboardValue()
+	if currType == TYPE_INT or currType == TYPE_FLOAT then
+		keyboardValue = formatNumber(balance:getFloatParam(keyboardParam))
+	elseif currType == TYPE_IP then
+		keyboardValue = profile:getString(keyboardParam)
+	elseif currType == TYPE_PASSWORD then
+		keyboardValue = "0"
 	end
 end
 
--- Hides the keyboard
-function hideKeyboard()
-	keyboardActive = false
-end
-
--- Handles Enter key
-local function onEnterKeyPress()
-	hideKeyboard()
-
-	-- save entered value
-	if currType ~= TYPE_IP then
+-- Sets the keyboard value
+local function setKeyboardValue()
+	-- save the entered value
+	if currType == TYPE_INT or currType == TYPE_FLOAT then
 		balance:setParam(keyboardParam, keyboardValue)
-	else
+	elseif currType == TYPE_IP then
 		-- normalize IP adress
 		if keyboardValue:sub(-1) == "." then
 			keyboardValue = keyboardValue .. "0"
@@ -62,6 +49,42 @@ local function onEnterKeyPress()
 			balance:setServerAddr(keyboardValue)
 		end
 	end
+
+	-- call the enter handler
+	if currHandler then
+		currHandler(keyboardValue)
+	end
+end
+
+-- Shows the keyboard
+function showKeyboard(x, y, x0, y0, param, type, fasteners, item, handler)
+	if not keyboardActive then
+		keyboardActive = true
+		keyboardTime = 0
+		keyboardParam = param
+		startX, startY = x0, y0
+		endX, endY = x, y
+		currType = type
+		currFasteners = fasteners
+		currItem = item
+		currHandler = handler
+		firstPress = true
+		getKeyboardValue()
+		numPoints = getNumChars(keyboardValue, ".")
+		pressedKey, pressedKeyText = nil, nil
+	end
+end
+
+-- Hides the keyboard
+function hideKeyboard()
+	keyboardActive = false
+end
+
+-- Handles Enter key
+local function onEnterKeyPress()
+	hideKeyboard()
+	spriteKeyEnter.frame, spriteKeyEnterText.frame = 0, 0
+	setKeyboardValue()
 end
 
 -- Handles Backspace key
@@ -83,8 +106,8 @@ end
 
 -- Handles Clear key
 local function onClearKeyPress()
-	keyboardValue = currType ~= TYPE_IP and formatNumber(balance:getFloatParam(keyboardParam)) or profile:getString(keyboardParam)
 	firstPress = true
+	getKeyboardValue()
 	numPoints = getNumChars(keyboardValue, ".")
 end
 
@@ -212,23 +235,40 @@ function onKeyboardUpdate(delta)
 	end
 
 	-- display
-	spriteKeyboardDisplay:draw(posX + spriteKeyboardDisplay.x, posY + spriteKeyboardDisplay.y)
+	local display = currType ~= TYPE_PASSWORD and spriteKeyboardDisplay or spriteKeyboardDisplayPassword
+	display:draw(posX + display.x, posY + display.y)
 
-	-- format the text string
-	local clipX = posX + spriteKeyboardDisplayBack.x
-	local clipY = posY + spriteKeyboardDisplayBack.y
-	local pattern = string.format("%%0%ds", 8 + numPoints)
-	text = string.format(pattern, keyboardValue):gsub("%d", "0")
-	local width, height = fontKeyboardDisplay:getTextSize(text)
-	local right = clipX + spriteKeyboardDisplayBack:getWidth()
-	local top = clipY + (spriteKeyboardDisplayBack:getHeight() - height) / 2
+	-- text
+	if currType == TYPE_PASSWORD and firstPress then
+		local text = tr("Enter password")
+		local width, height = fontSizes:getTextSize(text)
+		fontSizes:drawText(posX + spriteKeyboardDisplayBack.x + (spriteKeyboardDisplayBack:getWidth() - width) / 2,
+			posY + spriteKeyboardDisplayBack.y + (spriteKeyboardDisplayBack:getHeight() - height) / 2, text, 219 / 255, 0.0, 0.0)
+	else
+		-- format the text string
+		local clipX = posX + spriteKeyboardDisplayBack.x
+		local clipY = posY + spriteKeyboardDisplayBack.y
+		local pattern = string.format("%%0%ds", 8 + numPoints)
+		local text = string.format(pattern, keyboardValue):gsub("%d", "0")
+		local width, height = fontKeyboardDisplay:getTextSize(text)
+		local right = clipX + spriteKeyboardDisplayBack:getWidth()
+		local top = clipY + (spriteKeyboardDisplayBack:getHeight() - height) / 2
 
-	-- display text
-	graphics:setClipRect(clipX, clipY, clipX + spriteKeyboardDisplayBack:getWidth(), clipY + spriteKeyboardDisplayBack:getHeight())
-	fontKeyboardDisplay:drawText(right - width, top, text, 171 / 255, 206 / 255, 223 / 255)
-	width, height = fontKeyboardDisplay:getTextSize(keyboardValue)
-	fontKeyboardDisplay:drawText(right - width, top, keyboardValue, 95 / 255, 136 / 255, 160 / 255)
-	graphics:resetClipRect()
+		-- display text
+		graphics:setClipRect(clipX, clipY, clipX + spriteKeyboardDisplayBack:getWidth(), clipY + spriteKeyboardDisplayBack:getHeight())
+		if currType ~= TYPE_PASSWORD then
+			fontKeyboardDisplay:drawText(right - width, top, text, 171 / 255, 206 / 255, 223 / 255)
+		else
+			fontKeyboardDisplay:drawText(right - width, top, text, 52 / 255, 28 / 255, 30 / 255)
+		end
+		width, height = fontKeyboardDisplay:getTextSize(keyboardValue)
+		if currType ~= TYPE_PASSWORD then
+			fontKeyboardDisplay:drawText(right - width, top, keyboardValue, 95 / 255, 136 / 255, 160 / 255)
+		else
+			fontKeyboardDisplay:drawText(right - width, top, keyboardValue, 219 / 255, 0.0, 0.0)
+		end
+		graphics:resetClipRect()
+	end
 
 	-- fasteners
 	currFasteners:draw(posX + currFasteners.x, posY + currFasteners.y)

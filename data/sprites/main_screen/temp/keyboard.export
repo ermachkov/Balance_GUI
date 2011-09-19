@@ -171,6 +171,9 @@
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="2" y="3"/>
 	</sprite>
+	<sprite name="spriteKeyboardDisplayPassword" x="66" y="65">
+		<image file="keyboard_display_password.png"/>
+	</sprite>
 	<sprite name="spriteKeyboardDisplay" x="66" y="65">
 		<image file="keyboard_display.png"/>
 	</sprite>

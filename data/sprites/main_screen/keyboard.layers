@@ -32,6 +32,7 @@ sprites =
 	["spriteKeyClearText", ["key_clear_text_en_normal", "key_clear_text_en_pressed"]],
 
 	["spriteKeyboardDisplay", ["keyboard_display"]],
+	["spriteKeyboardDisplayPassword", ["keyboard_display_password"]],
 	["spriteKeyboardDisplayBack", ["keyboard_display_back"]],
 	["spriteKeyboardDisplayText", ["keyboard_display_text"]],
 
