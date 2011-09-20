@@ -198,7 +198,7 @@ function onKeyboardUpdate(delta)
 	if currItem then
 		-- draw the selected menu item
 		drawMenuItem(currItem, ITEM_NORMAL, 1.0)
-	else
+	elseif currType == TYPE_INT or currType == TYPE_FLOAT then
 		-- draw the selected size
 		local text = formatNumber(balance:getFloatParam(keyboardParam))
 		if keyboardParam == "width" or keyboardParam == "stick" then
