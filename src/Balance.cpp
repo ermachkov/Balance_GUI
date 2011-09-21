@@ -14,9 +14,10 @@ const std::string Balance::PARAMS[MAX_PARAMS] =
 	"clockwise", "maxrot", "diamepsilon", "drvfreq", "minfreq", "accthld", "angleepsilon", "rulerhorz", "rulervert", "rulerrad",
 	"rulerofs", "rulerdiam", "calweight", "deccurr", "decfreq", "weightdist", "v0", "v1", "v2", "v3",
 	"v4", "v5", "va0", "va1", "va2", "va3", "va4", "va5", "va6", "va7",
-	"w0", "w1", "w2", "w3", "freqcoeff", "rstick", "keycal0", "cheatepsilon", "rulercal0", "rulercal1",
-	"rulercal2", "rulercal3", "rulercalf", "cal0", "cal1", "cal2", "cal3", "testdrv", "loaddef", "loadref",
-	"saveref", "passwd", "start", "stop", "enter", "osc", "rotate"
+	"w0", "w1", "w2", "w3", "freqcoeff", "rstick", "c0", "c1", "c2", "c3",
+	"c4", "c5", "r0", "r1", "keycal0", "cheatepsilon", "rulercal0", "rulercal1", "rulercal2", "rulercal3",
+	"rulercalf", "cal0", "cal1", "cal2", "cal3", "testdrv", "loaddef", "loadref", "saveref", "passwd",
+	"start", "stop", "enter", "osc", "rotate"
 };
 
 Balance::Balance(Profile &profile)

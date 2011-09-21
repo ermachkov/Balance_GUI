@@ -6,5 +6,6 @@ sprites =
 
 	["spriteSpeedometerArrow", ["speedometer_arrow"]],
 	["spriteSpeedometerCenter", ["speedometer_center"]],
-	["spriteSpeedometerText", ["speedometer_text_en", "speedometer_text_ru"]]
+	["spriteSpeedometerText", ["speedometer_text_en", "speedometer_text_ru"]],
+	["spriteSpeedometerSpeed", ["speedometer_speed"]]
 ]

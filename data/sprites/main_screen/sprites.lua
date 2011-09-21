@@ -143,9 +143,10 @@ function main_screen_createSprites()
 	spriteMessageIcon = Sprite("spriteMessageIcon", 333, 324)
 	spriteProgressBack = Sprite("spriteProgressBack", 185, 317)
 	spriteProgressFront = Sprite("spriteProgressFront", 229, 469)
+	spriteSpeedometerSpeed = Sprite("spriteSpeedometerSpeed", 944, 504)
+	spriteSpeedometerText = Sprite("spriteSpeedometerText", 943, 478)
 	spriteSpeedometerArrow = Sprite("spriteSpeedometerArrow", 922, 408)
 	spriteSpeedometerCenter = Sprite("spriteSpeedometerCenter", 954, 437)
-	spriteSpeedometerText = Sprite("spriteSpeedometerText", 943, 478)
 	spriteProgressText = Sprite("spriteProgressText", 220, 377)
 	spriteStartPanel1 = Sprite("spriteStartPanel1", 1116, 496)
 	spriteStartPanel0 = Sprite("spriteStartPanel0", 93, 496)
@@ -315,9 +316,10 @@ function main_screen_deleteSprites()
 	spriteMessageIcon = nil
 	spriteProgressBack = nil
 	spriteProgressFront = nil
+	spriteSpeedometerSpeed = nil
+	spriteSpeedometerText = nil
 	spriteSpeedometerArrow = nil
 	spriteSpeedometerCenter = nil
-	spriteSpeedometerText = nil
 	spriteProgressText = nil
 	spriteStartPanel1 = nil
 	spriteStartPanel0 = nil

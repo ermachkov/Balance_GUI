@@ -50,7 +50,7 @@ function onInit()
 	onKeyboardInit()
 	onBalanceProgressInit()
 	onMainMenuInit()
-	onWizardInit();
+	onWizardInit()
 	onMessageInit()
 
 	-- show/hide mouse

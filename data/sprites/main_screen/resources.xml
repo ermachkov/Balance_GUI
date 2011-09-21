@@ -1488,14 +1488,9 @@
 			<grid pos="0,919" size="614,49"/>
 		</image>
 	</sprite>
-	<sprite name="spriteSpeedometerArrow">
-		<image file="texture3.png">
-			<grid pos="487,905" size="69,118"/>
-		</image>
-	</sprite>
-	<sprite name="spriteSpeedometerCenter">
-		<image file="texture0.png">
-			<grid pos="977,1003" size="21,20"/>
+	<sprite name="spriteSpeedometerSpeed">
+		<image file="texture2.png">
+			<grid pos="969,998" size="45,22"/>
 		</image>
 	</sprite>
 	<sprite name="spriteSpeedometerText">
@@ -1507,6 +1502,16 @@
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="-8" y="-3"/>
+	</sprite>
+	<sprite name="spriteSpeedometerArrow">
+		<image file="texture3.png">
+			<grid pos="487,905" size="69,118"/>
+		</image>
+	</sprite>
+	<sprite name="spriteSpeedometerCenter">
+		<image file="texture0.png">
+			<grid pos="977,1003" size="21,20"/>
+		</image>
 	</sprite>
 	<sprite name="spriteProgressText">
 		<image file="texture0.png">

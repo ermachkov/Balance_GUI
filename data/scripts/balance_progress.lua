@@ -105,6 +105,7 @@ function onBalanceProgressUpdate(delta)
 	spriteSpeedometerCenter.angle = angle
 	spriteSpeedometerCenter.alpha = alpha
 	spriteSpeedometerCenter:draw()
+	drawCenteredText(fontSpeedometer, spriteSpeedometerSpeed, tostring(math.max(math.floor(currFreq * 60.0), 0)), 92 / 255, 99 / 255, 105 / 255)
 
 	-- weights
 	if balanceSubstate > BALANCE_MEASURE then

@@ -201,6 +201,7 @@ function onMainScreenInit()
 	fontMessageHeader = CFont("fontMessageHeader")
 	fontMessageText = CFont("fontMessageText")
 	fontKeyboardDisplay = CFont("fontKeyboardDisplay")
+	fontSpeedometer = CFont("fontSpeedometer")
 
 	-- load sounds
 	resourceManager:loadAllResources("sounds/sounds.xml")

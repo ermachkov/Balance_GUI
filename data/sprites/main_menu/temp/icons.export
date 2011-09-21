@@ -9,17 +9,14 @@
 	<sprite name="spriteSoftwareUpdateIcon" x="0" y="0">
 		<image file="software_update_icon.png"/>
 	</sprite>
-	<sprite name="spriteRemoteControlDisabledIcon" x="0" y="0">
-		<image file="remote_control_disabled_icon.png"/>
-	</sprite>
 	<sprite name="spriteRemoteControlEnabledIcon" x="0" y="0">
 		<image file="remote_control_enabled_icon.png"/>
 	</sprite>
+	<sprite name="spriteRemoteControlDisabledIcon" x="0" y="0">
+		<image file="remote_control_disabled_icon.png"/>
+	</sprite>
 	<sprite name="spriteDNSIcon" x="0" y="0">
 		<image file="dns_icon.png"/>
-	</sprite>
-	<sprite name="spriteGatewayIcon" x="0" y="0">
-		<image file="gateway_icon.png"/>
 	</sprite>
 	<sprite name="spriteNetmaskIcon" x="0" y="0">
 		<image file="netmask_icon.png"/>
@@ -29,6 +26,9 @@
 	</sprite>
 	<sprite name="spriteServerAddrIcon" x="0" y="0">
 		<image file="server_addr_icon.png"/>
+	</sprite>
+	<sprite name="spriteGatewayIcon" x="0" y="0">
+		<image file="gateway_icon.png"/>
 	</sprite>
 	<sprite name="spriteNetworkIcon" x="0" y="0">
 		<image file="network_icon.png"/>
@@ -44,6 +44,15 @@
 	</sprite>
 	<sprite name="spriteEnglishIcon" x="0" y="0">
 		<image file="english_icon.png"/>
+	</sprite>
+	<sprite name="spriteWheelQepIcon" x="0" y="0">
+		<image file="wheel_qep_icon.png"/>
+	</sprite>
+	<sprite name="spriteResistanceIcon" x="0" y="0">
+		<image file="resistance_icon.png"/>
+	</sprite>
+	<sprite name="spriteCapacitanceIcon" x="0" y="0">
+		<image file="capacitance_icon.png"/>
 	</sprite>
 	<sprite name="spritePlus24VIcon" x="-1" y="0">
 		<image file="plus_24v_icon.png"/>

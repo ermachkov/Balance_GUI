@@ -2,30 +2,45 @@
 <resources>
 	<sprite name="spriteQuitIcon">
 		<image file="texture6.png">
-			<grid pos="0,444" size="147,147"/>
+			<grid pos="148,740" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteFactorySettingsIcon">
 		<image file="texture6.png">
-			<grid pos="0,592" size="146,146"/>
+			<grid pos="296,740" size="146,146"/>
 		</image>
 	</sprite>
 	<sprite name="spriteSoftwareUpdateIcon">
 		<image file="texture6.png">
-			<grid pos="0,296" size="147,147"/>
-		</image>
-	</sprite>
-	<sprite name="spriteRemoteControlDisabledIcon">
-		<image file="texture6.png">
-			<grid pos="0,148" size="147,147"/>
+			<grid pos="0,740" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteRemoteControlEnabledIcon">
 		<image file="texture6.png">
-			<grid pos="0,0" size="147,147"/>
+			<grid pos="0,592" size="147,147"/>
+		</image>
+	</sprite>
+	<sprite name="spriteRemoteControlDisabledIcon">
+		<image file="texture6.png">
+			<grid pos="0,444" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteDNSIcon">
+		<image file="texture6.png">
+			<grid pos="0,296" size="147,147"/>
+		</image>
+	</sprite>
+	<sprite name="spriteNetmaskIcon">
+		<image file="texture6.png">
+			<grid pos="0,148" size="147,147"/>
+		</image>
+	</sprite>
+	<sprite name="spriteLocalAddrIcon">
+		<image file="texture6.png">
+			<grid pos="0,0" size="147,147"/>
+		</image>
+	</sprite>
+	<sprite name="spriteServerAddrIcon">
 		<image file="texture5.png">
 			<grid pos="824,0" size="147,147"/>
 		</image>
@@ -35,42 +50,42 @@
 			<grid pos="676,0" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteNetmaskIcon">
+	<sprite name="spriteNetworkIcon">
 		<image file="texture5.png">
 			<grid pos="740,173" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteLocalAddrIcon">
+	<sprite name="spriteThemeIcon">
 		<image file="texture5.png">
 			<grid pos="592,173" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteServerAddrIcon">
+	<sprite name="spriteChineseIcon">
 		<image file="texture5.png">
 			<grid pos="444,173" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteNetworkIcon">
+	<sprite name="spriteRussianIcon">
 		<image file="texture5.png">
 			<grid pos="296,173" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteThemeIcon">
+	<sprite name="spriteEnglishIcon">
 		<image file="texture5.png">
 			<grid pos="148,173" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteChineseIcon">
+	<sprite name="spriteWheelQepIcon">
 		<image file="texture5.png">
 			<grid pos="740,321" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteRussianIcon">
+	<sprite name="spriteResistanceIcon">
 		<image file="texture5.png">
 			<grid pos="592,321" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteEnglishIcon">
+	<sprite name="spriteCapacitanceIcon">
 		<image file="texture5.png">
 			<grid pos="444,321" size="147,147"/>
 		</image>

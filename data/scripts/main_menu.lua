@@ -510,6 +510,65 @@ local function initMenus()
 					format = showVoltage,
 					param = "va7"
 				}
+			},
+			{
+				icon = spriteCapacitanceIcon,
+				header = tr("{capacitance_header}"),
+				text = tr("{capacitance_text}"),
+				{
+					icon = spriteCapacitanceIcon,
+					header = tr("{capacitance_0_header}"),
+					text = tr("{capacitance_0_text}"),
+					format = "%.4f",
+					param = "c0"
+				},
+				{
+					icon = spriteCapacitanceIcon,
+					header = tr("{capacitance_1_header}"),
+					text = tr("{capacitance_1_text}"),
+					format = "%.4f",
+					param = "c1"
+				},
+				{
+					icon = spriteCapacitanceIcon,
+					header = tr("{capacitance_2_header}"),
+					text = tr("{capacitance_2_text}"),
+					format = "%.4f",
+					param = "c2"
+				},
+				{
+					icon = spriteCapacitanceIcon,
+					header = tr("{capacitance_3_header}"),
+					text = tr("{capacitance_3_text}"),
+					format = "%.4f",
+					param = "c3"
+				}
+			},
+			{
+				icon = spriteResistanceIcon,
+				header = tr("{resistance_header}"),
+				text = tr("{resistance_text}"),
+				{
+					icon = spriteResistanceIcon,
+					header = tr("{resistance_0_header}"),
+					text = tr("{resistance_0_text}"),
+					format = "%d",
+					param = "r0"
+				},
+				{
+					icon = spriteResistanceIcon,
+					header = tr("{resistance_1_header}"),
+					text = tr("{resistance_1_text}"),
+					format = "%d",
+					param = "r1"
+				}
+			},
+			{
+				icon = spriteWheelQepIcon,
+				header = tr("{wheel_qep_header}"),
+				text = tr("{wheel_qep_text}"),
+				format = "%d",
+				param = "wheelangle"
 			}
 		},
 

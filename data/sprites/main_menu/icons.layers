@@ -44,6 +44,10 @@ sprites =
 	["spritePlus5VIcon", ["plus_5v_icon"]],
 	["spritePlus24VIcon", ["plus_24v_icon"]],
 
+	["spriteCapacitanceIcon", ["capacitance_icon"]],
+	["spriteResistanceIcon", ["resistance_icon"]],
+	["spriteWheelQepIcon", ["wheel_qep_icon"]],
+
 	["spriteEnglishIcon", ["english_icon"]],
 	["spriteRussianIcon", ["russian_icon"]],
 	["spriteChineseIcon", ["chinese_icon"]],
