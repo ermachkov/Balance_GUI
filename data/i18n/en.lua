@@ -80,7 +80,28 @@ TRANSLATION_EN =
    ["{+1.8va_text}"] = "ADC voltage +1.8V",
    ["{+3.3va_header}"] = "+3.3Va",
    ["{+3.3va_text}"] = "ADC peripheral voltage +3.3V",
-   
+
+    ["{resistance_header}"] = "Ruler",
+    ["{resistance_text}"] = "Analog voltage of distance and diameter\ngauge",
+    ["{resistance_0_header}"] = "Distance",
+    ["{resistance_0_text}"] = "Analog voltage of distance gauge",
+    ["{resistance_1_header}"] = "Diameter",
+    ["{resistance_1_text}"] = "Analog voltage of gauge",
+
+    ["{capacitance_header}"] = "Capacitance",
+    ["{capacitance_text}"] = "Capacitance measurement of piezoelectric\nforce gauges",
+    ["{capacitance_0_header}"] = "Left, +",
+    ["{capacitance_0_text}"] = "Capacitance of left basement piezoelectric force\ngauges, no invertion input",
+    ["{capacitance_1_header}"] = "Left, -",
+    ["{capacitance_1_text}"] = "Capacitance of left basement piezoelectric force\ngauges, invertion input",
+    ["{capacitance_2_header}"] = "Right, +",
+    ["{capacitance_2_text}"] = "Capacitance of left basement piezoelectric force\ngauges, no invertion input",
+    ["{capacitance_3_header}"] = "Right, -",
+    ["{capacitance_3_text}"] = "Capacitance of left basement piezoelectric force\ngauges, invertion input",
+
+    ["{wheel_qep_header}"] = "Angle gauges",
+    ["{wheel_qep_text}"] = "Angle shaft gauges value. Discreteness 0,5°",
+
    ["{language_header}"] = "Language selector",
    ["{language_text}"] = "Language selection menu",
    ["{theme_header}"] = "Theme",
