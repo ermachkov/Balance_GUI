@@ -32,14 +32,21 @@ sprites =
 	["spriteWidthStickButton", ["width_stick_button_normal", "width_stick_button_pressed"]],
 	["spriteWidthIcon", ["width_icon_normal", "width_icon_pressed"]],
 	["spriteStickIcon", ["stick_icon_normal", "stick_icon_pressed"]],
+	["spriteWidthStickButtonRed", ["width_stick_button_normal_red"]],
+	["spriteWidthIconRed", ["width_icon_normal_red"]],
+	["spriteStickIconRed", ["stick_icon_normal_red"]],
 
 	["spriteDiamBack", ["diam_back"]],
 	["spriteDiamButton", ["diam_button_normal", "diam_button_pressed"]],
 	["spriteDiamIcon", ["diam_icon_normal", "diam_icon_pressed"]],
+	["spriteDiamButtonRed", ["diam_button_normal_red"]],
+	["spriteDiamIconRed", ["diam_icon_normal_red"]],
 
 	["spriteOfsBack", ["ofs_back"]],
 	["spriteOfsButton", ["ofs_button_normal", "ofs_button_pressed"]],
 	["spriteOfsIcon", ["ofs_icon_normal", "ofs_icon_pressed"]],
+	["spriteOfsButtonRed", ["ofs_button_normal_red"]],
+	["spriteOfsIconRed", ["ofs_icon_normal_red"]],
 
 	["spriteUsersBack", ["users_back"]],
 	["spriteUsersLed", ["users_led"]],
@@ -66,5 +73,9 @@ sprites =
 	["spriteRightGreenBack2", ["right_green_back_2"]],
 	["spriteRightTopArrow2", ["right_top_arrow_2_off", "right_top_arrow_2_on"]],
 	["spriteRightBottomArrow2", ["right_bottom_arrow_2_off", "right_bottom_arrow_2_on"]],
-	["spriteRightWeight2", ["right_weight_2_normal", "right_weight_2_pressed"]]
+	["spriteRightWeight2", ["right_weight_2_normal", "right_weight_2_pressed"]],
+
+	["spriteErrorPopupBack", ["error_popup_back"]],
+	["spriteErrorPopupIcon", ["error_popup_icon"]],
+	["spriteErrorPopupText", ["error_popup_text"]]
 ]

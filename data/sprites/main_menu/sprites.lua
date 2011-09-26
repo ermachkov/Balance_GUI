@@ -14,6 +14,7 @@ function main_menu_createSprites()
 	spriteChineseIcon = Sprite("spriteChineseIcon", 0, 0)
 	spriteRussianIcon = Sprite("spriteRussianIcon", 0, 0)
 	spriteEnglishIcon = Sprite("spriteEnglishIcon", 0, 0)
+	spriteErrorIcon = Sprite("spriteErrorIcon", 0, 0)
 	spriteWheelQepIcon = Sprite("spriteWheelQepIcon", 0, 0)
 	spriteResistanceIcon = Sprite("spriteResistanceIcon", 0, 0)
 	spriteCapacitanceIcon = Sprite("spriteCapacitanceIcon", 0, 0)
@@ -107,6 +108,7 @@ function main_menu_deleteSprites()
 	spriteChineseIcon = nil
 	spriteRussianIcon = nil
 	spriteEnglishIcon = nil
+	spriteErrorIcon = nil
 	spriteWheelQepIcon = nil
 	spriteResistanceIcon = nil
 	spriteCapacitanceIcon = nil

@@ -85,6 +85,8 @@ ITEM_SELECTED = 2
 -- Globals
 balanceState = STATE_IDLE
 balanceSubstate = BALANCE_IDLE
+balanceErrors0, balanceErrors1, balanceErrors2 = 0, 0, 0
+numErrors = 0
 mousePressed = false
 profile = nil
 

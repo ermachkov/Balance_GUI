@@ -1,9 +1,15 @@
 -- Angle table
 local ANGLE_TABLE = {4, 36, 64, 110, 160, 230, 352, NUM_ANGLES}
 
+-- Popup settings
+local POPUP_ANIM_DELAY = 200
+
 local mainMenuLoaded = false
+local blinkTime = 0
 local pressedButton
 local pressedButtonText
+local errorPopup
+local popups
 
 -- Returns the angle index from table
 local function getAngleIndex(angle)
@@ -210,12 +216,22 @@ function onMainScreenInit()
 	soundStopKey = Sound("soundStopKey")
 	soundBalanceSuccess = Sound("soundBalanceSuccess")
 	soundRulerSuccess = Sound("soundRulerSuccess")
+
+	-- init popups
+	errorPopup = {back = spriteErrorPopupBack, icon = spriteErrorPopupIcon, label = spriteErrorPopupText, active = false, time = 0, text = "13"}
+	popups = {errorPopup}
 end
 
 function onMainScreenUpdate(delta)
 	-- exit if not active
 	if startScreenActive then
 		return
+	end
+
+	-- increment blink counter
+	blinkTime = blinkTime + delta
+	if blinkTime >= 1000 then
+		blinkTime = blinkTime - 1000
 	end
 
 	-- retrieve current mouse position
@@ -323,10 +339,11 @@ function onMainScreenUpdate(delta)
 	spriteStopButtonText:draw()
 
 	-- width/stick size
+	local red = math.floor(balanceErrors0 / 64) % 2 ~= 0 and blinkTime < 500
 	spriteWidthStickBack:draw()
+	spriteWidthStickButton.frame, spriteWidthIcon.frame, spriteStickIcon.frame = 0, 0, 0
 	if mode == MODE_ALU and (layout == LAYOUT_1_3 or layout == LAYOUT_2_3) then
-		spriteStickIcon.frame, spriteWidthStickButton.frame = 0, 0
-		drawVertSplittedSprite(spriteStickIcon, spriteWidthStickButton)
+		drawVertSplittedSprite(red and spriteStickIconRed or spriteStickIcon, red and spriteWidthStickButtonRed or spriteWidthStickButton)
 		local stick = balance:getIntParam("stick")
 		if stick ~= 0 then
 			drawCenteredText(fontSizes, spriteWidthStickButton, formatNumber(stick), 0.0, 0.0, 0.0)
@@ -334,21 +351,22 @@ function onMainScreenUpdate(delta)
 			drawCenteredText(fontSizes, spriteWidthStickButton, "Auto", 0.0, 0.0, 0.0)
 		end
 	else
-		spriteWidthIcon.frame, spriteWidthStickButton.frame = 0, 0
-		drawVertSplittedSprite(spriteWidthIcon, spriteWidthStickButton)
+		drawVertSplittedSprite(red and spriteWidthIconRed or spriteWidthIcon, red and spriteWidthStickButtonRed or spriteWidthStickButton)
 		drawCenteredText(fontSizes, spriteWidthStickButton, formatNumber(balance:getFloatParam("width")), 0.0, 0.0, 0.0)
 	end
 
 	-- diameter size
+	red = math.floor(balanceErrors0 / 16) % 2 ~= 0 and blinkTime < 500
 	spriteDiamBack:draw()
 	spriteDiamButton.frame, spriteDiamIcon.frame = 0, 0
-	drawVertSplittedSprite(spriteDiamButton, spriteDiamIcon)
+	drawVertSplittedSprite(red and spriteDiamButtonRed or spriteDiamButton, red and spriteDiamIconRed or spriteDiamIcon)
 	drawCenteredText(fontSizes, spriteDiamButton, formatNumber(balance:getFloatParam("diam")), 0.0, 0.0, 0.0)
 
 	-- offset size
+	red = math.floor(balanceErrors0 / 32) % 2 ~= 0 and blinkTime < 500
 	spriteOfsBack:draw()
 	spriteOfsButton.frame, spriteOfsIcon.frame = 0, 0
-	drawVertSplittedSprite(spriteOfsButton, spriteOfsIcon)
+	drawVertSplittedSprite(red and spriteOfsButtonRed or spriteOfsButton, red and spriteOfsIconRed or spriteOfsIcon)
 	drawCenteredText(fontSizes, spriteOfsButton, formatNumber(balance:getIntParam("offset")), 0.0, 0.0, 0.0)
 
 	-- users switch
@@ -365,6 +383,31 @@ function onMainScreenUpdate(delta)
 	-- weight indicators
 	drawLeftWeight()
 	drawRightWeight()
+
+	-- update error popup
+	errorPopup.active = numErrors ~= 0
+	errorPopup.text = tostring(numErrors)
+
+	-- popups
+	for i, popup in ipairs(popups) do
+		-- update popup state
+		if popup.active then
+			popup.time = math.min(popup.time + delta, POPUP_ANIM_DELAY)
+		elseif popup.time > 0 then
+			popup.time = math.max(popup.time - delta, 0)
+		end
+
+		-- draw popup
+		if popup.time > 0 then
+			local posY = (popup.time / POPUP_ANIM_DELAY - 1.0) * popup.back:getHeight()
+			popup.back:draw(popup.back.x, posY + popup.back.y)
+			popup.icon:draw(popup.icon.x, posY + popup.icon.y)
+			if popup.text then
+				local textWidth, textHeight = fontMessageText:getTextSize(popup.text)
+				fontMessageText:drawText(popup.label.x + (popup.label:getWidth() - textWidth) / 2, posY + popup.label.y + (popup.label:getHeight() - textHeight) / 2, popup.text, 95 / 255, 136 / 255, 160 / 255)
+			end
+		end
+	end
 end
 
 function onMainScreenMouseDown(x, y, key)
@@ -439,6 +482,9 @@ function onMainScreenMouseDown(x, y, key)
 		local top = spriteOfsButton.y + spriteOfsButton:getHeight()
 		showKeyboard(left, top, -(spriteKeyboardBack.x + spriteKeyboardBack:getWidth()), top, "offset", TYPE_INT, spriteLeftFasteners)
 		soundKey:play()
+	elseif errorPopup.active and errorPopup.back:isPointInside(x, y) then
+		-- show error journal
+		showErrorJournal()
 	end
 end
 

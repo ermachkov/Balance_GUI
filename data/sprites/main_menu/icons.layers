@@ -47,6 +47,7 @@ sprites =
 	["spriteCapacitanceIcon", ["capacitance_icon"]],
 	["spriteResistanceIcon", ["resistance_icon"]],
 	["spriteWheelQepIcon", ["wheel_qep_icon"]],
+	["spriteErrorIcon", ["error_icon"]],
 
 	["spriteEnglishIcon", ["english_icon"]],
 	["spriteRussianIcon", ["russian_icon"]],

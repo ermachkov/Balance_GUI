@@ -3,6 +3,22 @@ function include(name)
 	dofile(application:getDataDirectory() .. name)
 end
 
+-- Processes balance errors
+local function processErrors(newErrors, oldErrors, offset)
+	for i = 0, 31 do
+		if i < 4 or i > 6 then
+			local newErr = math.floor(newErrors / 2 ^ i) % 2 ~= 0
+			local oldErr = math.floor(oldErrors / 2 ^ i) % 2 ~= 0
+			if newErr then
+				numErrors = numErrors + 1
+			end
+			if newErr and not oldErr then
+				addErrorToJournal(i + offset)
+			end
+		end
+	end
+end
+
 function onInit()
 	-- make aliases to singleton objects
 	application = Application:getSingleton()
@@ -72,8 +88,7 @@ function onUpdate(delta)
 	graphics:clear(0.0, 0.0, 0.0)
 
 	-- track balance state/substate changes
-	local newBalanceState = balance:getIntParam("state")
-	local newBalanceSubstate = balance:getIntParam("substate")
+	local newBalanceState, newBalanceSubstate = balance:getIntParam("state"), balance:getIntParam("substate")
 
 	-- handle state changes
 	if newBalanceState == STATE_IDLE or newBalanceState == STATE_RULER then
@@ -107,8 +122,15 @@ function onUpdate(delta)
 	end
 
 	-- save new balance state
-	balanceState = newBalanceState
-	balanceSubstate = newBalanceSubstate
+	balanceState, balanceSubstate = newBalanceState, newBalanceSubstate
+
+	-- track balance errors
+	local newBalanceErrors0, newBalanceErrors1, newBalanceErrors2 = balance:getFloatParam("errors0"), balance:getFloatParam("errors1"), balance:getFloatParam("errors2")
+	numErrors = 0
+	processErrors(newBalanceErrors0, balanceErrors0, 1)
+	processErrors(newBalanceErrors1, balanceErrors1, 33)
+	processErrors(newBalanceErrors2, balanceErrors2, 65)
+	balanceErrors0, balanceErrors1, balanceErrors2 = newBalanceErrors0, newBalanceErrors1, newBalanceErrors2
 
 	-- update modules
 	onMainScreenUpdate(delta)

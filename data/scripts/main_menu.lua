@@ -20,11 +20,13 @@ local startModeIcons, rotationModeIcons, pedalModeIcons, directionIcons
 local languageIcons
 local menuButtons
 local clipX, clipY, clipWidth, clipHeight
+local capacitanceActive = false
 local menus
 
 -- Recursively sets parent for the menu items
 local function setParent(item, parent)
 	item.parent = parent
+	item.scrollPos = 0
 	for i, child in ipairs(item) do
 		setParent(child, item)
 	end
@@ -57,11 +59,19 @@ local function checkPassword(value)
 	end
 end
 
+-- Disables the capacitance measurements
+local function disableCapacitance()
+	if capacitanceActive then
+		capacitanceActive = false
+		balance:setParam("stop")
+	end
+end
+
 -- Initializes the menus table
 local function initMenus()
 	menus =
 	{
-		-- user 1 menu
+		-- user1
 		{
 			onClick = function() balance:setIntParam("user", 0) end,
 			{
@@ -172,7 +182,7 @@ local function initMenus()
 			}
 		},
 
-		-- user 2 menu
+		-- user2
 		{
 			onClick = function() balance:setIntParam("user", 1) end,
 			{
@@ -283,7 +293,7 @@ local function initMenus()
 			}
 		},
 
-		-- calibration menu
+		-- calibration
 		{
 			{
 				icon = spriteBalanceFastCalIcon,
@@ -401,7 +411,7 @@ local function initMenus()
 			}
 		},
 
-		-- diagnostics menu
+		-- diagnostics
 		{
 			{
 				icon = spriteArmVoltagesIcon,
@@ -409,43 +419,43 @@ local function initMenus()
 				text = tr("{arm_voltages_text}"),
 				{
 					icon = spritePlus24VIcon,
-					header = tr("{+24vd_header}"),
-					text = tr("{+24vd_text}"),
+					header = tr("{v0_header}"),
+					text = tr("{v0_text}"),
 					format = showVoltage,
 					param = "v0"
 				},
 				{
 					icon = spritePlus5VIcon,
-					header = tr("{+5vp_header}"),
-					text = tr("{+5vp_text}"),
+					header = tr("{v1_header}"),
+					text = tr("{v1_text}"),
 					format = showVoltage,
 					param = "v1"
 				},
 				{
 					icon = spritePlus3_3VIcon,
-					header = tr("{vext1_header}"),
-					text = tr("{vext1_text}"),
+					header = tr("{v2_header}"),
+					text = tr("{v2_text}"),
 					format = showVoltage,
 					param = "v2"
 				},
 				{
 					icon = spritePlus3_3VIcon,
-					header = tr("{vext2_header}"),
-					text = tr("{vext2_text}"),
+					header = tr("{v3_header}"),
+					text = tr("{v3_text}"),
 					format = showVoltage,
 					param = "v3"
 				},
 				{
 					icon = spritePlus3_3VIcon,
-					header = tr("{+3.3vp_header}"),
-					text = tr("{+3.3vp_text}"),
+					header = tr("{v4_header}"),
+					text = tr("{v4_text}"),
 					format = showVoltage,
 					param = "v4"
 				},
 				{
 					icon = spritePlus3_3VIcon,
-					header = tr("{+vi2c_header}"),
-					text = tr("{+vi2c_text}"),
+					header = tr("{v5_header}"),
+					text = tr("{v5_text}"),
 					format = showVoltage,
 					param = "v5"
 				}
@@ -456,57 +466,57 @@ local function initMenus()
 				text = tr("{dsp_voltages_text}"),
 				{
 					icon = spritePlus2_5VIcon,
-					header = tr("{vrefp_header}"),
-					text = tr("{vrefp_text}"),
+					header = tr("{va0_header}"),
+					text = tr("{va0_text}"),
 					format = showVoltage,
 					param = "va0"
 				},
 				{
 					icon = spritePlus5VIcon,
-					header = tr("{+5va_header}"),
-					text = tr("{+5va_text}"),
+					header = tr("{va1_header}"),
+					text = tr("{va1_text}"),
 					format = showVoltage,
 					param = "va1"
 				},
 				{
 					icon = spritePlus1_2VIcon,
-					header = tr("{+1.2v_header}"),
-					text = tr("{+1.2v_text}"),
+					header = tr("{va2_header}"),
+					text = tr("{va2_text}"),
 					format = showVoltage,
 					param = "va2"
 				},
 				{
 					icon = spritePlus3_3VIcon,
-					header = tr("{vextm_header}"),
-					text = tr("{vextm_text}"),
+					header = tr("{va3_header}"),
+					text = tr("{va3_text}"),
 					format = showVoltage,
 					param = "va3"
 				},
 				{
 					icon = spritePlus3_3VIcon,
-					header = tr("{+3.3v_header}"),
-					text = tr("{+3.3v_text}"),
+					header = tr("{va4_header}"),
+					text = tr("{va4_text}"),
 					format = showVoltage,
 					param = "va4"
 				},
 				{
 					icon = spriteMinus5VIcon,
-					header = tr("{-5va_header}"),
-					text = tr("{-5va_text}"),
+					header = tr("{va5_header}"),
+					text = tr("{va5_text}"),
 					format = showVoltage,
 					param = "va5"
 				},
 				{
 					icon = spritePlus1_8VIcon,
-					header = tr("{+1.8va_header}"),
-					text = tr("{+1.8va_text}"),
+					header = tr("{va6_header}"),
+					text = tr("{va6_text}"),
 					format = showVoltage,
 					param = "va6"
 				},
 				{
 					icon = spritePlus3_3VIcon,
-					header = tr("{+3.3va_header}"),
-					text = tr("{+3.3va_text}"),
+					header = tr("{va7_header}"),
+					text = tr("{va7_text}"),
 					format = showVoltage,
 					param = "va7"
 				}
@@ -515,6 +525,7 @@ local function initMenus()
 				icon = spriteCapacitanceIcon,
 				header = tr("{capacitance_header}"),
 				text = tr("{capacitance_text}"),
+				onClick = function() capacitanceActive = true; balance:setParam("c-meter") end,
 				{
 					icon = spriteCapacitanceIcon,
 					header = tr("{capacitance_0_header}"),
@@ -569,10 +580,15 @@ local function initMenus()
 				text = tr("{wheel_qep_text}"),
 				format = "%d",
 				param = "wheelangle"
+			},
+			{
+				icon = spriteErrorIcon,
+				header = tr("{errors_header}"),
+				text = tr("{errors_text}")
 			}
 		},
 
-		-- options menu
+		-- options
 		{
 			{
 				icon = languageIcons[lang + 1],
@@ -696,6 +712,28 @@ function isMainMenuLoaded()
 	return resourcesLoaded
 end
 
+-- Adds an error to the journal
+function addErrorToJournal(code)
+	if resourcesLoaded then
+		local item = menus[4][6] -- NOTE: change me when adding new menu items
+		if #item == 30 then
+			table.remove(item, 1)
+		end
+		item[#item + 1] = {icon = spriteErrorIcon, header = string.format("{error_%d_header}", code), text = string.format("{error_%d_text}", code)}
+	end
+end
+
+-- Shows the error journal
+function showErrorJournal()
+	if resourcesLoaded then
+		showMainMenu()
+		selMainItem = 4 -- NOTE: change me when adding new menu items
+		spriteMainMenu.frame = selMainItem
+		selMenu = menus[selMainItem][6]
+		selMenu.scrollPos = math.max(#selMenu * spriteMainMenuItemNormal:getHeight() - clipHeight, 0)
+	end
+end
+
 -- Shows the main menu
 function showMainMenu()
 	if not menuActive and resourcesLoaded then
@@ -718,6 +756,7 @@ function hideMainMenu()
 		balance:setIntParam("user", oldUser)
 		spriteMenuButton.frame, spriteMenuButtonText.frame = 0, lang * 3
 	end
+	disableCapacitance()
 end
 
 -- Returns the menu item value
@@ -860,6 +899,7 @@ function onMainMenuUpdate(delta)
 					selMenu.scrollPos = 0
 					selMainItem = i
 					spriteMainMenu.frame = i
+					disableCapacitance()
 					break
 				end
 			end
@@ -1001,6 +1041,7 @@ function onMainMenuMouseUp(x, y, key)
 					selMainItem = 0
 					spriteMainMenu.frame = 0
 				end
+				disableCapacitance()
 			elseif pressedButton == spriteMainMenuCloseButton then
 				-- close the main menu
 				hideMainMenu()
