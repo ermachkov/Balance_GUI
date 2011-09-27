@@ -49,6 +49,9 @@ sprites =
 	["spriteWheelQepIcon", ["wheel_qep_icon"]],
 	["spriteErrorIcon", ["error_icon"]],
 
+	["spriteGeometryIcon", ["geometry_icon"]],
+	["spriteWheelDistanceIcon", ["wheel_distance_icon"]],
+
 	["spriteEnglishIcon", ["english_icon"]],
 	["spriteRussianIcon", ["russian_icon"]],
 	["spriteChineseIcon", ["chinese_icon"]],

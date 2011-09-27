@@ -161,6 +161,7 @@ function main_screen_createSprites()
 	spriteStartPanel1 = Sprite("spriteStartPanel1", 1116, 496)
 	spriteStartPanel0 = Sprite("spriteStartPanel0", 93, 496)
 	spriteMouseStatusIcon = Sprite("spriteMouseStatusIcon", 994, 741)
+	spriteNetworkStatusIcon = Sprite("spriteNetworkStatusIcon", 755, 742)
 	spriteTouchscreenCalibrationText = Sprite("spriteTouchscreenCalibrationText", 778, 540)
 	spriteTouchscreenCalibrationButton = Sprite("spriteTouchscreenCalibrationButton", 753, 418)
 	spriteBalanceCalibrationText = Sprite("spriteBalanceCalibrationText", 558, 540)
@@ -344,6 +345,7 @@ function main_screen_deleteSprites()
 	spriteStartPanel1 = nil
 	spriteStartPanel0 = nil
 	spriteMouseStatusIcon = nil
+	spriteNetworkStatusIcon = nil
 	spriteTouchscreenCalibrationText = nil
 	spriteTouchscreenCalibrationButton = nil
 	spriteBalanceCalibrationText = nil

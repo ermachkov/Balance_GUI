@@ -591,6 +591,18 @@ local function initMenus()
 		-- options
 		{
 			{
+				icon = spriteGeometryIcon,
+				header = tr("{geometry_header}"),
+				text = tr("{geometry_text}"),
+				{
+					icon = spriteWheelDistanceIcon,
+					header = tr("{wheel_distance_header}"),
+					text = tr("{wheel_distance_text}"),
+					format = "%d",
+					param = "wheeldist"
+				}
+			},
+			{
 				icon = languageIcons[lang + 1],
 				selItem = lang + 1,
 				header = tr("{language_header}"),
