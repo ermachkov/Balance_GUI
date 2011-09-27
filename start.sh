@@ -14,6 +14,13 @@ fi
 
 rm /tmp/lsusb
 
+SERVER_IP=`expr "\`cat $HOME/.Sibek/Balance/3.0/Balance.xml\`" : '.*server_addr" value="\([0-9]*.[0-9]*.[0-9]*.[0-9]*\)'`
+export SERVER_ON="true"
+
+if [ `ping $SERVER_IP -c 1 -W 1 | grep -c req=1` -eq 0 ]; then
+  export SERVER_ON="false"
+fi
+
 DEFAULT_ROUTER=`netstat -r -n | awk '/^0.0.0.0/ {print}'`
 DEFAULT_GW=`echo $DEFAULT_ROUTER | awk '{print($2)}'`
 INT=`echo $DEFAULT_ROUTER | awk '{print($8)}'`
@@ -31,6 +38,7 @@ echo " <clres:option clres:name=\"local_addr\" value=\"$IP_ADDRESS\"/>" >> $HOME
 echo " <clres:option clres:name=\"netmask\" value=\"$NETMASK\"/>" >> $HOME/.Sibek/Balance/3.0/Balance.xml
 echo " <clres:option clres:name=\"dns\" value=\"$DNS\"/>" >> $HOME/.Sibek/Balance/3.0/Balance.xml
 echo " <clres:option clres:name=\"input_dev\" value=\"$MOUSE\"/>" >> $HOME/.Sibek/Balance/3.0/Balance.xml
+echo " <clres:option clres:name=\"server_status\" value=\"$SERVER_ON\"/>" >> $HOME/.Sibek/Balance/3.0/Balance.xml
 echo "</clres:resources>" >> $HOME/.Sibek/Balance/3.0/Balance.xml
 
 balance
