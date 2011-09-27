@@ -8,6 +8,7 @@ sprites =
 	["spriteBalanceCalibrationText", ["balance_calibration_text"]],
 	["spriteTouchscreenCalibrationText", ["touchscreen_calibration_text"]],
 
+	["spriteNetworkStatusIcon", ["network_status_icon"]],
 	["spriteMouseStatusIcon", ["mouse_status_icon"]],
 
 	["spriteStartPanel", ["start_panel"]]

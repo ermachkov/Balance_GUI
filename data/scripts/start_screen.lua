@@ -56,7 +56,12 @@ function onStartScreenUpdate(delta)
 	drawLabel(spriteBalanceCalibrationText, tr("BALANCE\nCALIBRATION"), spriteBalanceCalibrationButton)
 	drawLabel(spriteTouchscreenCalibrationText, tr("TOUCHSCREEN\nCALIBRATION"), spriteTouchscreenCalibrationButton)
 
-	-- status icon
+	-- network icon
+	if not profile:getBool("server_status", true) then
+		spriteNetworkStatusIcon:draw()
+	end
+
+	-- mouse icon
 	if profile:getInt("input_dev") == 1 then
 		spriteMouseStatusIcon:draw()
 	end
