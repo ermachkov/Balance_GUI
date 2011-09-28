@@ -6,6 +6,9 @@ class Balance
 	// Returns the connection status
 	bool isConnected() const;
 
+	// Returns the protocol valid flag
+	bool isProtocolValid() const;
+
 	// Sets the balance address
 	void setServerAddr(const std::string &addr);
 

@@ -89,6 +89,7 @@ balanceErrors0, balanceErrors1, balanceErrors2 = 0, 0, 0
 numErrors = 0
 mousePressed = false
 profile = nil
+protocolValid = true
 
 lang = LANG_EN
 local translationEnabled = true

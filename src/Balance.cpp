@@ -11,17 +11,18 @@ const std::string Balance::PARAMS[MAX_PARAMS] =
 	"rdiam", "rwidth", "weight0", "angle0", "rndweight0", "wheelangle0", "weight1", "angle1", "rndweight1", "wheelangle1",
 	"weight2", "angle2", "rndweight2", "wheelangle2", "user", "msg1", "width", "diam", "offset", "split",
 	"numsp", "mode", "layout", "stick", "roundmode", "minweight", "startmode", "covermode", "pedalmode", "automode",
-	"clockwise", "maxrot", "diamepsilon", "drvfreq", "minfreq", "accthld", "angleepsilon", "rulerhorz", "rulervert", "rulerrad",
-	"rulerofs", "rulerdiam", "calweight", "deccurr", "decfreq", "weightdist", "v0", "v1", "v2", "v3",
-	"v4", "v5", "va0", "va1", "va2", "va3", "va4", "va5", "va6", "va7",
-	"w0", "w1", "w2", "w3", "freqcoeff", "rstick", "c0", "c1", "c2", "c3",
-	"c4", "c5", "r0", "r1", "errors0", "errors1", "errors2", "wheeldist", "keycal0", "cheatepsilon",
-	"rulercal0", "rulercal1", "rulercal2", "rulercal3", "rulercalf", "cal0", "cal1", "cal2", "cal3", "testdrv",
-	"loaddef", "loadref", "saveref", "passwd", "start", "stop", "enter", "osc", "rotate", "c-meter"
+	"clockwise", "truemode", "autoalu", "maxrot", "diamepsilon", "drvfreq", "minfreq", "accthld", "angleepsilon", "rulerhorz",
+	"rulervert", "rulerrad", "rulerofs", "rulerdiam", "calweight", "deccurr", "decfreq", "weightdist", "v0", "v1",
+	"v2", "v3", "v4", "v5", "va0", "va1", "va2", "va3", "va4", "va5",
+	"va6", "va7", "w0", "w1", "w2", "w3", "freqcoeff", "rstick", "c0", "c1",
+	"c2", "c3", "c4", "c5", "r0", "r1", "errors0", "errors1", "errors2", "wheeldist",
+	"autoaluflag", "keycal0", "cheatepsilon", "rulercal0", "rulercal1", "rulercal2", "rulercal3", "rulercalf", "cal0", "cal1",
+	"cal2", "cal3", "testdrv", "loaddef", "loadref", "saveref", "passwd", "start", "stop", "enter",
+	"osc", "rotate", "c-meter"
 };
 
 Balance::Balance(Profile &profile)
-: mSocketNameChanged(false)
+: mProtocolValid(true), mSocketNameChanged(false)
 {
 	for (int i = 0; i < MAX_PARAMS; ++i)
 		mParams.insert(std::make_pair(PARAMS[i], "0"));
@@ -58,6 +59,11 @@ Balance::~Balance()
 bool Balance::isConnected() const
 {
 	return mConnected.get() != 0;
+}
+
+bool Balance::isProtocolValid() const
+{
+	return mProtocolValid;
 }
 
 void Balance::setServerAddr(const std::string &addr)
@@ -121,9 +127,19 @@ void Balance::onUpdate(int delta)
 
 		if (command == "params")
 		{
-			// parse the input parameters
+			ParamMap params;
 			for (int i = 0; i < MAX_INPUT_PARAMS; ++i)
-				stream >> mParams[PARAMS[i]];
+				stream >> params[PARAMS[i]];
+
+			if (params["version"] == "115" && stream.good())
+			{
+				mProtocolValid = true;
+				mParams = params;
+			}
+			else
+			{
+				mProtocolValid = false;
+			}
 		}
 	}
 
