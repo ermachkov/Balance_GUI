@@ -131,10 +131,11 @@ void Balance::onUpdate(int delta)
 			for (int i = 0; i < MAX_INPUT_PARAMS; ++i)
 				stream >> params[PARAMS[i]];
 
-			if (params["version"] == "115" && stream.good())
+			if (params["version"] == "115")
 			{
 				mProtocolValid = true;
-				mParams = params;
+				for (ParamMap::const_iterator it = params.begin(); it != params.end(); ++it)
+					mParams[it->first] = it->second;
 			}
 			else
 			{
