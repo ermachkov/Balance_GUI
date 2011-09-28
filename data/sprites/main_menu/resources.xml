@@ -2,177 +2,177 @@
 <resources>
 	<sprite name="spriteQuitIcon">
 		<image file="texture6.png">
-			<grid pos="592,740" size="147,147"/>
+			<grid pos="148,592" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteFactorySettingsIcon">
 		<image file="texture6.png">
-			<grid pos="740,740" size="146,146"/>
+			<grid pos="296,592" size="146,146"/>
 		</image>
 	</sprite>
 	<sprite name="spriteSoftwareUpdateIcon">
 		<image file="texture6.png">
-			<grid pos="444,740" size="147,147"/>
+			<grid pos="740,740" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteRemoteControlEnabledIcon">
 		<image file="texture6.png">
-			<grid pos="296,740" size="147,147"/>
+			<grid pos="592,740" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteRemoteControlDisabledIcon">
 		<image file="texture6.png">
-			<grid pos="148,740" size="147,147"/>
+			<grid pos="444,740" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteDNSIcon">
 		<image file="texture6.png">
-			<grid pos="0,740" size="147,147"/>
+			<grid pos="296,740" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteNetmaskIcon">
 		<image file="texture6.png">
-			<grid pos="0,592" size="147,147"/>
+			<grid pos="148,740" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteLocalAddrIcon">
 		<image file="texture6.png">
-			<grid pos="0,444" size="147,147"/>
+			<grid pos="0,740" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteServerAddrIcon">
 		<image file="texture6.png">
-			<grid pos="0,296" size="147,147"/>
+			<grid pos="0,592" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteGatewayIcon">
 		<image file="texture6.png">
-			<grid pos="0,148" size="147,147"/>
+			<grid pos="0,444" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteNetworkIcon">
 		<image file="texture6.png">
-			<grid pos="0,0" size="147,147"/>
+			<grid pos="0,296" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteThemeIcon">
-		<image file="texture5.png">
-			<grid pos="824,0" size="147,147"/>
+		<image file="texture6.png">
+			<grid pos="0,148" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteChineseIcon">
-		<image file="texture5.png">
-			<grid pos="676,0" size="147,147"/>
+		<image file="texture6.png">
+			<grid pos="0,0" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteRussianIcon">
 		<image file="texture5.png">
-			<grid pos="740,173" size="147,147"/>
+			<grid pos="824,0" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteEnglishIcon">
 		<image file="texture5.png">
-			<grid pos="592,173" size="147,147"/>
+			<grid pos="676,0" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteWheelDistanceIcon">
 		<image file="texture5.png">
+			<grid pos="740,173" size="147,147"/>
+		</image>
+	</sprite>
+	<sprite name="spriteRulerRadiusIcon">
+		<image file="texture5.png">
+			<grid pos="592,173" size="147,147"/>
+		</image>
+	</sprite>
+	<sprite name="spriteRulerVertIcon">
+		<image file="texture5.png">
 			<grid pos="444,173" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteGeometryIcon">
+	<sprite name="spriteRulerHorzIcon">
 		<image file="texture5.png">
 			<grid pos="296,173" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteErrorIcon">
+	<sprite name="spriteGeometryIcon">
 		<image file="texture5.png">
 			<grid pos="148,173" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteWheelQepIcon">
+	<sprite name="spriteErrorIcon">
 		<image file="texture5.png">
 			<grid pos="740,321" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteResistanceIcon">
+	<sprite name="spriteWheelQepIcon">
 		<image file="texture5.png">
 			<grid pos="592,321" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteCapacitanceIcon">
+	<sprite name="spriteResistanceIcon">
 		<image file="texture5.png">
 			<grid pos="444,321" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spritePlus24VIcon">
+	<sprite name="spriteCapacitanceIcon">
 		<image file="texture5.png">
 			<grid pos="296,321" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spritePlus5VIcon">
+	<sprite name="spritePlus24VIcon">
 		<image file="texture5.png">
 			<grid pos="148,321" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spritePlus3_3VIcon">
+	<sprite name="spritePlus5VIcon">
 		<image file="texture5.png">
 			<grid pos="740,469" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spritePlus2_5VIcon">
+	<sprite name="spritePlus3_3VIcon">
 		<image file="texture5.png">
 			<grid pos="592,469" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spritePlus1_8VIcon">
+	<sprite name="spritePlus2_5VIcon">
 		<image file="texture5.png">
 			<grid pos="444,469" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spritePlus1_2VIcon">
+	<sprite name="spritePlus1_8VIcon">
 		<image file="texture5.png">
 			<grid pos="296,469" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteMinus5VIcon">
+	<sprite name="spritePlus1_2VIcon">
 		<image file="texture5.png">
 			<grid pos="148,469" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteDspVoltagesIcon">
+	<sprite name="spriteMinus5VIcon">
 		<image file="texture5.png">
 			<grid pos="740,617" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteArmVoltagesIcon">
+	<sprite name="spriteDspVoltagesIcon">
 		<image file="texture5.png">
 			<grid pos="592,617" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteRulerCalDiamIcon">
+	<sprite name="spriteArmVoltagesIcon">
 		<image file="texture5.png">
 			<grid pos="444,617" size="147,147"/>
+		</image>
+	</sprite>
+	<sprite name="spriteRulerCalDiamIcon">
+		<image file="texture5.png">
+			<grid pos="296,617" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteRulerCalOffsetIcon">
 		<image file="texture1.png">
 			<grid pos="812,548" size="148,147"/>
-		</image>
-	</sprite>
-	<sprite name="spriteRulerRadiusIcon">
-		<image file="texture5.png">
-			<grid pos="296,617" size="147,147"/>
-		</image>
-	</sprite>
-	<sprite name="spriteRulerVertIcon">
-		<image file="texture5.png">
-			<grid pos="148,617" size="147,147"/>
-		</image>
-	</sprite>
-	<sprite name="spriteRulerHorzIcon">
-		<image file="texture5.png">
-			<grid pos="740,765" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteRulerCal3Icon">
@@ -182,27 +182,27 @@
 	</sprite>
 	<sprite name="spriteRulerCal2Icon">
 		<image file="texture5.png">
-			<grid pos="592,765" size="147,147"/>
+			<grid pos="148,617" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteRulerCal1Icon">
 		<image file="texture5.png">
-			<grid pos="444,765" size="147,147"/>
+			<grid pos="740,765" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteRulerCal0Icon">
 		<image file="texture5.png">
-			<grid pos="296,765" size="147,147"/>
+			<grid pos="592,765" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteRulerCalIcon">
 		<image file="texture5.png">
-			<grid pos="148,765" size="147,147"/>
+			<grid pos="444,765" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteBalanceCalWeightIcon">
 		<image file="texture5.png">
-			<grid pos="0,765" size="147,147"/>
+			<grid pos="296,765" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteBalanceCal3Icon">
@@ -217,20 +217,30 @@
 	</sprite>
 	<sprite name="spriteBalanceCal1Icon">
 		<image file="texture5.png">
-			<grid pos="0,617" size="147,147"/>
+			<grid pos="148,765" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteBalanceCal0Icon">
 		<image file="texture5.png">
-			<grid pos="0,469" size="147,147"/>
+			<grid pos="0,765" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteBalanceCalIcon">
 		<image file="texture5.png">
-			<grid pos="0,321" size="147,147"/>
+			<grid pos="0,617" size="147,147"/>
 		</image>
 	</sprite>
 	<sprite name="spriteBalanceFastCalIcon">
+		<image file="texture5.png">
+			<grid pos="0,469" size="147,147"/>
+		</image>
+	</sprite>
+	<sprite name="spriteAutoAlu1Icon">
+		<image file="texture5.png">
+			<grid pos="0,321" size="147,147"/>
+		</image>
+	</sprite>
+	<sprite name="spriteAutoAlu0Icon">
 		<image file="texture5.png">
 			<grid pos="0,173" size="147,147"/>
 		</image>

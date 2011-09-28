@@ -16,7 +16,7 @@ local scrollX, scrollY
 local oldUser
 local keyboardActive
 local menuIcons, menuLabels
-local startModeIcons, rotationModeIcons, pedalModeIcons, directionIcons
+local startModeIcons, rotationModeIcons, pedalModeIcons, directionIcons, autoAluIcons
 local languageIcons
 local menuButtons
 local clipX, clipY, clipWidth, clipHeight
@@ -179,6 +179,24 @@ local function initMenus()
 					text = tr("{direction_1_text}"),
 					onClick = function() balance:setIntParam("clockwise", 1) end
 				}
+			},
+			{
+				header = tr("{auto_alu_header}"),
+				text = tr("{auto_alu_text}"),
+				onUpdate = function(item) item.selItem = balance:getIntParam("autoalu") + 1; item.icon = autoAluIcons[item.selItem] end,
+				{
+					icon = spriteAutoAlu0Icon,
+					header = tr("{auto_alu_0_header}"),
+					text = tr("{auto_alu_0_text}"),
+					onUpdate = function(item) item.parent.onUpdate(item.parent) end,
+					onClick = function() balance:setIntParam("autoalu", 0) end
+				},
+				{
+					icon = spriteAutoAlu1Icon,
+					header = tr("{auto_alu_1_header}"),
+					text = tr("{auto_alu_1_text}"),
+					onClick = function() balance:setIntParam("autoalu", 1) end
+				}
 			}
 		},
 
@@ -290,6 +308,24 @@ local function initMenus()
 					text = tr("{direction_1_text}"),
 					onClick = function() balance:setIntParam("clockwise", 1) end
 				}
+			},
+			{
+				header = tr("{auto_alu_header}"),
+				text = tr("{auto_alu_text}"),
+				onUpdate = function(item) item.selItem = balance:getIntParam("autoalu") + 1; item.icon = autoAluIcons[item.selItem] end,
+				{
+					icon = spriteAutoAlu0Icon,
+					header = tr("{auto_alu_0_header}"),
+					text = tr("{auto_alu_0_text}"),
+					onUpdate = function(item) item.parent.onUpdate(item.parent) end,
+					onClick = function() balance:setIntParam("autoalu", 0) end
+				},
+				{
+					icon = spriteAutoAlu1Icon,
+					header = tr("{auto_alu_1_header}"),
+					text = tr("{auto_alu_1_text}"),
+					onClick = function() balance:setIntParam("autoalu", 1) end
+				}
 			}
 		},
 
@@ -367,30 +403,6 @@ local function initMenus()
 					header = tr("{ruler_cal_3_header}"),
 					text = tr("{ruler_cal_3_text}"),
 					onClick = function() hideMainMenu(); balance:setParam("rulercal3") end
-				},
-				{
-					icon = spriteRulerHorzIcon,
-					header = tr("{ruler_horz_header}"),
-					text = tr("{ruler_horz_text}"),
-					format = "%d",
-					param = "rulerhorz",
-					type = TYPE_INT
-				},
-				{
-					icon = spriteRulerVertIcon,
-					header = tr("{ruler_vert_header}"),
-					text = tr("{ruler_vert_text}"),
-					format = "%d",
-					param = "rulervert",
-					type = TYPE_INT
-				},
-				{
-					icon = spriteRulerRadiusIcon,
-					header = tr("{ruler_radius_header}"),
-					text = tr("{ruler_radius_text}"),
-					format = "%d",
-					param = "rulerrad",
-					type = TYPE_INT
 				},
 				{
 					icon = spriteRulerCalOffsetIcon,
@@ -594,12 +606,38 @@ local function initMenus()
 				icon = spriteGeometryIcon,
 				header = tr("{geometry_header}"),
 				text = tr("{geometry_text}"),
+				password = true,
+				{
+					icon = spriteRulerHorzIcon,
+					header = tr("{ruler_horz_header}"),
+					text = tr("{ruler_horz_text}"),
+					format = "%d",
+					param = "rulerhorz",
+					type = TYPE_INT
+				},
+				{
+					icon = spriteRulerVertIcon,
+					header = tr("{ruler_vert_header}"),
+					text = tr("{ruler_vert_text}"),
+					format = "%d",
+					param = "rulervert",
+					type = TYPE_INT
+				},
+				{
+					icon = spriteRulerRadiusIcon,
+					header = tr("{ruler_radius_header}"),
+					text = tr("{ruler_radius_text}"),
+					format = "%d",
+					param = "rulerrad",
+					type = TYPE_INT
+				},
 				{
 					icon = spriteWheelDistanceIcon,
 					header = tr("{wheel_distance_header}"),
 					text = tr("{wheel_distance_text}"),
 					format = "%d",
-					param = "wheeldist"
+					param = "wheeldist",
+					type = TYPE_INT
 				}
 			},
 			{
@@ -847,6 +885,7 @@ function onMainMenuUpdate(delta)
 		rotationModeIcons = {spriteRotationMode0Icon, spriteRotationMode1Icon, spriteRotationMode2Icon, spriteRotationMode3Icon}
 		pedalModeIcons = {spritePedalMode0Icon, spritePedalMode1Icon}
 		directionIcons = {spriteDirection0Icon, spriteDirection1Icon}
+		autoAluIcons = {spriteAutoAlu0Icon, spriteAutoAlu1Icon}
 		languageIcons = {spriteEnglishIcon, spriteRussianIcon, spriteChineseIcon}
 		menuButtons = {spriteMainMenuBackButton, spriteMainMenuCloseButton, spriteMainMenuUpButton, spriteMainMenuDownButton}
 

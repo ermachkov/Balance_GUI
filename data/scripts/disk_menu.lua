@@ -69,7 +69,10 @@ function onDiskMenuUpdate(delta)
 
 		-- check menu dies
 		if spriteAluMenuDie:isPointInside(x, y) then
-			selMode = MODE_ALU
+			if selMode ~= MODE_ALU then
+				selMode = MODE_ALU
+				balance:setIntParam("mode", selMode)
+			end
 		elseif spriteSteelMenuDie:isPointInside(x, y) then
 			selMode = MODE_STEEL
 		elseif spriteTruckMenuDie:isPointInside(x, y) then

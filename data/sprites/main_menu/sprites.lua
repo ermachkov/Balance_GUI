@@ -15,6 +15,9 @@ function main_menu_createSprites()
 	spriteRussianIcon = Sprite("spriteRussianIcon", 0, 0)
 	spriteEnglishIcon = Sprite("spriteEnglishIcon", 0, 0)
 	spriteWheelDistanceIcon = Sprite("spriteWheelDistanceIcon", 0, 0)
+	spriteRulerRadiusIcon = Sprite("spriteRulerRadiusIcon", 0, 0)
+	spriteRulerVertIcon = Sprite("spriteRulerVertIcon", 0, 0)
+	spriteRulerHorzIcon = Sprite("spriteRulerHorzIcon", 0, 0)
 	spriteGeometryIcon = Sprite("spriteGeometryIcon", 0, 0)
 	spriteErrorIcon = Sprite("spriteErrorIcon", 0, 0)
 	spriteWheelQepIcon = Sprite("spriteWheelQepIcon", 0, 0)
@@ -31,9 +34,6 @@ function main_menu_createSprites()
 	spriteArmVoltagesIcon = Sprite("spriteArmVoltagesIcon", -1, 0)
 	spriteRulerCalDiamIcon = Sprite("spriteRulerCalDiamIcon", 0, 0)
 	spriteRulerCalOffsetIcon = Sprite("spriteRulerCalOffsetIcon", 0, 0)
-	spriteRulerRadiusIcon = Sprite("spriteRulerRadiusIcon", 0, 0)
-	spriteRulerVertIcon = Sprite("spriteRulerVertIcon", 0, 0)
-	spriteRulerHorzIcon = Sprite("spriteRulerHorzIcon", 0, 0)
 	spriteRulerCal3Icon = Sprite("spriteRulerCal3Icon", 0, 0)
 	spriteRulerCal2Icon = Sprite("spriteRulerCal2Icon", 0, 0)
 	spriteRulerCal1Icon = Sprite("spriteRulerCal1Icon", 0, 0)
@@ -46,6 +46,8 @@ function main_menu_createSprites()
 	spriteBalanceCal0Icon = Sprite("spriteBalanceCal0Icon", 0, 0)
 	spriteBalanceCalIcon = Sprite("spriteBalanceCalIcon", 0, 0)
 	spriteBalanceFastCalIcon = Sprite("spriteBalanceFastCalIcon", 0, 0)
+	spriteAutoAlu1Icon = Sprite("spriteAutoAlu1Icon", 1, 0)
+	spriteAutoAlu0Icon = Sprite("spriteAutoAlu0Icon", 1, 0)
 	spriteDirection1Icon = Sprite("spriteDirection1Icon", 0, 0)
 	spriteDirection0Icon = Sprite("spriteDirection0Icon", 0, 0)
 	spritePedalMode1Icon = Sprite("spritePedalMode1Icon", 0, 0)
@@ -111,6 +113,9 @@ function main_menu_deleteSprites()
 	spriteRussianIcon = nil
 	spriteEnglishIcon = nil
 	spriteWheelDistanceIcon = nil
+	spriteRulerRadiusIcon = nil
+	spriteRulerVertIcon = nil
+	spriteRulerHorzIcon = nil
 	spriteGeometryIcon = nil
 	spriteErrorIcon = nil
 	spriteWheelQepIcon = nil
@@ -127,9 +132,6 @@ function main_menu_deleteSprites()
 	spriteArmVoltagesIcon = nil
 	spriteRulerCalDiamIcon = nil
 	spriteRulerCalOffsetIcon = nil
-	spriteRulerRadiusIcon = nil
-	spriteRulerVertIcon = nil
-	spriteRulerHorzIcon = nil
 	spriteRulerCal3Icon = nil
 	spriteRulerCal2Icon = nil
 	spriteRulerCal1Icon = nil
@@ -142,6 +144,8 @@ function main_menu_deleteSprites()
 	spriteBalanceCal0Icon = nil
 	spriteBalanceCalIcon = nil
 	spriteBalanceFastCalIcon = nil
+	spriteAutoAlu1Icon = nil
+	spriteAutoAlu0Icon = nil
 	spriteDirection1Icon = nil
 	spriteDirection0Icon = nil
 	spritePedalMode1Icon = nil

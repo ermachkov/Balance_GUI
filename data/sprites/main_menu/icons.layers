@@ -13,6 +13,8 @@ sprites =
 	["spritePedalMode1Icon", ["pedal_mode_1_icon"]],
 	["spriteDirection0Icon", ["direction_0_icon"]],
 	["spriteDirection1Icon", ["direction_1_icon"]],
+	["spriteAutoAlu0Icon", ["auto_alu_0_icon"]],
+	["spriteAutoAlu1Icon", ["auto_alu_1_icon"]],
 
 	["spriteBalanceFastCalIcon", ["balance_fast_cal_icon"]],
 
@@ -28,9 +30,6 @@ sprites =
 	["spriteRulerCal1Icon", ["ruler_cal_1_icon"]],
 	["spriteRulerCal2Icon", ["ruler_cal_2_icon"]],
 	["spriteRulerCal3Icon", ["ruler_cal_3_icon"]],
-	["spriteRulerHorzIcon", ["ruler_horz_icon"]],
-	["spriteRulerVertIcon", ["ruler_vert_icon"]],
-	["spriteRulerRadiusIcon", ["ruler_radius_icon"]],
 	["spriteRulerCalOffsetIcon", ["ruler_cal_offset_icon"]],
 	["spriteRulerCalDiamIcon", ["ruler_cal_diam_icon"]],
 
@@ -50,6 +49,9 @@ sprites =
 	["spriteErrorIcon", ["error_icon"]],
 
 	["spriteGeometryIcon", ["geometry_icon"]],
+	["spriteRulerHorzIcon", ["ruler_horz_icon"]],
+	["spriteRulerVertIcon", ["ruler_vert_icon"]],
+	["spriteRulerRadiusIcon", ["ruler_radius_icon"]],
 	["spriteWheelDistanceIcon", ["wheel_distance_icon"]],
 
 	["spriteEnglishIcon", ["english_icon"]],
