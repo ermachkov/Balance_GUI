@@ -19,6 +19,9 @@ public:
 	// Returns the connection status
 	bool isConnected() const;
 
+	// Returns the protocol valid flag
+	bool isProtocolValid() const;
+
 	// Sets the balance address
 	void setServerAddr(const std::string &addr);
 
@@ -45,8 +48,8 @@ private:
 	// Name -> value map type
 	typedef std::map<std::string, std::string> ParamMap;
 
-	static const int MAX_INPUT_PARAMS = 88;         // Maximum number of input parameters
-	static const int MAX_PARAMS = 110;              // Total number of parameters
+	static const int MAX_INPUT_PARAMS = 91;         // Maximum number of input parameters
+	static const int MAX_PARAMS = 113;              // Total number of parameters
 	static const std::string PARAMS[MAX_PARAMS];    // Parameters list
 
 	static const int POLL_INTERVAL = 100;           // Polling interval
@@ -63,6 +66,7 @@ private:
 	CL_InterlockedVariable      mStopThread;        // Balance thread stop flag
 	CL_Slot                     mSlotUpdate;        // Update event slot
 	CL_InterlockedVariable      mConnected;         // Successful connection flag
+	bool                        mProtocolValid;     // Valid protocol flag
 	ParamMap                    mParams;            // Parameters map
 	CL_Mutex                    mRequestMutex;      // Request queue mutex
 	std::vector<std::string>    mRequests;          // Request queue

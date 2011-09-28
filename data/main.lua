@@ -87,6 +87,12 @@ function onUpdate(delta)
 	-- clear screen
 	graphics:clear(0.0, 0.0, 0.0)
 
+	-- check protocol
+	if protocolValid and not balance:isProtocolValid() then
+		protocolValid = false
+		showMessage(tr("{invalid_protocol}"), MESSAGE_OK, MESSAGE_ERROR)
+	end
+
 	-- track balance state/substate changes
 	local newBalanceState, newBalanceSubstate = balance:getIntParam("state"), balance:getIntParam("substate")
 
