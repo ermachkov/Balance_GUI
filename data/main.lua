@@ -120,7 +120,7 @@ function onUpdate(delta)
 	end
 
 	-- make beeps on certain events
-	if newBalanceState == STATE_IDLE and balanceState == STATE_BALANCE and not stopPressed then
+	if newBalanceState == STATE_IDLE and balanceState == STATE_BALANCE and balanceSubstate ~= BALANCE_WAIT_COVER and not stopPressed then
 		soundBalanceSuccess:play()
 	elseif newBalanceState == STATE_RULER and newBalanceSubstate == RULER_WAIT and balanceState == STATE_RULER and (balanceSubstate == RULER_MEASURE or balanceSubstate == RULER_MEASURE_L) or
 		newBalanceState == STATE_RULER_CAL0 and newBalanceSubstate == RULER_WAIT and balanceState == STATE_RULER_CAL0 and (balanceSubstate == RULER_MEASURE or balanceSubstate == RULER_MEASURE_L) then

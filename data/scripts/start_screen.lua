@@ -36,7 +36,7 @@ function onStartScreenUpdate(delta)
 	-- handle currently pressed button
 	if pressedButton then
 		local x, y = mouse:getPosition()
-		pressedButton.frame = (pressedButton:isPointInside(x, y) or pressedText:isPointInside(x, y)) and 1 or 0
+		pressedButton.frame = isPointInside(x, y, pressedButton.x, pressedButton.y, pressedButton.x + pressedButton:getWidth(), pressedText.y + pressedText:getHeight()) and 1 or 0
 	end
 
 	-- background
@@ -74,15 +74,15 @@ function onStartScreenMouseDown(x, y, key)
 	end
 
 	-- check the buttons
-	if spriteStartWorkButton:isPointInside(x, y) or spriteStartWorkText:isPointInside(x, y) then
+	if isPointInside(x, y, spriteStartWorkButton.x, spriteStartWorkButton.y, spriteStartWorkButton.x + spriteStartWorkButton:getWidth(), spriteStartWorkText.y + spriteStartWorkText:getHeight()) then
 		pressedButton, pressedText = spriteStartWorkButton, spriteStartWorkText
 		pressedButton.frame = 1
 		soundKey:play()
-	elseif spriteBalanceCalibrationButton:isPointInside(x, y) or spriteBalanceCalibrationText:isPointInside(x, y) then
+	elseif isPointInside(x, y, spriteBalanceCalibrationButton.x, spriteBalanceCalibrationButton.y, spriteBalanceCalibrationButton.x + spriteBalanceCalibrationButton:getWidth(), spriteBalanceCalibrationText.y + spriteBalanceCalibrationText:getHeight()) then
 		pressedButton, pressedText = spriteBalanceCalibrationButton, spriteBalanceCalibrationText
 		pressedButton.frame = 1
 		soundKey:play()
-	elseif spriteTouchscreenCalibrationButton:isPointInside(x, y) or spriteTouchscreenCalibrationText:isPointInside(x, y) then
+	elseif isPointInside(x, y, spriteTouchscreenCalibrationButton.x, spriteTouchscreenCalibrationButton.y, spriteTouchscreenCalibrationButton.x + spriteTouchscreenCalibrationButton:getWidth(), spriteTouchscreenCalibrationText.y + spriteTouchscreenCalibrationText:getHeight()) then
 		pressedButton, pressedText = spriteTouchscreenCalibrationButton, spriteTouchscreenCalibrationText
 		pressedButton.frame = 1
 		soundKey:play()
@@ -99,7 +99,7 @@ function onStartScreenMouseUp(x, y, key)
 
 	-- release the pressed button if any
 	if pressedButton then
-		if pressedButton:isPointInside(x, y) or pressedText:isPointInside(x, y) then
+		if isPointInside(x, y, pressedButton.x, pressedButton.y, pressedButton.x + pressedButton:getWidth(), pressedText.y + pressedText:getHeight()) then
 			if pressedButton == spriteStartWorkButton then
 				hideStartScreen()
 			elseif pressedButton == spriteBalanceCalibrationButton then

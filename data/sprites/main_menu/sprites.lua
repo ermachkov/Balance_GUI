@@ -5,10 +5,10 @@ function main_menu_createSprites()
 	spriteRemoteControlEnabledIcon = Sprite("spriteRemoteControlEnabledIcon", 0, 0)
 	spriteRemoteControlDisabledIcon = Sprite("spriteRemoteControlDisabledIcon", 0, 0)
 	spriteDNSIcon = Sprite("spriteDNSIcon", 0, 0)
+	spriteGatewayIcon = Sprite("spriteGatewayIcon", 0, 0)
 	spriteNetmaskIcon = Sprite("spriteNetmaskIcon", 0, 0)
 	spriteLocalAddrIcon = Sprite("spriteLocalAddrIcon", 0, 0)
 	spriteServerAddrIcon = Sprite("spriteServerAddrIcon", 0, 0)
-	spriteGatewayIcon = Sprite("spriteGatewayIcon", 0, 0)
 	spriteNetworkIcon = Sprite("spriteNetworkIcon", 0, 0)
 	spriteThemeIcon = Sprite("spriteThemeIcon", 0, 0)
 	spriteChineseIcon = Sprite("spriteChineseIcon", 0, 0)
@@ -103,10 +103,10 @@ function main_menu_deleteSprites()
 	spriteRemoteControlEnabledIcon = nil
 	spriteRemoteControlDisabledIcon = nil
 	spriteDNSIcon = nil
+	spriteGatewayIcon = nil
 	spriteNetmaskIcon = nil
 	spriteLocalAddrIcon = nil
 	spriteServerAddrIcon = nil
-	spriteGatewayIcon = nil
 	spriteNetworkIcon = nil
 	spriteThemeIcon = nil
 	spriteChineseIcon = nil

@@ -8,7 +8,7 @@ local mainMenuLoaded = false
 local blinkTime = 0
 local pressedButton
 local pressedButtonText
-local errorPopup
+local autoAluPopup, errorPopup
 local popups
 
 -- Returns the angle index from table
@@ -218,8 +218,9 @@ function onMainScreenInit()
 	soundRulerSuccess = Sound("soundRulerSuccess")
 
 	-- init popups
+	autoAluPopup = {back = spriteAutoAluPopupBack, icon = spriteAutoAluPopupIcon, active = false, time = 0}
 	errorPopup = {back = spriteErrorPopupBack, icon = spriteErrorPopupIcon, label = spriteErrorPopupText, active = false, time = 0, text = "13"}
-	popups = {errorPopup}
+	popups = {autoAluPopup, errorPopup}
 end
 
 function onMainScreenUpdate(delta)
@@ -384,7 +385,8 @@ function onMainScreenUpdate(delta)
 	drawLeftWeight()
 	drawRightWeight()
 
-	-- update error popup
+	-- update popups
+	autoAluPopup.active = balance:getIntParam("autoaluflag") ~= 0
 	errorPopup.active = numErrors ~= 0
 	errorPopup.text = tostring(numErrors)
 
@@ -408,6 +410,13 @@ function onMainScreenUpdate(delta)
 			end
 		end
 	end
+
+	-- draw cover message
+	if (balanceState == STATE_BALANCE or (balanceState >= STATE_BALANCE_CAL0 and balanceState <= STATE_BALANCE_CAL3)) and balanceSubstate == BALANCE_WAIT_COVER then
+		spriteCoverMessageBack:draw()
+		drawCenteredText(fontSizes, spriteCoverMessageText, tr("PUSH COVER!"), 69 / 255, 69 / 255, 69 / 255)
+		spriteCoverMessage:draw()
+	end
 end
 
 function onMainScreenMouseDown(x, y, key)
@@ -415,7 +424,6 @@ function onMainScreenMouseDown(x, y, key)
 		-- send "start" command
 		pressedButton, pressedButtonText = spriteStartButton, spriteStartButtonText
 		pressedButton.frame, pressedButtonText.frame = lang * 2 + 1, lang * 2 + 1
-		balance:setParam("start")
 		soundStartKey:play()
 	elseif spriteStopButton:isPointInside(x, y) then
 		-- send "stop" command
@@ -490,10 +498,13 @@ end
 
 function onMainScreenMouseUp(x, y, key)
 	if pressedButton then
-		pressedButton.frame = 0
-		if pressedButton == spriteUser1 then
+		if pressedButton == spriteStartButton and pressedButton:isPointInside(x, y) then
+			balance:setParam("start")
+		elseif pressedButton == spriteUser1 then
 			spriteUser2.frame = 0
 		end
+
+		pressedButton.frame = 0
 		if pressedButtonText then
 			pressedButtonText.frame = lang * 2
 		end

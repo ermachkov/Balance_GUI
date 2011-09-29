@@ -141,7 +141,9 @@ function main_screen_createSprites()
 	spriteUser1Text = Sprite("spriteUser1Text", 1008, 718)
 	spriteErrorPopupBack = Sprite("spriteErrorPopupBack", 545, -18)
 	spriteErrorPopupIcon = Sprite("spriteErrorPopupIcon", 559, 25)
-	spriteErrorPopupText = Sprite("spriteErrorPopupText", 653, 76)
+	spriteErrorPopupText = Sprite("spriteErrorPopupText", 663, 79)
+	spriteAutoAluPopupBack = Sprite("spriteAutoAluPopupBack", 377, -18)
+	spriteAutoAluPopupIcon = Sprite("spriteAutoAluPopupIcon", 413, 23)
 	spriteMessageBack = Sprite("spriteMessageBack", 290, 293)
 	spriteMessageText = Sprite("spriteMessageText", 473, 321)
 	spriteMessageOkButton = Sprite("spriteMessageOkButton", 568, 421)
@@ -158,6 +160,9 @@ function main_screen_createSprites()
 	spriteSpeedometerArrow = Sprite("spriteSpeedometerArrow", 922, 408)
 	spriteSpeedometerCenter = Sprite("spriteSpeedometerCenter", 954, 437)
 	spriteProgressText = Sprite("spriteProgressText", 220, 377)
+	spriteCoverMessageBack = Sprite("spriteCoverMessageBack", 250, 314)
+	spriteCoverMessageText = Sprite("spriteCoverMessageText", 514, 427)
+	spriteCoverMessage = Sprite("spriteCoverMessage", 345, 216)
 	spriteStartPanel1 = Sprite("spriteStartPanel1", 1116, 496)
 	spriteStartPanel0 = Sprite("spriteStartPanel0", 93, 496)
 	spriteMouseStatusIcon = Sprite("spriteMouseStatusIcon", 994, 741)
@@ -326,6 +331,8 @@ function main_screen_deleteSprites()
 	spriteErrorPopupBack = nil
 	spriteErrorPopupIcon = nil
 	spriteErrorPopupText = nil
+	spriteAutoAluPopupBack = nil
+	spriteAutoAluPopupIcon = nil
 	spriteMessageBack = nil
 	spriteMessageText = nil
 	spriteMessageOkButton = nil
@@ -342,6 +349,9 @@ function main_screen_deleteSprites()
 	spriteSpeedometerArrow = nil
 	spriteSpeedometerCenter = nil
 	spriteProgressText = nil
+	spriteCoverMessageBack = nil
+	spriteCoverMessageText = nil
+	spriteCoverMessage = nil
 	spriteStartPanel1 = nil
 	spriteStartPanel0 = nil
 	spriteMouseStatusIcon = nil
