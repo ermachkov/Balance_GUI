@@ -75,6 +75,9 @@ sprites =
 	["spriteRightBottomArrow2", ["right_bottom_arrow_2_off", "right_bottom_arrow_2_on"]],
 	["spriteRightWeight2", ["right_weight_2_normal", "right_weight_2_pressed"]],
 
+	["spriteAutoAluPopupBack", ["auto_alu_popup_back"]],
+	["spriteAutoAluPopupIcon", ["auto_alu_popup_icon"]],
+
 	["spriteErrorPopupBack", ["error_popup_back"]],
 	["spriteErrorPopupIcon", ["error_popup_icon"]],
 	["spriteErrorPopupText", ["error_popup_text"]]

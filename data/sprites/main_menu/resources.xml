@@ -30,22 +30,22 @@
 			<grid pos="296,740" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteNetmaskIcon">
+	<sprite name="spriteGatewayIcon">
 		<image file="texture6.png">
 			<grid pos="148,740" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteLocalAddrIcon">
+	<sprite name="spriteNetmaskIcon">
 		<image file="texture6.png">
 			<grid pos="0,740" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteServerAddrIcon">
+	<sprite name="spriteLocalAddrIcon">
 		<image file="texture6.png">
 			<grid pos="0,592" size="147,147"/>
 		</image>
 	</sprite>
-	<sprite name="spriteGatewayIcon">
+	<sprite name="spriteServerAddrIcon">
 		<image file="texture6.png">
 			<grid pos="0,444" size="147,147"/>
 		</image>

@@ -7,5 +7,11 @@ sprites =
 	["spriteSpeedometerArrow", ["speedometer_arrow"]],
 	["spriteSpeedometerCenter", ["speedometer_center"]],
 	["spriteSpeedometerText", ["speedometer_text_en", "speedometer_text_ru"]],
-	["spriteSpeedometerSpeed", ["speedometer_speed"]]
+	["spriteSpeedometerSpeed", ["speedometer_speed"]],
+
+	["spriteCoverMessageBack", ["cover_message_back"]],
+	["spriteCoverMessageText", ["cover_message_text"]],
+
+	// :-D
+	["spriteCoverMessage", ["cover_message"]]
 ]

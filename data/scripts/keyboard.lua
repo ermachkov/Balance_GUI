@@ -291,17 +291,6 @@ function onKeyboardMouseDown(x, y, key)
 			if key:isPointInside(x, y) then
 				pressedKey, pressedKeyText = key, keyTexts[i]
 				pressedKey.frame, pressedKeyText.frame = 1, 1
-				if key == spriteKeyEnter then
-					onEnterKeyPress()
-				elseif key == spriteKeyBackspace then
-					onBackspaceKeyPress()
-				elseif key == spriteKeyClear then
-					onClearKeyPress()
-				elseif key == spriteKeyPoint then
-					onPointKeyPress()
-				else
-					onNumericKeyPress(tostring(i - 1))
-				end
 				soundKey:play()
 				break
 			end
@@ -326,8 +315,29 @@ function onKeyboardMouseUp(x, y, key)
 		return false
 	end
 
+	-- adjust the mouse coordinates
+	x, y = x - endX, y - endY
+
 	-- release the pressed key if any
 	if pressedKey then
+		if pressedKey:isPointInside(x, y) then
+			if pressedKey == spriteKeyEnter then
+				onEnterKeyPress()
+			elseif pressedKey == spriteKeyBackspace then
+				onBackspaceKeyPress()
+			elseif pressedKey == spriteKeyClear then
+				onClearKeyPress()
+			elseif pressedKey == spriteKeyPoint then
+				onPointKeyPress()
+			else
+				for i, key in ipairs(keys) do
+					if key == pressedKey then
+						onNumericKeyPress(tostring(i - 1))
+						break
+					end
+				end
+			end
+		end
 		pressedKey.frame, pressedKeyText.frame = 0, 0
 		pressedKey, pressedKeyText = nil, nil
 	end
