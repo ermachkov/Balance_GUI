@@ -10,6 +10,7 @@ TRANSLATION_EN =
 
     ["{balance_calibration_message}"] = "Please, perform calibration without\na wheel before using the machine.\nCalibrate now ?",
 
+    ["invalid_protocol"] = "Invalid protocol.\nThe program detect incompatible version\nof protocol between control board and\ngraphics program.",
 
    ["{round_header}"] = "Round mode",
    ["{round_text}"] = "Weight's rounding to specified value",
