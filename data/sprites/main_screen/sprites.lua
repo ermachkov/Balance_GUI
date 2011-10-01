@@ -194,7 +194,7 @@ function main_screen_createSprites()
 	spriteWheelArrowForwardText1 = Sprite("spriteWheelArrowForwardText1", 322, 246)
 	spriteWheelArrowMeasure3 = Sprite("spriteWheelArrowMeasure3", 327, 358)
 	spriteWheelArrowMeasure2 = Sprite("spriteWheelArrowMeasure2", 266, 328)
-	spriteWheelArrowMeasure1 = Sprite("spriteWheelArrowMeasure1", 215, 295)
+	spriteWheelArrowMeasure1 = Sprite("spriteWheelArrowMeasure1", 235, 295)
 end
 
 function main_screen_deleteSprites()

@@ -271,6 +271,11 @@ function onMainScreenUpdate(delta)
 	spriteMainScreenBack21:draw()
 	graphics:setBlendMode(BLEND_ALPHA)
 
+	-- retrieve angles
+	local currAngle = balance:getIntParam("wheelangle")
+	local angle1, angle2, angle3 = balance:getIntParam("wheelangle0"), balance:getIntParam("wheelangle1"), balance:getIntParam("wheelangle2")
+	local angleEpsilon = balance:getIntParam("angleepsilon")
+
 	-- wheel
 	spriteWheelBack:draw()
 	if balanceState == STATE_RULER then
@@ -298,7 +303,7 @@ function onMainScreenUpdate(delta)
 			fontWheel:drawText(spriteWheelArrowForwardText3.x, spriteWheelArrowForwardText3.y, balance:getIntParam("rstick"), 0.0, 0.0, 0.0)
 		elseif balanceSubstate == RULER_SHOW_L1 then
 			local dist = balance:getIntParam("weightdist")
-			local flag = math.abs(balance:getIntParam("wheelangle") - balance:getIntParam("wheelangle0")) <= balance:getIntParam("angleepsilon")
+			local flag = math.abs(currAngle - angle1) <= angleEpsilon
 			if layout == LAYOUT_1_3 then
 				spriteWheelArrowInstall1.frame = dist >= 0 and 0 or 1
 				spriteWheelArrowInstall1:draw()
@@ -322,7 +327,7 @@ function onMainScreenUpdate(delta)
 			end
 		elseif balanceSubstate == RULER_SHOW_L2 or balanceSubstate == RULER_SHOW_L3 then
 			local dist = balance:getIntParam("weightdist")
-			local flag = math.abs(balance:getIntParam("wheelangle") - (balanceSubstate == RULER_SHOW_L2 and balance:getIntParam("wheelangle1") or balance:getIntParam("wheelangle2"))) <= balance:getIntParam("angleepsilon")
+			local flag = math.abs(currAngle - (balanceSubstate == RULER_SHOW_L2 and angle2 or angle3)) <= angleEpsilon
 			spriteWheelArrowInstall3.frame = dist >= 0 and 0 or 1
 			spriteWheelArrowInstall3:draw()
 			spriteWheelWeight3.frame = flag and 1 or 0
@@ -331,6 +336,32 @@ function onMainScreenUpdate(delta)
 				fontWheel:drawText(spriteWheelArrowForwardText3.x, spriteWheelArrowForwardText3.y, math.abs(dist), 0.0, 0.0, 0.0)
 			else
 				fontWheel:drawText(spriteWheelArrowBackwardText3.x, spriteWheelArrowBackwardText3.y, math.abs(dist), 0.0, 0.0, 0.0)
+			end
+		end
+	else
+		-- show left weight on wheel
+		if layout == LAYOUT_1_3 or layout == LAYOUT_1_4 or layout == LAYOUT_1_5 then
+			if balance:getIntParam("rndweight0") ~= 0 then
+				spriteWheelWeight1.frame = (math.abs(currAngle - angle1) <= angleEpsilon) and 1 or 0
+				spriteWheelWeight1:draw()
+			end
+		elseif layout == LAYOUT_2_4 or layout == LAYOUT_2_5 then
+			if balance:getIntParam("rndweight0") ~= 0 then
+				spriteWheelWeight2.frame = (math.abs(currAngle - angle1) <= angleEpsilon) and 1 or 0
+				spriteWheelWeight2:draw()
+			end
+		end
+
+		-- show right weight on wheel
+		if layout == LAYOUT_1_4 or layout == LAYOUT_2_4 then
+			if balance:getIntParam("rndweight1") ~= 0 then
+				spriteWheelWeight4.frame = (math.abs(currAngle - angle2) <= angleEpsilon) and 1 or 0
+				spriteWheelWeight4:draw()
+			end
+		elseif layout == LAYOUT_1_5 or layout == LAYOUT_2_5 then
+			if balance:getIntParam("rndweight1") ~= 0 then
+				spriteWheelWeight5.frame = (math.abs(currAngle - angle2) <= angleEpsilon) and 1 or 0
+				spriteWheelWeight5:draw()
 			end
 		end
 	end
