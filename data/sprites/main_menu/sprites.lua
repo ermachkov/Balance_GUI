@@ -46,6 +46,8 @@ function main_menu_createSprites()
 	spriteBalanceCal0Icon = Sprite("spriteBalanceCal0Icon", 0, 0)
 	spriteBalanceCalIcon = Sprite("spriteBalanceCalIcon", 0, 0)
 	spriteBalanceFastCalIcon = Sprite("spriteBalanceFastCalIcon", 0, 0)
+	spriteTrueMode1Icon = Sprite("spriteTrueMode1Icon", 0, 0)
+	spriteTrueMode0Icon = Sprite("spriteTrueMode0Icon", 0, 0)
 	spriteAutoAlu1Icon = Sprite("spriteAutoAlu1Icon", 1, 0)
 	spriteAutoAlu0Icon = Sprite("spriteAutoAlu0Icon", 1, 0)
 	spriteDirection1Icon = Sprite("spriteDirection1Icon", 0, 0)
@@ -144,6 +146,8 @@ function main_menu_deleteSprites()
 	spriteBalanceCal0Icon = nil
 	spriteBalanceCalIcon = nil
 	spriteBalanceFastCalIcon = nil
+	spriteTrueMode1Icon = nil
+	spriteTrueMode0Icon = nil
 	spriteAutoAlu1Icon = nil
 	spriteAutoAlu0Icon = nil
 	spriteDirection1Icon = nil

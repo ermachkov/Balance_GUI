@@ -162,7 +162,6 @@ function main_screen_createSprites()
 	spriteProgressText = Sprite("spriteProgressText", 220, 377)
 	spriteCoverMessageBack = Sprite("spriteCoverMessageBack", 250, 314)
 	spriteCoverMessageText = Sprite("spriteCoverMessageText", 514, 427)
-	spriteCoverMessage = Sprite("spriteCoverMessage", 345, 216)
 	spriteStartPanel1 = Sprite("spriteStartPanel1", 1116, 496)
 	spriteStartPanel0 = Sprite("spriteStartPanel0", 93, 496)
 	spriteMouseStatusIcon = Sprite("spriteMouseStatusIcon", 994, 741)
@@ -174,17 +173,22 @@ function main_screen_createSprites()
 	spriteStartWorkText = Sprite("spriteStartWorkText", 362, 540)
 	spriteStartWorkButton = Sprite("spriteStartWorkButton", 232, 365)
 	spriteWheelBack = Sprite("spriteWheelBack", 448, 110)
-	spriteWheelText = Sprite("spriteWheelText", 237, 238)
-	spriteWheelRightWeight = Sprite("spriteWheelRightWeight", 633, 348)
-	spriteWheelRightCircle = Sprite("spriteWheelRightCircle", 618, 331)
-	spriteWheelRightArrow = Sprite("spriteWheelRightArrow", 343, 331)
-	spriteWheelLeftWeight = Sprite("spriteWheelLeftWeight", 529, 341)
-	spriteWheelLeftCircle = Sprite("spriteWheelLeftCircle", 513, 323)
-	spriteWheelLeftArrow = Sprite("spriteWheelLeftArrow", 233, 322)
-	spriteWheelOffsetTarget3 = Sprite("spriteWheelOffsetTarget3", 628, 339)
-	spriteWheelOffsetTarget2 = Sprite("spriteWheelOffsetTarget2", 523, 332)
-	spriteWheelOffsetTarget1 = Sprite("spriteWheelOffsetTarget1", 501, 311)
-	spriteWheelOffsetArrow = Sprite("spriteWheelOffsetArrow", 221, 299)
+	spriteWheelText = Sprite("spriteWheelText", 237, 233)
+	spriteWheelTarget5 = Sprite("spriteWheelTarget5", 793, 315)
+	spriteWheelTarget4 = Sprite("spriteWheelTarget4", 744, 340)
+	spriteWheelTarget3 = Sprite("spriteWheelTarget3", 679, 373)
+	spriteWheelTarget2 = Sprite("spriteWheelTarget2", 539, 345)
+	spriteWheelTarget1 = Sprite("spriteWheelTarget1", 488, 310)
+	spriteWheelWeight5 = Sprite("spriteWheelWeight5", 793, 298)
+	spriteWheelWeight4 = Sprite("spriteWheelWeight4", 744, 341)
+	spriteWheelWeight3 = Sprite("spriteWheelWeight3", 679, 374)
+	spriteWheelWeight2 = Sprite("spriteWheelWeight2", 539, 346)
+	spriteWheelWeight1 = Sprite("spriteWheelWeight1", 504, 294)
+	spriteWheelArrow5 = Sprite("spriteWheelArrow5", 520, 300)
+	spriteWheelArrow4 = Sprite("spriteWheelArrow4", 473, 327)
+	spriteWheelArrow3 = Sprite("spriteWheelArrow3", 408, 359)
+	spriteWheelArrow2 = Sprite("spriteWheelArrow2", 267, 329)
+	spriteWheelArrow1 = Sprite("spriteWheelArrow1", 216, 296)
 end
 
 function main_screen_deleteSprites()
@@ -351,7 +355,6 @@ function main_screen_deleteSprites()
 	spriteProgressText = nil
 	spriteCoverMessageBack = nil
 	spriteCoverMessageText = nil
-	spriteCoverMessage = nil
 	spriteStartPanel1 = nil
 	spriteStartPanel0 = nil
 	spriteMouseStatusIcon = nil
@@ -364,14 +367,19 @@ function main_screen_deleteSprites()
 	spriteStartWorkButton = nil
 	spriteWheelBack = nil
 	spriteWheelText = nil
-	spriteWheelRightWeight = nil
-	spriteWheelRightCircle = nil
-	spriteWheelRightArrow = nil
-	spriteWheelLeftWeight = nil
-	spriteWheelLeftCircle = nil
-	spriteWheelLeftArrow = nil
-	spriteWheelOffsetTarget3 = nil
-	spriteWheelOffsetTarget2 = nil
-	spriteWheelOffsetTarget1 = nil
-	spriteWheelOffsetArrow = nil
+	spriteWheelTarget5 = nil
+	spriteWheelTarget4 = nil
+	spriteWheelTarget3 = nil
+	spriteWheelTarget2 = nil
+	spriteWheelTarget1 = nil
+	spriteWheelWeight5 = nil
+	spriteWheelWeight4 = nil
+	spriteWheelWeight3 = nil
+	spriteWheelWeight2 = nil
+	spriteWheelWeight1 = nil
+	spriteWheelArrow5 = nil
+	spriteWheelArrow4 = nil
+	spriteWheelArrow3 = nil
+	spriteWheelArrow2 = nil
+	spriteWheelArrow1 = nil
 end

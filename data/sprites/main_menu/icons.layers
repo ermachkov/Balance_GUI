@@ -15,6 +15,8 @@ sprites =
 	["spriteDirection1Icon", ["direction_1_icon"]],
 	["spriteAutoAlu0Icon", ["auto_alu_0_icon"]],
 	["spriteAutoAlu1Icon", ["auto_alu_1_icon"]],
+	["spriteTrueMode0Icon", ["true_mode_0_icon"]],
+	["spriteTrueMode1Icon", ["true_mode_1_icon"]],
 
 	["spriteBalanceFastCalIcon", ["balance_fast_cal_icon"]],
 

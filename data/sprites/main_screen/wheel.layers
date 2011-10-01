@@ -3,16 +3,21 @@ sprites =
 	["spriteWheelBack", ["wheel_back"]],
 	["spriteWheelText", ["wheel_text"]],
 
-	["spriteWheelOffsetArrow", ["wheel_offset_arrow"]],
-	["spriteWheelOffsetTarget1", ["wheel_offset_target_1"]],
-	["spriteWheelOffsetTarget2", ["wheel_offset_target_2"]],
-	["spriteWheelOffsetTarget3", ["wheel_offset_target_3"]],
+	["spriteWheelArrow1", ["wheel_arrow_forward_1", "wheel_arrow_backward_1"]],
+	["spriteWheelArrow2", ["wheel_arrow_forward_2", "wheel_arrow_backward_2"]],
+	["spriteWheelArrow3", ["wheel_arrow_forward_3", "wheel_arrow_backward_3"]],
+	["spriteWheelArrow4", ["wheel_arrow_forward_4", "wheel_arrow_backward_4"]],
+	["spriteWheelArrow5", ["wheel_arrow_forward_5", "wheel_arrow_backward_5"]],
 
-	["spriteWheelLeftArrow", ["wheel_left_arrow_forward", "wheel_left_arrow_backward"]],
-	["spriteWheelLeftCircle", ["wheel_left_circle"]],
-	["spriteWheelLeftWeight", ["wheel_left_weight"]],
+	["spriteWheelTarget1", ["wheel_target_1"]],
+	["spriteWheelTarget2", ["wheel_target_2"]],
+	["spriteWheelTarget3", ["wheel_target_3"]],
+	["spriteWheelTarget4", ["wheel_target_4"]],
+	["spriteWheelTarget5", ["wheel_target_5"]],
 
-	["spriteWheelRightArrow", ["wheel_right_arrow_forward", "wheel_right_arrow_backward"]],
-	["spriteWheelRightCircle", ["wheel_right_circle"]],
-	["spriteWheelRightWeight", ["wheel_right_weight"]]
+	["spriteWheelWeight1", ["wheel_weight_inactive_1", "wheel_weight_active_1"]],
+	["spriteWheelWeight2", ["wheel_weight_inactive_2", "wheel_weight_active_2"]],
+	["spriteWheelWeight3", ["wheel_weight_inactive_3", "wheel_weight_active_3"]],
+	["spriteWheelWeight4", ["wheel_weight_inactive_4", "wheel_weight_active_4"]],
+	["spriteWheelWeight5", ["wheel_weight_inactive_5", "wheel_weight_active_5"]]
 ]

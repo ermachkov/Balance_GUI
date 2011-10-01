@@ -16,7 +16,7 @@ local scrollX, scrollY
 local oldUser
 local keyboardActive
 local menuIcons, menuLabels
-local startModeIcons, rotationModeIcons, pedalModeIcons, directionIcons, autoAluIcons
+local startModeIcons, rotationModeIcons, pedalModeIcons, directionIcons, autoAluIcons, trueModeIcons
 local languageIcons
 local menuButtons
 local clipX, clipY, clipWidth, clipHeight
@@ -197,6 +197,24 @@ local function initMenus()
 					text = tr("{auto_alu_1_text}"),
 					onClick = function() balance:setIntParam("autoalu", 1) end
 				}
+			},
+			{
+				header = tr("{true_mode_header}"),
+				text = tr("{true_mode_text}"),
+				onUpdate = function(item) item.selItem = balance:getIntParam("truemode") + 1; item.icon = trueModeIcons[item.selItem] end,
+				{
+					icon = spriteTrueMode0Icon,
+					header = tr("{true_mode_0_header}"),
+					text = tr("{true_mode_0_text}"),
+					onUpdate = function(item) item.parent.onUpdate(item.parent) end,
+					onClick = function() balance:setIntParam("truemode", 0) end
+				},
+				{
+					icon = spriteTrueMode1Icon,
+					header = tr("{true_mode_1_header}"),
+					text = tr("{true_mode_1_text}"),
+					onClick = function() balance:setIntParam("truemode", 1) end
+				}
 			}
 		},
 
@@ -325,6 +343,24 @@ local function initMenus()
 					header = tr("{auto_alu_1_header}"),
 					text = tr("{auto_alu_1_text}"),
 					onClick = function() balance:setIntParam("autoalu", 1) end
+				}
+			},
+			{
+				header = tr("{true_mode_header}"),
+				text = tr("{true_mode_text}"),
+				onUpdate = function(item) item.selItem = balance:getIntParam("truemode") + 1; item.icon = trueModeIcons[item.selItem] end,
+				{
+					icon = spriteTrueMode0Icon,
+					header = tr("{true_mode_0_header}"),
+					text = tr("{true_mode_0_text}"),
+					onUpdate = function(item) item.parent.onUpdate(item.parent) end,
+					onClick = function() balance:setIntParam("truemode", 0) end
+				},
+				{
+					icon = spriteTrueMode1Icon,
+					header = tr("{true_mode_1_header}"),
+					text = tr("{true_mode_1_text}"),
+					onClick = function() balance:setIntParam("truemode", 1) end
 				}
 			}
 		},
@@ -886,6 +922,7 @@ function onMainMenuUpdate(delta)
 		pedalModeIcons = {spritePedalMode0Icon, spritePedalMode1Icon}
 		directionIcons = {spriteDirection0Icon, spriteDirection1Icon}
 		autoAluIcons = {spriteAutoAlu0Icon, spriteAutoAlu1Icon}
+		trueModeIcons = {spriteTrueMode0Icon, spriteTrueMode1Icon}
 		languageIcons = {spriteEnglishIcon, spriteRussianIcon, spriteChineseIcon}
 		menuButtons = {spriteMainMenuBackButton, spriteMainMenuCloseButton, spriteMainMenuUpButton, spriteMainMenuDownButton}
 
@@ -993,7 +1030,7 @@ function onMainMenuUpdate(delta)
 			end
 
 			-- draw item
-			drawMenuItem(i, i ~= selItem and (i ~= selMenu.selItem and ITEM_NORMAL or ITEM_SELECTED) or ITEM_PRESSED, alpha)
+			drawMenuItem(i, (i ~= selItem or scrollActive) and (i ~= selMenu.selItem and ITEM_NORMAL or ITEM_SELECTED) or ITEM_PRESSED, alpha)
 		end
 
 		-- reset the clip rectangle

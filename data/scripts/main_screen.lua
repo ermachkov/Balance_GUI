@@ -102,7 +102,6 @@ function drawRightWeight()
 	-- determine weight and angle
 	local weight, preciseWeight, angle
 	local weight2, preciseWeight2, angle2
-	local showPrimaryAngle = true
 	if balanceState ~= STATE_BALANCE_CAL2 then
 		weight = balance:getIntParam("rndweight1")
 		preciseWeight = balance:getFloatParam("weight1")
@@ -111,19 +110,6 @@ function drawRightWeight()
 		weight2 = balance:getIntParam("rndweight2")
 		preciseWeight2 = balance:getFloatParam("weight2")
 		angle2 = balance:getIntParam("wheelangle2")
-
-		-- select between primary and secondary angles
-		if weight2 ~= 0 then
-			local diff1 = math.abs(currAngle - angle)
-			if diff1 > NUM_ANGLES / 2 then
-				diff1 = NUM_ANGLES - diff1
-			end
-			local diff2 = math.abs(currAngle - angle2)
-			if diff2 > NUM_ANGLES / 2 then
-				diff2 = NUM_ANGLES - diff2
-			end
-			showPrimaryAngle = diff1 <= diff2
-		end
 	else
 		weight = balance:getIntParam("calweight")
 		preciseWeight = weight
@@ -134,8 +120,26 @@ function drawRightWeight()
 		angle2 = 0
 	end
 
+	-- select between primary and secondary angles
+	local showPrimaryAngle
+	if weight2 == 0 then
+		showPrimaryAngle = true
+	elseif weight == 0 then
+		showPrimaryAngle = false
+	else
+		local diff1 = math.abs(currAngle - angle)
+		if diff1 > NUM_ANGLES / 2 then
+			diff1 = NUM_ANGLES - diff1
+		end
+		local diff2 = math.abs(currAngle - angle2)
+		if diff2 > NUM_ANGLES / 2 then
+			diff2 = NUM_ANGLES - diff2
+		end
+		showPrimaryAngle = diff1 <= diff2
+	end
+
 	-- draw indicator
-	if showAngles and weight ~= 0 then
+	if showAngles and (weight ~= 0 or weight2 ~= 0) then
 		if showPrimaryAngle then
 			spriteRightTopAngle.frame, spriteRightBottomAngle.frame, spriteRightTopArrow.frame, spriteRightBottomArrow.frame = getAngleIndices(currAngle, angle)
 		else
@@ -145,8 +149,9 @@ function drawRightWeight()
 		spriteRightTopAngle.frame, spriteRightBottomAngle.frame, spriteRightTopArrow.frame, spriteRightBottomArrow.frame = 0, 0, 0, 0
 	end
 
+	local showWeight2 = balance:getIntParam("mode") == MODE_ALU and balance:getIntParam("split") ~= 0
 	drawHorzSplittedSprite(spriteRightTopAngle, spriteRightBottomAngle)
-	if weight2 ~= 0 then
+	if showWeight2 then
 		spriteRightBack2:draw()
 	end
 
@@ -167,19 +172,19 @@ function drawRightWeight()
 	end
 
 	spriteRightWeight:draw()
-	if weight2 ~= 0 then
+	if showWeight2 then
 		spriteRightWeight2:draw()
 	end
 
 	if showWeights then
 		if balanceState == STATE_IDLE and pressedButton == spriteStopButton then
 			drawCenteredText(fontWeights, spriteRightWeight, formatWeight(preciseWeight), 0.0, 0.0, 0.0)
-			if weight2 ~= 0 then
+			if showWeight2 then
 				drawCenteredText(fontWeights, spriteRightWeight2, formatWeight(preciseWeight2), 0.0, 0.0, 0.0)
 			end
 		else
 			drawCenteredText(fontWeights, spriteRightWeight, formatNumber(weight), 0.0, 0.0, 0.0)
-			if weight2 ~= 0 then
+			if showWeight2 then
 				drawCenteredText(fontWeights, spriteRightWeight2, formatNumber(weight2), 0.0, 0.0, 0.0)
 			end
 		end
@@ -270,41 +275,47 @@ function onMainScreenUpdate(delta)
 	spriteWheelBack:draw()
 	if balanceState == STATE_RULER then
 		if balanceSubstate == RULER_MEASURE or balanceSubstate == RULER_DONTSHOW then
-			if (mode ~= MODE_STAT and (layout == LAYOUT_1_3 or layout == LAYOUT_1_4 or layout == LAYOUT_1_5)) or (mode == MODE_STAT and layout == LAYOUT_1) then
-				spriteWheelOffsetArrow:draw()
-				spriteWheelOffsetTarget1:draw()
-			elseif (mode ~= MODE_STAT and (layout == LAYOUT_2_3 or layout == LAYOUT_2_4 or layout == LAYOUT_2_5)) or (mode == MODE_STAT and layout == LAYOUT_2) then
-				spriteWheelLeftArrow.frame = 0
-				spriteWheelLeftArrow:draw()
-				spriteWheelOffsetTarget2:draw()
+			if (mode ~= MODE_STAT and layout ~= LAYOUT_2_3) or (mode == MODE_STAT and layout == LAYOUT_1) then
+				spriteWheelArrow1.frame = 0
+				spriteWheelArrow1:draw()
+				spriteWheelTarget1:draw()
+			elseif (mode ~= MODE_STAT and layout == LAYOUT_2_3) or (mode == MODE_STAT and layout == LAYOUT_2) then
+				spriteWheelArrow2.frame = 0
+				spriteWheelArrow2:draw()
+				spriteWheelTarget2:draw()
 			elseif mode == MODE_STAT and layout == LAYOUT_3 then
-				spriteWheelRightArrow.frame = 0
-				spriteWheelRightArrow:draw()
-				spriteWheelOffsetTarget3:draw()
+				spriteWheelArrow3.frame = 0
+				spriteWheelArrow3:draw()
+				spriteWheelTarget3:draw()
 			end
 			fontWheel:drawText(spriteWheelText.x, spriteWheelText.y, balance:getIntParam("rofs"), 0.0, 0.0, 0.0)
 		elseif balanceSubstate == RULER_MEASURE_L then
-			spriteWheelRightArrow.frame = 0
-			spriteWheelRightArrow:draw()
-			spriteWheelOffsetTarget3:draw()
+			spriteWheelArrow3.frame = 0
+			spriteWheelArrow3:draw()
+			spriteWheelTarget3:draw()
 			fontWheel:drawText(spriteWheelText.x, spriteWheelText.y, balance:getIntParam("rstick"), 0.0, 0.0, 0.0)
 		elseif balanceSubstate == RULER_SHOW_L1 then
 			local dist = balance:getIntParam("weightdist")
-			spriteWheelLeftArrow.frame = dist >= 0 and 0 or 1
-			spriteWheelLeftArrow:draw()
-			spriteWheelLeftCircle:draw()
-			if math.abs(balance:getIntParam("wheelangle") - balance:getIntParam("wheelangle0")) <= balance:getIntParam("angleepsilon") then
-				spriteWheelLeftWeight:draw()
+			local flag = math.abs(balance:getIntParam("wheelangle") - balance:getIntParam("wheelangle0")) <= balance:getIntParam("angleepsilon")
+			if layout == LAYOUT_1_3 then
+				spriteWheelArrow1.frame = dist >= 0 and 0 or 1
+				spriteWheelArrow1:draw()
+				spriteWheelWeight1.frame = flag and 1 or 0
+				spriteWheelWeight1:draw()
+			else
+				spriteWheelArrow2.frame = dist >= 0 and 0 or 1
+				spriteWheelArrow2:draw()
+				spriteWheelWeight2.frame = flag and 1 or 0
+				spriteWheelWeight2:draw()
 			end
 			fontWheel:drawText(spriteWheelText.x, spriteWheelText.y, dist, 0.0, 0.0, 0.0)
 		elseif balanceSubstate == RULER_SHOW_L2 or balanceSubstate == RULER_SHOW_L3 then
 			local dist = balance:getIntParam("weightdist")
-			spriteWheelRightArrow.frame = dist >= 0 and 0 or 1
-			spriteWheelRightArrow:draw()
-			spriteWheelRightCircle:draw()
-			if math.abs(balance:getIntParam("wheelangle") - (balanceSubstate == RULER_SHOW_L2 and balance:getIntParam("wheelangle1") or balance:getIntParam("wheelangle2"))) <= balance:getIntParam("angleepsilon") then
-				spriteWheelRightWeight:draw()
-			end
+			local flag = math.abs(balance:getIntParam("wheelangle") - (balanceSubstate == RULER_SHOW_L2 and balance:getIntParam("wheelangle1") or balance:getIntParam("wheelangle2"))) <= balance:getIntParam("angleepsilon")
+			spriteWheelArrow3.frame = dist >= 0 and 0 or 1
+			spriteWheelArrow3:draw()
+			spriteWheelWeight3.frame = flag and 1 or 0
+			spriteWheelWeight3:draw()
 			fontWheel:drawText(spriteWheelText.x, spriteWheelText.y, dist, 0.0, 0.0, 0.0)
 		end
 	end
@@ -415,7 +426,6 @@ function onMainScreenUpdate(delta)
 	if (balanceState == STATE_BALANCE or (balanceState >= STATE_BALANCE_CAL0 and balanceState <= STATE_BALANCE_CAL3)) and balanceSubstate == BALANCE_WAIT_COVER then
 		spriteCoverMessageBack:draw()
 		drawCenteredText(fontSizes, spriteCoverMessageText, tr("PUSH COVER!"), 69 / 255, 69 / 255, 69 / 255)
-		spriteCoverMessage:draw()
 	end
 end
 

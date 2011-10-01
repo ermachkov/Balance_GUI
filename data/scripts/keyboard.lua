@@ -200,7 +200,7 @@ function onKeyboardUpdate(delta)
 		drawMenuItem(currItem, ITEM_NORMAL, 1.0)
 	elseif currType == TYPE_INT or currType == TYPE_FLOAT then
 		-- draw the selected size
-		local text = formatNumber(balance:getFloatParam(keyboardParam))
+		local text = formatNumber(balance:getFloatParam(keyboardParam == "stick" and "realstick" or keyboardParam))
 		if keyboardParam == "width" or keyboardParam == "stick" then
 			spriteWidthStickBack:draw()
 			if keyboardParam == "stick" then
