@@ -1,13 +1,22 @@
 sprites =
 [
 	["spriteWheelBack", ["wheel_back"]],
-	["spriteWheelText", ["wheel_text"]],
 
-	["spriteWheelArrow1", ["wheel_arrow_forward_1", "wheel_arrow_backward_1"]],
-	["spriteWheelArrow2", ["wheel_arrow_forward_2", "wheel_arrow_backward_2"]],
-	["spriteWheelArrow3", ["wheel_arrow_forward_3", "wheel_arrow_backward_3"]],
-	["spriteWheelArrow4", ["wheel_arrow_forward_4", "wheel_arrow_backward_4"]],
-	["spriteWheelArrow5", ["wheel_arrow_forward_5", "wheel_arrow_backward_5"]],
+	["spriteWheelArrowMeasure1", ["wheel_arrow_measure_1"]],
+	["spriteWheelArrowMeasure2", ["wheel_arrow_measure_2"]],
+	["spriteWheelArrowMeasure3", ["wheel_arrow_measure_3"]],
+
+	["spriteWheelArrowInstall1", ["wheel_arrow_install_forward_1", "wheel_arrow_install_backward_1"]],
+	["spriteWheelArrowInstall2", ["wheel_arrow_install_forward_2", "wheel_arrow_install_backward_2"]],
+	["spriteWheelArrowInstall3", ["wheel_arrow_install_forward_3", "wheel_arrow_install_backward_3"]],
+
+	["spriteWheelArrowForwardText1", ["wheel_arrow_forward_text_1"]],
+	["spriteWheelArrowForwardText2", ["wheel_arrow_forward_text_2"]],
+	["spriteWheelArrowForwardText3", ["wheel_arrow_forward_text_3"]],
+
+	["spriteWheelArrowBackwardText1", ["wheel_arrow_backward_text_1"]],
+	["spriteWheelArrowBackwardText2", ["wheel_arrow_backward_text_2"]],
+	["spriteWheelArrowBackwardText3", ["wheel_arrow_backward_text_3"]],
 
 	["spriteWheelTarget1", ["wheel_target_1"]],
 	["spriteWheelTarget2", ["wheel_target_2"]],

@@ -7,7 +7,7 @@
 		<freetype file="LiberationSans-Bold.ttf" height="72"/>
 	</font>
 	<font name="fontWheel">
-		<freetype file="LiberationSans-Bold.ttf" height="100"/>
+		<freetype file="LiberationSans-Bold.ttf" height="70"/>
 	</font>
 	<font name="fontMessageHeader">
 		<freetype file="LiberationSans-Bold.ttf" height="40"/>

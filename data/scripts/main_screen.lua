@@ -276,47 +276,62 @@ function onMainScreenUpdate(delta)
 	if balanceState == STATE_RULER then
 		if balanceSubstate == RULER_MEASURE or balanceSubstate == RULER_DONTSHOW then
 			if (mode ~= MODE_STAT and layout ~= LAYOUT_2_3) or (mode == MODE_STAT and layout == LAYOUT_1) then
-				spriteWheelArrow1.frame = 0
-				spriteWheelArrow1:draw()
+				spriteWheelArrowMeasure1.frame = 0
+				spriteWheelArrowMeasure1:draw()
 				spriteWheelTarget1:draw()
+				fontWheel:drawText(spriteWheelArrowForwardText1.x, spriteWheelArrowForwardText1.y, balance:getIntParam("rofs"), 0.0, 0.0, 0.0)
 			elseif (mode ~= MODE_STAT and layout == LAYOUT_2_3) or (mode == MODE_STAT and layout == LAYOUT_2) then
-				spriteWheelArrow2.frame = 0
-				spriteWheelArrow2:draw()
+				spriteWheelArrowMeasure2.frame = 0
+				spriteWheelArrowMeasure2:draw()
 				spriteWheelTarget2:draw()
+				fontWheel:drawText(spriteWheelArrowForwardText2.x, spriteWheelArrowForwardText2.y, balance:getIntParam("rofs"), 0.0, 0.0, 0.0)
 			elseif mode == MODE_STAT and layout == LAYOUT_3 then
-				spriteWheelArrow3.frame = 0
-				spriteWheelArrow3:draw()
+				spriteWheelArrowMeasure3.frame = 0
+				spriteWheelArrowMeasure3:draw()
 				spriteWheelTarget3:draw()
+				fontWheel:drawText(spriteWheelArrowForwardText3.x, spriteWheelArrowForwardText3.y, balance:getIntParam("rofs"), 0.0, 0.0, 0.0)
 			end
-			fontWheel:drawText(spriteWheelText.x, spriteWheelText.y, balance:getIntParam("rofs"), 0.0, 0.0, 0.0)
 		elseif balanceSubstate == RULER_MEASURE_L then
-			spriteWheelArrow3.frame = 0
-			spriteWheelArrow3:draw()
+			spriteWheelArrowMeasure3.frame = 0
+			spriteWheelArrowMeasure3:draw()
 			spriteWheelTarget3:draw()
-			fontWheel:drawText(spriteWheelText.x, spriteWheelText.y, balance:getIntParam("rstick"), 0.0, 0.0, 0.0)
+			fontWheel:drawText(spriteWheelArrowForwardText3.x, spriteWheelArrowForwardText3.y, balance:getIntParam("rstick"), 0.0, 0.0, 0.0)
 		elseif balanceSubstate == RULER_SHOW_L1 then
 			local dist = balance:getIntParam("weightdist")
 			local flag = math.abs(balance:getIntParam("wheelangle") - balance:getIntParam("wheelangle0")) <= balance:getIntParam("angleepsilon")
 			if layout == LAYOUT_1_3 then
-				spriteWheelArrow1.frame = dist >= 0 and 0 or 1
-				spriteWheelArrow1:draw()
+				spriteWheelArrowInstall1.frame = dist >= 0 and 0 or 1
+				spriteWheelArrowInstall1:draw()
 				spriteWheelWeight1.frame = flag and 1 or 0
 				spriteWheelWeight1:draw()
+				if dist >= 0 then
+					fontWheel:drawText(spriteWheelArrowForwardText1.x, spriteWheelArrowForwardText1.y, math.abs(dist), 0.0, 0.0, 0.0)
+				else
+					fontWheel:drawText(spriteWheelArrowBackwardText1.x, spriteWheelArrowBackwardText1.y, math.abs(dist), 0.0, 0.0, 0.0)
+				end
 			else
-				spriteWheelArrow2.frame = dist >= 0 and 0 or 1
-				spriteWheelArrow2:draw()
+				spriteWheelArrowInstall2.frame = dist >= 0 and 0 or 1
+				spriteWheelArrowInstall2:draw()
 				spriteWheelWeight2.frame = flag and 1 or 0
 				spriteWheelWeight2:draw()
+				if dist >= 0 then
+					fontWheel:drawText(spriteWheelArrowForwardText2.x, spriteWheelArrowForwardText2.y, math.abs(dist), 0.0, 0.0, 0.0)
+				else
+					fontWheel:drawText(spriteWheelArrowBackwardText2.x, spriteWheelArrowBackwardText2.y, math.abs(dist), 0.0, 0.0, 0.0)
+				end
 			end
-			fontWheel:drawText(spriteWheelText.x, spriteWheelText.y, math.abs(dist), 0.0, 0.0, 0.0)
 		elseif balanceSubstate == RULER_SHOW_L2 or balanceSubstate == RULER_SHOW_L3 then
 			local dist = balance:getIntParam("weightdist")
 			local flag = math.abs(balance:getIntParam("wheelangle") - (balanceSubstate == RULER_SHOW_L2 and balance:getIntParam("wheelangle1") or balance:getIntParam("wheelangle2"))) <= balance:getIntParam("angleepsilon")
-			spriteWheelArrow3.frame = dist >= 0 and 0 or 1
-			spriteWheelArrow3:draw()
+			spriteWheelArrowInstall3.frame = dist >= 0 and 0 or 1
+			spriteWheelArrowInstall3:draw()
 			spriteWheelWeight3.frame = flag and 1 or 0
 			spriteWheelWeight3:draw()
-			fontWheel:drawText(spriteWheelText.x, spriteWheelText.y, math.abs(dist), 0.0, 0.0, 0.0)
+			if dist >= 0 then
+				fontWheel:drawText(spriteWheelArrowForwardText3.x, spriteWheelArrowForwardText3.y, math.abs(dist), 0.0, 0.0, 0.0)
+			else
+				fontWheel:drawText(spriteWheelArrowBackwardText3.x, spriteWheelArrowBackwardText3.y, math.abs(dist), 0.0, 0.0, 0.0)
+			end
 		end
 	end
 
