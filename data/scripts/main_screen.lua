@@ -50,8 +50,8 @@ end
 function drawLeftWeight()
 	-- retrieve the current wheel angle
 	local currAngle = balance:getIntParam("wheelangle")
-	local showWeights = balanceState == STATE_IDLE or (balanceState == STATE_BALANCE or (balanceState >= STATE_BALANCE_CAL0 and balanceState <= STATE_BALANCE_CAL3)) and (balanceSubstate == BALANCE_IDLE or balanceSubstate >= BALANCE_DECEL)
-	local showAngles = balanceState == STATE_IDLE or (balanceState == STATE_BALANCE or (balanceState >= STATE_BALANCE_CAL0 and balanceState <= STATE_BALANCE_CAL3)) and (balanceSubstate == BALANCE_IDLE or balanceSubstate >= BALANCE_AUTO_ROTATION)
+	local showWeights = balanceState == STATE_IDLE or balanceState == STATE_RULER or (balanceState == STATE_BALANCE or (balanceState >= STATE_BALANCE_CAL0 and balanceState <= STATE_BALANCE_CAL3)) and (balanceSubstate == BALANCE_IDLE or balanceSubstate >= BALANCE_DECEL)
+	local showAngles = balanceState == STATE_IDLE or balanceState == STATE_RULER or (balanceState == STATE_BALANCE or (balanceState >= STATE_BALANCE_CAL0 and balanceState <= STATE_BALANCE_CAL3)) and (balanceSubstate == BALANCE_IDLE or balanceSubstate >= BALANCE_AUTO_ROTATION)
 
 	-- determine weight and angle
 	local weight, preciseWeight, angle
@@ -96,8 +96,8 @@ end
 function drawRightWeight()
 	-- retrieve the current wheel angle
 	local currAngle = balance:getIntParam("wheelangle")
-	local showWeights = balanceState == STATE_IDLE or (balanceState == STATE_BALANCE or (balanceState >= STATE_BALANCE_CAL0 and balanceState <= STATE_BALANCE_CAL3)) and (balanceSubstate == BALANCE_IDLE or balanceSubstate >= BALANCE_DECEL)
-	local showAngles = balanceState == STATE_IDLE or (balanceState == STATE_BALANCE or (balanceState >= STATE_BALANCE_CAL0 and balanceState <= STATE_BALANCE_CAL3)) and (balanceSubstate == BALANCE_IDLE or balanceSubstate >= BALANCE_AUTO_ROTATION)
+	local showWeights = balanceState == STATE_IDLE or balanceState == STATE_RULER or (balanceState == STATE_BALANCE or (balanceState >= STATE_BALANCE_CAL0 and balanceState <= STATE_BALANCE_CAL3)) and (balanceSubstate == BALANCE_IDLE or balanceSubstate >= BALANCE_DECEL)
+	local showAngles = balanceState == STATE_IDLE or balanceState == STATE_RULER or (balanceState == STATE_BALANCE or (balanceState >= STATE_BALANCE_CAL0 and balanceState <= STATE_BALANCE_CAL3)) and (balanceSubstate == BALANCE_IDLE or balanceSubstate >= BALANCE_AUTO_ROTATION)
 
 	-- determine weight and angle
 	local weight, preciseWeight, angle
@@ -308,7 +308,7 @@ function onMainScreenUpdate(delta)
 				spriteWheelWeight2.frame = flag and 1 or 0
 				spriteWheelWeight2:draw()
 			end
-			fontWheel:drawText(spriteWheelText.x, spriteWheelText.y, dist, 0.0, 0.0, 0.0)
+			fontWheel:drawText(spriteWheelText.x, spriteWheelText.y, math.abs(dist), 0.0, 0.0, 0.0)
 		elseif balanceSubstate == RULER_SHOW_L2 or balanceSubstate == RULER_SHOW_L3 then
 			local dist = balance:getIntParam("weightdist")
 			local flag = math.abs(balance:getIntParam("wheelangle") - (balanceSubstate == RULER_SHOW_L2 and balance:getIntParam("wheelangle1") or balance:getIntParam("wheelangle2"))) <= balance:getIntParam("angleepsilon")
@@ -316,7 +316,7 @@ function onMainScreenUpdate(delta)
 			spriteWheelArrow3:draw()
 			spriteWheelWeight3.frame = flag and 1 or 0
 			spriteWheelWeight3:draw()
-			fontWheel:drawText(spriteWheelText.x, spriteWheelText.y, dist, 0.0, 0.0, 0.0)
+			fontWheel:drawText(spriteWheelText.x, spriteWheelText.y, math.abs(dist), 0.0, 0.0, 0.0)
 		end
 	end
 
