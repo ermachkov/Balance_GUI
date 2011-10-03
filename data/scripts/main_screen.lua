@@ -546,13 +546,11 @@ function onMainScreenMouseDown(x, y, key)
 		local top = spriteOfsButton.y + spriteOfsButton:getHeight()
 		showKeyboard(left, top, -(spriteKeyboardBack.x + spriteKeyboardBack:getWidth()), top, "offset", TYPE_INT, spriteLeftFasteners)
 		soundKey:play()
-	elseif errorPopup.active and errorPopup.back:isPointInside(x, y) then
-		-- show error journal
-		showErrorJournal()
 	end
 end
 
 function onMainScreenMouseUp(x, y, key)
+	-- release pressed button
 	if pressedButton then
 		if pressedButton == spriteStartButton and pressedButton:isPointInside(x, y) then
 			balance:setParam("start")
@@ -565,5 +563,10 @@ function onMainScreenMouseUp(x, y, key)
 			pressedButtonText.frame = lang * 2
 		end
 		pressedButton, pressedButtonText = nil, nil
+	end
+
+	-- show error journal on popup click
+	if errorPopup.active and errorPopup.back:isPointInside(x, y) then
+		showErrorJournal()
 	end
 end

@@ -161,6 +161,11 @@ local function onNumericKeyPress(digit)
 	end
 end
 
+-- Returns true if keyboard is active
+function isKeyboardActive()
+	return keyboardActive
+end
+
 function onKeyboardInit()
 	-- initialize sprite tables
 	keys = {spriteKey0, spriteKey1, spriteKey2, spriteKey3, spriteKey4, spriteKey5, spriteKey6, spriteKey7, spriteKey8, spriteKey9,
@@ -249,8 +254,8 @@ function onKeyboardUpdate(delta)
 		-- format the text string
 		local clipX = posX + spriteKeyboardDisplayBack.x
 		local clipY = posY + spriteKeyboardDisplayBack.y
-		local pattern = string.format("%%0%ds", 8 + numPoints)
-		local text = string.format(pattern, keyboardValue):gsub("%d", "0")
+		local numZeros = 8 + numPoints - #keyboardValue
+		local text = (numZeros > 0 and string.rep("0", numZeros) .. keyboardValue or keyboardValue):gsub("%d", "0")
 		local width, height = fontKeyboardDisplay:getTextSize(text)
 		local right = clipX + spriteKeyboardDisplayBack:getWidth()
 		local top = clipY + (spriteKeyboardDisplayBack:getHeight() - height) / 2
@@ -320,6 +325,7 @@ function onKeyboardMouseUp(x, y, key)
 
 	-- release the pressed key if any
 	if pressedKey then
+		-- handle key press
 		if pressedKey:isPointInside(x, y) then
 			if pressedKey == spriteKeyEnter then
 				onEnterKeyPress()
@@ -338,8 +344,12 @@ function onKeyboardMouseUp(x, y, key)
 				end
 			end
 		end
-		pressedKey.frame, pressedKeyText.frame = 0, 0
-		pressedKey, pressedKeyText = nil, nil
+
+		-- clear pressed key
+		if pressedKey then
+			pressedKey.frame, pressedKeyText.frame = 0, 0
+			pressedKey, pressedKeyText = nil, nil
+		end
 	end
 
 	return true

@@ -50,6 +50,11 @@ function hideMessage()
 	end
 end
 
+-- Returns true if message box is active
+function isMessageActive()
+	return #messageQueue ~= 0
+end
+
 function onMessageInit()
 end
 

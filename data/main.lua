@@ -6,14 +6,15 @@ end
 -- Processes balance errors
 local function processErrors(newErrors, oldErrors, offset)
 	for i = 0, 31 do
-		if i < 4 or i > 6 then
+		local code = i + offset
+		if code < 5 or code > 7 then
 			local newErr = math.floor(newErrors / 2 ^ i) % 2 ~= 0
 			local oldErr = math.floor(oldErrors / 2 ^ i) % 2 ~= 0
 			if newErr then
 				numErrors = numErrors + 1
 			end
 			if newErr and not oldErr then
-				addErrorToJournal(i + offset)
+				addErrorToJournal(code)
 			end
 		end
 	end
@@ -131,12 +132,14 @@ function onUpdate(delta)
 	balanceState, balanceSubstate = newBalanceState, newBalanceSubstate
 
 	-- track balance errors
-	local newBalanceErrors0, newBalanceErrors1, newBalanceErrors2 = balance:getFloatParam("errors0"), balance:getFloatParam("errors1"), balance:getFloatParam("errors2")
-	numErrors = 0
-	processErrors(newBalanceErrors0, balanceErrors0, 1)
-	processErrors(newBalanceErrors1, balanceErrors1, 33)
-	processErrors(newBalanceErrors2, balanceErrors2, 65)
-	balanceErrors0, balanceErrors1, balanceErrors2 = newBalanceErrors0, newBalanceErrors1, newBalanceErrors2
+	if isMainMenuLoaded() then
+		local newBalanceErrors0, newBalanceErrors1, newBalanceErrors2 = balance:getFloatParam("errors0"), balance:getFloatParam("errors1"), balance:getFloatParam("errors2")
+		numErrors = 0
+		processErrors(newBalanceErrors0, balanceErrors0, 1)
+		processErrors(newBalanceErrors1, balanceErrors1, 33)
+		processErrors(newBalanceErrors2, balanceErrors2, 65)
+		balanceErrors0, balanceErrors1, balanceErrors2 = newBalanceErrors0, newBalanceErrors1, newBalanceErrors2
+	end
 
 	-- update modules
 	onMainScreenUpdate(delta)

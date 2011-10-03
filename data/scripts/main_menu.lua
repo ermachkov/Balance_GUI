@@ -12,9 +12,8 @@ local selMenu
 local selMainItem
 local pressedButton
 local scrollActive
-local scrollX, scrollY
+local scrollX, scrollY = 0, 0
 local oldUser
-local keyboardActive
 local menuIcons, menuLabels
 local startModeIcons, rotationModeIcons, pedalModeIcons, directionIcons, autoAluIcons, trueModeIcons
 local languageIcons
@@ -51,10 +50,9 @@ end
 local function checkPassword(value)
 	if value == profile:getString("password", "679") then
 		password = value
-		keyboardActive = false
 		return true
 	else
-		showMessage(tr("{invalid_password}"), MESSAGE_OK, MESSAGE_ERROR, function() keyboardActive = false end)
+		showMessage(tr("{invalid_password}"), MESSAGE_OK, MESSAGE_ERROR)
 		return false
 	end
 end
@@ -828,7 +826,6 @@ function showMainMenu()
 		selMainItem = 0
 		pressedButton = nil
 		oldUser = balance:getIntParam("user")
-		keyboardActive = false
 		spriteMenuButton.frame, spriteMenuButtonText.frame = 1, lang * 3 + 1
 		spriteMainMenu.frame = 0
 	end
@@ -951,7 +948,7 @@ function onMainMenuUpdate(delta)
 
 	-- handle mouse movements
 	local selItem = 0
-	if menuActive and mousePressed and not keyboardActive then
+	if menuActive and mousePressed and not isKeyboardActive() and not isMessageActive() then
 		-- retrieve current mouse position
 		local x, y = mouse:getPosition()
 
@@ -1070,12 +1067,6 @@ function onMainMenuMouseDown(x, y, key)
 		return false
 	end
 
-	-- reset keyboard active flag
-	if keyboardActive then
-		keyboardActive = false
-		return true
-	end
-
 	-- save scrolling information
 	scrollActive = false
 	scrollX, scrollY = x, y
@@ -1111,12 +1102,6 @@ function onMainMenuMouseUp(x, y, key)
 	-- exit if not active
 	if not menuActive then
 		return false
-	end
-
-	-- reset keyboard active flag
-	if keyboardActive then
-		keyboardActive = false
-		return true
 	end
 
 	-- release button if needed
@@ -1157,7 +1142,6 @@ function onMainMenuMouseUp(x, y, key)
 				local top = SCREEN_HEIGHT - (spriteBottomFasteners.y + spriteBottomFasteners:getHeight())
 				showKeyboard(left, top, left, SCREEN_HEIGHT, "passwd", TYPE_PASSWORD, spriteBottomFasteners, selItem,
 					function(value) if checkPassword(value) then onMainMenuMouseUp(x, y, key) end end)
-				keyboardActive = true
 				return true
 			end
 
@@ -1184,9 +1168,6 @@ function onMainMenuMouseUp(x, y, key)
 					local top = SCREEN_HEIGHT - (spriteBottomFasteners.y + spriteBottomFasteners:getHeight())
 					showKeyboard(left, top, left, SCREEN_HEIGHT, item.param, item.type, spriteBottomFasteners, selItem)
 				end
-
-				-- set the keyboard active flag
-				keyboardActive = true
 			end
 		end
 	end
