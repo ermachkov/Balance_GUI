@@ -39,7 +39,7 @@ end
 
 -- Formats the voltage
 local function showVoltage(item)
-	return (item.param ~= "va5" and "+" or "-") .. string.format("%.2f", balance:getFloatParam(item.param) / 100.0) .. tr("V")
+	return (item.param ~= "va1" and "+" or "-") .. string.format("%.2f", balance:getFloatParam(item.param) / 100.0) .. tr("V")
 end
 
 -- Formats the profile value
@@ -513,56 +513,56 @@ local function initMenus()
 				header = tr("{dsp_voltages_header}"),
 				text = tr("{dsp_voltages_text}"),
 				{
-					icon = spritePlus2_5VIcon,
+					icon = spritePlus3_3VIcon,
 					header = tr("{va0_header}"),
 					text = tr("{va0_text}"),
 					format = showVoltage,
 					param = "va0"
 				},
 				{
-					icon = spritePlus5VIcon,
+					icon = spriteMinus5VIcon,
 					header = tr("{va1_header}"),
 					text = tr("{va1_text}"),
 					format = showVoltage,
 					param = "va1"
 				},
 				{
-					icon = spritePlus1_2VIcon,
+					icon = spritePlus1_8VIcon,
 					header = tr("{va2_header}"),
 					text = tr("{va2_text}"),
 					format = showVoltage,
 					param = "va2"
 				},
 				{
-					icon = spritePlus3_3VIcon,
+					icon = spritePlus5VIcon,
 					header = tr("{va3_header}"),
 					text = tr("{va3_text}"),
 					format = showVoltage,
 					param = "va3"
 				},
 				{
-					icon = spritePlus3_3VIcon,
+					icon = spritePlus5VIcon,
 					header = tr("{va4_header}"),
 					text = tr("{va4_text}"),
 					format = showVoltage,
 					param = "va4"
 				},
 				{
-					icon = spriteMinus5VIcon,
+					icon = spritePlus3_3VIcon,
 					header = tr("{va5_header}"),
 					text = tr("{va5_text}"),
 					format = showVoltage,
 					param = "va5"
 				},
 				{
-					icon = spritePlus1_8VIcon,
+					icon = spritePlus2_5VIcon,
 					header = tr("{va6_header}"),
 					text = tr("{va6_text}"),
 					format = showVoltage,
 					param = "va6"
 				},
 				{
-					icon = spritePlus3_3VIcon,
+					icon = spritePlus1_2VIcon,
 					header = tr("{va7_header}"),
 					text = tr("{va7_text}"),
 					format = showVoltage,
