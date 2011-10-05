@@ -7,9 +7,11 @@ TRANSLATION_RU =
     ["Options"] = "Настройки",
 
     ["V"] = "В",
+    ["PUSH COVER!"] = "ОПУСТИТЕ КРЫШКУ!",
+    ["{about_message_text}"] = "Балансировочный станок\n«Консул». Hw 4.0 Oct 2011",
     ["{balance_calibration_message}"] = "Перед началом работы необходимо\nосуществить калибровку «пустого»\nвала. Сделать это сейчас ?",
 
-    ["START\nWORK"] = "НАЧАТЬ\nРАБОТУ",
+    ["START\nWORK"] = "НАЧАЛО\nРАБОТЫ",
     ["BALANCE\nCALIBRATION"] = "КАЛИБРОВКА\nВАЛА",
     ["TOUCHSCREEN\nCALIBRATION"] = "КАЛИБРОВКА\nМОНИТОРА",
 
