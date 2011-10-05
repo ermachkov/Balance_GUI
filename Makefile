@@ -57,6 +57,7 @@ uninstall:
 	rm -f $(PREFIX)/bin/balance_remote
 	rm -f $(PREFIX)/share/pixmaps/balance.png
 	rm -f /home/bm/Desktop/balance.desktop
+	chown bm:bm /home/bm/Desktop/balance.desktop
 	cp /etc/crontab /tmp/crontab
 	grep -v balance_remote /tmp/crontab > /etc/crontab
 	rm /tmp/crontab

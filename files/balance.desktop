@@ -2,6 +2,6 @@
 Name=Balance
 Comment=Balance machine GUI application
 Exec=/home/bm/Balance_GUI/start.sh
-Icon=balance
+Icon=/usr/share/pixmaps/balance.png
 Terminal=false
 Type=Application
