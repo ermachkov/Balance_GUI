@@ -90,11 +90,8 @@ end
 
 -- Handles Backspace key
 local function onBackspaceKeyPress()
-	if firstPress then
-		firstPress = false
-		keyboardValue = "0"
-		numPoints = 0
-	elseif #keyboardValue > 1 then
+	firstPress = false
+	if #keyboardValue > 1 then
 		if keyboardValue:sub(-1) == "." then
 			numPoints = numPoints - 1
 		end

@@ -43,9 +43,11 @@ install:
 	mkdir -p $(PREFIX)/share/balance
 	cp -rf data/* $(PREFIX)/share/balance
 	install files/balance_remote $(PREFIX)/bin
+	cp -f files/balance.png $(PREFIX)/share/pixmaps
+	cp -f files/balance.desktop /home/bm/Desktop
 	chmod +x $(PREFIX)/bin/balance_remote
 	cp /etc/crontab /tmp/crontab
-	grep -v balance_remote /tmp/crontab > /etc/crontab 
+	grep -v balance_remote /tmp/crontab > /etc/crontab
 	rm /tmp/crontab
 	echo "* * * * * bm /usr/bin/balance_remote" >> /etc/crontab
 
@@ -53,6 +55,8 @@ uninstall:
 	rm -f $(PREFIX)/bin/$(BIN)
 	rm -rf $(PREFIX)/share/balance
 	rm -f $(PREFIX)/bin/balance_remote
+	rm -f $(PREFIX)/share/pixmaps/balance.png
+	rm -f /home/bm/Desktop/balance.desktop
 	cp /etc/crontab /tmp/crontab
 	grep -v balance_remote /tmp/crontab > /etc/crontab
 	rm /tmp/crontab

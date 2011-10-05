@@ -1,15 +1,9 @@
 sprites =
 [
-	["spriteMainScreenBack2", ["main_screen_back_2"]],
+	["spriteMainScreenBack", ["main_screen_back"]],
 
 	["spriteMenuButton", ["menu_button_normal", "menu_button_pressed", "menu_button_disabled"]],
 	["spriteMenuButtonText", ["menu_button_text_en_normal", "menu_button_text_en_pressed", "menu_button_text_en_disabled", "menu_button_text_ru_normal", "menu_button_text_ru_pressed", "menu_button_text_ru_disabled"]],
-
-	["spriteLoadButton", ["load_button_normal", "load_button_pressed", "load_button_disabled"]],
-	["spriteLoadButtonText", ["load_button_text_en_normal", "load_button_text_en_pressed", "load_button_text_en_disabled", "load_button_text_ru_normal", "load_button_text_ru_pressed", "load_button_text_ru_disabled"]],
-
-	["spriteSaveButton", ["save_button_normal", "save_button_pressed", "save_button_disabled"]],
-	["spriteSaveButtonText", ["save_button_text_en_normal", "save_button_text_en_pressed", "save_button_text_en_disabled", "save_button_text_ru_normal", "save_button_text_ru_pressed", "save_button_text_ru_disabled"]],
 
 	["spriteHelpButton", ["help_button_normal", "help_button_pressed", "help_button_disabled"]],
 	["spriteHelpButtonText", ["help_button_text_en_normal", "help_button_text_en_pressed", "help_button_text_en_disabled", "help_button_text_ru_normal", "help_button_text_ru_pressed", "help_button_text_ru_disabled"]],

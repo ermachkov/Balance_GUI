@@ -10,6 +10,7 @@ local pressedButton
 local pressedButtonText
 local autoAluPopup, errorPopup
 local popups
+local showAboutMessage = false
 
 -- Returns the angle index from table
 local function getAngleIndex(angle)
@@ -24,7 +25,7 @@ end
 -- Returns the angle indices
 local function getAngleIndices(currAngle, targetAngle)
 	-- check if we are close to weight
-	local diff = targetAngle - currAngle
+	local diff = balance:getIntParam("clockwise") ~= 0 and (targetAngle - currAngle) or (currAngle - targetAngle)
 	if math.abs(diff) <= balance:getIntParam("angleepsilon") then
 		return 8, 8, 0, 0
 	end
@@ -201,8 +202,8 @@ function onMainScreenInit()
 	updateSpritesLanguage()
 
 	-- disable functional buttons
-	spriteMenuButton.frame, spriteLoadButton.frame, spriteSaveButton.frame, spriteHelpButton.frame = 2, 2, 2, 2
-	spriteMenuButtonText.frame, spriteLoadButtonText.frame, spriteSaveButtonText.frame, spriteHelpButtonText.frame = lang * 3 + 2, lang * 3 + 2, lang * 3 + 2, lang * 3 + 2
+	spriteMenuButton.frame, spriteHelpButton.frame = 2, 2
+	spriteMenuButtonText.frame, spriteHelpButtonText.frame = lang * 3 + 2, lang * 3 + 2
 
 	-- load fonts
 	resourceManager:loadAllResources("fonts/main_screen.xml")
@@ -246,8 +247,8 @@ function onMainScreenUpdate(delta)
 	-- check the background loading status
 	if not mainMenuLoaded and isMainMenuLoaded() then
 		mainMenuLoaded = true
-		spriteMenuButton.frame, spriteLoadButton.frame, spriteSaveButton.frame, spriteHelpButton.frame = 0, 0, 0, 0
-		spriteMenuButtonText.frame, spriteLoadButtonText.frame, spriteSaveButtonText.frame, spriteHelpButtonText.frame = lang * 3, lang * 3, lang * 3, lang * 3
+		spriteMenuButton.frame, spriteHelpButton.frame = 0, 0
+		spriteMenuButtonText.frame, spriteHelpButtonText.frame = lang * 3, lang * 3
 	end
 
 	-- handle currently pressed button
@@ -257,7 +258,11 @@ function onMainScreenUpdate(delta)
 			spriteUser2.frame = pressedButton.frame
 		end
 		if pressedButtonText then
-			pressedButtonText.frame = pressedButton:isPointInside(x, y) and (lang * 2 + 1) or (lang * 2)
+			if pressedButton:isPointInside(x, y) then
+				pressedButtonText.frame = pressedButtonText == spriteHelpButtonText and (lang * 3 + 1) or (lang * 2 + 1)
+			else
+				pressedButtonText.frame = pressedButtonText == spriteHelpButtonText and (lang * 3) or (lang * 2)
+			end
 		end
 	end
 
@@ -267,8 +272,8 @@ function onMainScreenUpdate(delta)
 
 	-- background
 	graphics:setBlendMode(BLEND_DISABLE)
-	spriteMainScreenBack20:draw()
-	spriteMainScreenBack21:draw()
+	spriteMainScreenBack0:draw()
+	spriteMainScreenBack1:draw()
 	graphics:setBlendMode(BLEND_ALPHA)
 
 	-- retrieve angles
@@ -303,7 +308,7 @@ function onMainScreenUpdate(delta)
 			fontWheel:drawText(spriteWheelArrowForwardText3.x, spriteWheelArrowForwardText3.y, balance:getIntParam("rstick"), 0.0, 0.0, 0.0)
 		elseif balanceSubstate == RULER_SHOW_L1 then
 			local dist = balance:getIntParam("weightdist")
-			local flag = math.abs(currAngle - angle1) <= angleEpsilon
+			local flag = math.abs(currAngle - angle1) <= angleEpsilon and dist == 0
 			if layout == LAYOUT_1_3 then
 				spriteWheelArrowInstall1.frame = dist >= 0 and 0 or 1
 				spriteWheelArrowInstall1:draw()
@@ -327,7 +332,7 @@ function onMainScreenUpdate(delta)
 			end
 		elseif balanceSubstate == RULER_SHOW_L2 or balanceSubstate == RULER_SHOW_L3 then
 			local dist = balance:getIntParam("weightdist")
-			local flag = math.abs(currAngle - (balanceSubstate == RULER_SHOW_L2 and angle2 or angle3)) <= angleEpsilon
+			local flag = math.abs(currAngle - (balanceSubstate == RULER_SHOW_L2 and angle2 or angle3)) <= angleEpsilon and dist == 0
 			spriteWheelArrowInstall3.frame = dist >= 0 and 0 or 1
 			spriteWheelArrowInstall3:draw()
 			spriteWheelWeight3.frame = flag and 1 or 0
@@ -369,10 +374,6 @@ function onMainScreenUpdate(delta)
 	-- functional buttons
 	spriteMenuButton:draw()
 	spriteMenuButtonText:draw()
-	spriteLoadButton:draw()
-	spriteLoadButtonText:draw()
-	spriteSaveButton:draw()
-	spriteSaveButtonText:draw()
 	spriteHelpButton:draw()
 	spriteHelpButtonText:draw()
 
@@ -473,18 +474,26 @@ function onMainScreenUpdate(delta)
 		spriteCoverMessageBack:draw()
 		drawCenteredText(fontSizes, spriteCoverMessageText, tr("PUSH COVER!"), 69 / 255, 69 / 255, 69 / 255)
 	end
+
+	-- draw about message
+	if showAboutMessage then
+		spriteAboutMessageBack:draw()
+		fontMessageText:drawText(spriteAboutMessageText.x, spriteAboutMessageText.y, tr("{about_message_text}"), 73 / 255, 73 / 255, 73 / 255)
+	end
 end
 
 function onMainScreenMouseDown(x, y, key)
-	if spriteStartButton:isPointInside(x, y) then
+	if showAboutMessage then
+		showAboutMessage = false
+	elseif spriteStartButton:isPointInside(x, y) then
 		-- send "start" command
 		pressedButton, pressedButtonText = spriteStartButton, spriteStartButtonText
-		pressedButton.frame, pressedButtonText.frame = lang * 2 + 1, lang * 2 + 1
+		pressedButton.frame, pressedButtonText.frame = 1, lang * 2 + 1
 		soundStartKey:play()
 	elseif spriteStopButton:isPointInside(x, y) then
 		-- send "stop" command
 		pressedButton, pressedButtonText = spriteStopButton, spriteStopButtonText
-		pressedButton.frame, pressedButtonText.frame = lang * 2 + 1, lang * 2 + 1
+		pressedButton.frame, pressedButtonText.frame = 1, lang * 2 + 1
 		balance:setParam("stop")
 		soundStopKey:play()
 	elseif spriteLeftWeight:isPointInside(x, y) and balance:getIntParam("rndweight0") ~= 0 then
@@ -519,9 +528,15 @@ function onMainScreenMouseDown(x, y, key)
 		-- enter the disk menu
 		showDiskMenu()
 		soundKey:play()
-	elseif spriteMenuButton:isPointInside(x, y) and mainMenuLoaded then
+	elseif mainMenuLoaded and spriteMenuButton:isPointInside(x, y) then
 		-- enter the main menu
 		showMainMenu()
+		soundKey:play()
+	elseif mainMenuLoaded and spriteHelpButton:isPointInside(x, y) then
+		-- show about dialog
+		pressedButton, pressedButtonText = spriteHelpButton, spriteHelpButtonText
+		pressedButton.frame, pressedButtonText.frame = 1, lang * 3 + 1
+		showAboutMessage = true
 		soundKey:play()
 	elseif spriteWidthIcon:isPointInside(x, y) or spriteWidthStickButton:isPointInside(x, y) then
 		local mode = balance:getIntParam("mode")
@@ -560,7 +575,7 @@ function onMainScreenMouseUp(x, y, key)
 
 		pressedButton.frame = 0
 		if pressedButtonText then
-			pressedButtonText.frame = lang * 2
+			pressedButtonText.frame = pressedButtonText == spriteHelpButtonText and lang * 3 or lang * 2
 		end
 		pressedButton, pressedButtonText = nil, nil
 	end

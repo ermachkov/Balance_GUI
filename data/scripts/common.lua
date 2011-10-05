@@ -184,8 +184,6 @@ end
 -- Updates text sprites language
 function updateSpritesLanguage()
 	spriteMenuButtonText.frame = lang * 3 + 1
-	spriteLoadButtonText.frame = lang * 3
-	spriteSaveButtonText.frame = lang * 3
 	spriteHelpButtonText.frame = lang * 3
 	spriteStartButtonText.frame = lang * 2
 	spriteStopButtonText.frame = lang * 2

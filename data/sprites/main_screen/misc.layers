@@ -10,5 +10,8 @@ sprites =
 	["spriteSpeedometerSpeed", ["speedometer_speed"]],
 
 	["spriteCoverMessageBack", ["cover_message_back"]],
-	["spriteCoverMessageText", ["cover_message_text"]]
+	["spriteCoverMessageText", ["cover_message_text"]],
+
+	["spriteAboutMessageBack", ["about_message_back"]],
+	["spriteAboutMessageText", ["about_message_text"]]
 ]
