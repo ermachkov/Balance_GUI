@@ -22,6 +22,7 @@ bool Profile::save()
 	{
 		CL_Directory::create(mProfileDir, true);
 		mResourceManager.save(mFileName);
+		system("sync");
 	}
 	catch (const CL_Exception &)
 	{

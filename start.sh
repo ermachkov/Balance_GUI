@@ -41,4 +41,6 @@ echo " <clres:option clres:name=\"input_dev\" value=\"$MOUSE\"/>" >> $HOME/.Sibe
 echo " <clres:option clres:name=\"server_status\" value=\"$SERVER_ON\"/>" >> $HOME/.Sibek/Balance/3.0/Balance.xml
 echo "</clres:resources>" >> $HOME/.Sibek/Balance/3.0/Balance.xml
 
+sync
+
 balance
