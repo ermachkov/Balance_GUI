@@ -11,6 +11,7 @@ local pressedButtonText
 local autoAluPopup, errorPopup
 local popups
 local showAboutMessage = false
+local aboutMessage = ""
 
 -- Returns the angle index from table
 local function getAngleIndex(angle)
@@ -227,6 +228,11 @@ function onMainScreenInit()
 	autoAluPopup = {back = spriteAutoAluPopupBack, icon = spriteAutoAluPopupIcon, active = false, time = 0}
 	errorPopup = {back = spriteErrorPopupBack, icon = spriteErrorPopupIcon, label = spriteErrorPopupText, active = false, time = 0, text = "13"}
 	popups = {autoAluPopup, errorPopup}
+
+	-- read about message from the file
+	for line in io.lines("/etc/bminfo") do
+		aboutMessage = aboutMessage .. line .. "\n"
+	end
 end
 
 function onMainScreenUpdate(delta)
@@ -478,7 +484,7 @@ function onMainScreenUpdate(delta)
 	-- draw about message
 	if showAboutMessage then
 		spriteAboutMessageBack:draw()
-		fontMessageText:drawText(spriteAboutMessageText.x, spriteAboutMessageText.y, tr("{about_message_text}"), 73 / 255, 73 / 255, 73 / 255)
+		fontMessageText:drawText(spriteAboutMessageText.x, spriteAboutMessageText.y, aboutMessage, 73 / 255, 73 / 255, 73 / 255)
 	end
 end
 

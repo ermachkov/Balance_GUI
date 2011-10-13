@@ -45,6 +45,7 @@ install:
 	install files/balance_remote $(PREFIX)/bin
 	cp -f files/balance.png $(PREFIX)/share/pixmaps
 	cp -f files/balance.desktop /home/bm/Desktop
+	cp -f files/bminfo /etc
 	chown bm:bm /home/bm/Desktop/balance.desktop
 	chmod +x $(PREFIX)/bin/balance_remote
 	cp /etc/crontab /tmp/crontab
@@ -58,6 +59,7 @@ uninstall:
 	rm -f $(PREFIX)/bin/balance_remote
 	rm -f $(PREFIX)/share/pixmaps/balance.png
 	rm -f /home/bm/Desktop/balance.desktop
+	rm -f /etc/bminfo
 	cp /etc/crontab /tmp/crontab
 	grep -v balance_remote /tmp/crontab > /etc/crontab
 	rm /tmp/crontab
