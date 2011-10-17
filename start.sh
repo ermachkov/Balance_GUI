@@ -1,5 +1,7 @@
 #!/bin/bash
 
+amixer -c 1 -q set PCM 100%
+
 export MOUSE="1"
 
 lsusb -v > /tmp/lsusb 2> /dev/null
