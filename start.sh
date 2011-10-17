@@ -1,6 +1,7 @@
 #!/bin/bash
 
-amixer -c 1 -q set PCM 100%
+SCARDNUM=$(expr "`aplay -l | grep \"USB Audio\"`" : "card \([0-9]*\)")
+amixer -c ${SCARDNUM} -q set PCM 100%
 
 export MOUSE="1"
 
