@@ -32,7 +32,7 @@ NETMASK=`expr "$IFCONFIG" : '.*Mask:\([0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.
 RESOLV=`cat /etc/resolv.conf`
 DNS=`expr "$RESOLV" : '.*nameserver \([0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\).*'`
 
-SETTINGS=`cat $HOME/.Sibek/Balance/3.0/Balance.xml | grep -v "</clres:resources>" | grep -v local_addr | grep -v netmask | grep -v gateway | grep -v dns | grep -v input_dev`
+SETTINGS=`cat $HOME/.Sibek/Balance/3.0/Balance.xml | grep -v "</clres:resources>" | grep -v local_addr | grep -v netmask | grep -v gateway | grep -v dns | grep -v input_dev| grep -v server_status`
 
 echo $SETTINGS | sed -e 's/\/>/\/>\n/g' | sed -e 's/> </>\n </' > $HOME/.Sibek/Balance/3.0/Balance.xml
 echo " <clres:option clres:name=\"gateway\" value=\"$DEFAULT_GW\"/>" >> $HOME/.Sibek/Balance/3.0/Balance.xml
