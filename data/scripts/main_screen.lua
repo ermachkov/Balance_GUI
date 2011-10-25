@@ -229,9 +229,13 @@ function onMainScreenInit()
 	errorPopup = {back = spriteErrorPopupBack, icon = spriteErrorPopupIcon, label = spriteErrorPopupText, active = false, time = 0, text = "13"}
 	popups = {autoAluPopup, errorPopup}
 
-	-- read about message from the file
-	for line in io.lines("/etc/bminfo") do
-		aboutMessage = aboutMessage .. line .. "\n"
+	-- read "About" message from the file
+	local file = io.open("/etc/bminfo")
+	if file then
+		io.close(file)
+		for line in io.lines("/etc/bminfo") do
+			aboutMessage = aboutMessage .. line .. "\n"
+		end
 	end
 end
 

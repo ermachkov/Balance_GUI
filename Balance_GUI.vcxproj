@@ -170,6 +170,7 @@
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\Balance.cpp" />
+    <ClCompile Include="src\Database.cpp" />
     <ClCompile Include="src\Font.cpp" />
     <ClCompile Include="src\Profile.cpp" />
     <ClCompile Include="src\ResourceQueue.cpp" />
@@ -198,6 +199,7 @@
   <ItemGroup>
     <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\Balance.h" />
+    <ClInclude Include="src\Database.h" />
     <ClInclude Include="src\Font.h" />
     <ClInclude Include="src\Profile.h" />
     <ClInclude Include="src\ResourceQueue.h" />
@@ -222,6 +224,7 @@
   <ItemGroup>
     <None Include="pkg\Application.pkg" />
     <None Include="pkg\Balance.pkg" />
+    <None Include="pkg\Database.pkg" />
     <None Include="pkg\Font.pkg" />
     <None Include="pkg\Graphics.pkg" />
     <None Include="pkg\Keyboard.pkg" />

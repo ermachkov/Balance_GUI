@@ -1,6 +1,6 @@
 /*
 ** Lua binding: LuaBindings
-** Generated automatically by tolua++-1.0.92 on 09/28/11 11:38:55.
+** Generated automatically by tolua++-1.0.92 on 10/25/11 13:50:18.
 */
 
 #ifndef __cplusplus
@@ -15,6 +15,7 @@ TOLUA_API int  tolua_LuaBindings_open (lua_State* tolua_S);
 
 #include "Application.h"
 #include "Balance.h"
+#include "Database.h"
 #include "Font.h"
 #include "Graphics.h"
 #include "Keyboard.h"
@@ -61,17 +62,19 @@ static int tolua_collect_Sound (lua_State* tolua_S)
 /* function to register type */
 static void tolua_reg_types (lua_State* tolua_S)
 {
+ tolua_usertype(tolua_S,"Database");
  tolua_usertype(tolua_S,"CFont");
  tolua_usertype(tolua_S,"Keyboard");
- tolua_usertype(tolua_S,"ResourceQueue");
- tolua_usertype(tolua_S,"Profile");
- tolua_usertype(tolua_S,"Balance");
  tolua_usertype(tolua_S,"Sprite");
+ tolua_usertype(tolua_S,"ResourceQueue");
+ tolua_usertype(tolua_S,"Application");
+ tolua_usertype(tolua_S,"Balance");
+ tolua_usertype(tolua_S,"Singleton<Database>");
  tolua_usertype(tolua_S,"Graphics");
  tolua_usertype(tolua_S,"ResourceManager");
  tolua_usertype(tolua_S,"Mouse");
  tolua_usertype(tolua_S,"Sound");
- tolua_usertype(tolua_S,"Application");
+ tolua_usertype(tolua_S,"Profile");
 }
 
 /* method: getDataDirectory of class  Application */
@@ -721,6 +724,68 @@ static int tolua_LuaBindings_Balance_getSingleton00(lua_State* tolua_S)
   {
    Balance& tolua_ret = (Balance&)  Balance::getSingleton();
     tolua_pushusertype(tolua_S,(void*)&tolua_ret,"Balance");
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'getSingleton'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: execCommand of class  Database */
+#ifndef TOLUA_DISABLE_tolua_LuaBindings_Database_execCommand00
+static int tolua_LuaBindings_Database_execCommand00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Database",0,&tolua_err) ||
+     !tolua_iscppstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Database* self = (Database*)  tolua_tousertype(tolua_S,1,0);
+  const std::string text = ((const std::string)  tolua_tocppstring(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'execCommand'", NULL);
+#endif
+  {
+   self->execCommand(text);
+   tolua_pushcppstring(tolua_S,(const char*)text);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'execCommand'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: getSingleton of class  Database */
+#ifndef TOLUA_DISABLE_tolua_LuaBindings_Database_getSingleton00
+static int tolua_LuaBindings_Database_getSingleton00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertable(tolua_S,1,"Database",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  {
+   Database& tolua_ret = (Database&)  Database::getSingleton();
+    tolua_pushusertype(tolua_S,(void*)&tolua_ret,"Database");
   }
  }
  return 1;
@@ -3275,6 +3340,11 @@ TOLUA_API int tolua_LuaBindings_open (lua_State* tolua_S)
    tolua_function(tolua_S,"setIntParam",tolua_LuaBindings_Balance_setIntParam00);
    tolua_function(tolua_S,"setFloatParam",tolua_LuaBindings_Balance_setFloatParam00);
    tolua_function(tolua_S,"getSingleton",tolua_LuaBindings_Balance_getSingleton00);
+  tolua_endmodule(tolua_S);
+  tolua_cclass(tolua_S,"Database","Database","Singleton<Database>",NULL);
+  tolua_beginmodule(tolua_S,"Database");
+   tolua_function(tolua_S,"execCommand",tolua_LuaBindings_Database_execCommand00);
+   tolua_function(tolua_S,"getSingleton",tolua_LuaBindings_Database_getSingleton00);
   tolua_endmodule(tolua_S);
   #ifdef __cplusplus
   tolua_cclass(tolua_S,"CFont","CFont","",tolua_collect_CFont);

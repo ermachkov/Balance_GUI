@@ -102,6 +102,9 @@
     <ClCompile Include="src\Profile.cpp">
       <Filter>Source Files\Profile</Filter>
     </ClCompile>
+    <ClCompile Include="src\Database.cpp">
+      <Filter>Source Files\Balance</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.h">
@@ -170,6 +173,9 @@
     <ClInclude Include="src\Profile.h">
       <Filter>Source Files\Profile</Filter>
     </ClInclude>
+    <ClInclude Include="src\Database.h">
+      <Filter>Source Files\Balance</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="pkg\Application.pkg">
@@ -206,6 +212,9 @@
       <Filter>tolua++ Package Files</Filter>
     </None>
     <None Include="pkg\Profile.pkg">
+      <Filter>tolua++ Package Files</Filter>
+    </None>
+    <None Include="pkg\Database.pkg">
       <Filter>tolua++ Package Files</Filter>
     </None>
   </ItemGroup>

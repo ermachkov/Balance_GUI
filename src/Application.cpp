@@ -1,6 +1,7 @@
 #include "Precompiled.h"
 #include "Application.h"
 #include "Balance.h"
+#include "Database.h"
 #include "Graphics.h"
 #include "Keyboard.h"
 #include "LuaScript.h"
@@ -50,6 +51,7 @@ Application::Application(const std::vector<CL_String> &args, lua_State *luaState
 
 	// initialize all game subsystems
 	mBalance = CL_SharedPtr<Balance>(new Balance(profile));
+	mDatabase = CL_SharedPtr<Database>(new Database());
 	mResourceManager = CL_SharedPtr<ResourceManager>(new ResourceManager());
 	mResourceQueue = CL_SharedPtr<ResourceQueue>(new ResourceQueue());
 	mGraphics = CL_SharedPtr<Graphics>(new Graphics(profile));

@@ -4,6 +4,7 @@
 #include "Singleton.h"
 
 class Balance;
+class Database;
 class Graphics;
 class Keyboard;
 class LuaScript;
@@ -78,6 +79,7 @@ private:
 	bool                            mQuit;
 
 	CL_SharedPtr<Balance>           mBalance;
+	CL_SharedPtr<Database>          mDatabase;
 	CL_SharedPtr<ResourceManager>   mResourceManager;
 	CL_SharedPtr<ResourceQueue>     mResourceQueue;
 	CL_SharedPtr<Graphics>          mGraphics;
