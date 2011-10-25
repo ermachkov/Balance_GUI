@@ -1,0 +1,8 @@
+$#include "Database.h"
+
+class Database : public Singleton<Database>
+{
+	void execCommand(const std::string &text);
+
+	static Database &getSingleton();
+};
