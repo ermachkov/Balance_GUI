@@ -1,0 +1,9 @@
+sprites =
+[
+	["spriteStatsBack", ["stats_back"]],
+
+	["spriteStatsSelectButton", ["stats_select_button_normal", "stats_select_button_pressed"]],
+	["spriteStatsPrevButton", ["stats_prev_button_normal", "stats_prev_button_pressed"]],
+	["spriteStatsNextButton", ["stats_next_button_normal", "stats_next_button_pressed"]],
+	["spriteStatsCloseButton", ["stats_close_button_normal", "stats_close_button_pressed"]]
+]
