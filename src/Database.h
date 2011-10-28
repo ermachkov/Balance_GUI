@@ -7,13 +7,16 @@ class Database : public Singleton<Database>
 {
 public:
 
-	Database();
+	Database(const std::string &fileName);
 
-	void execCommand(const std::string &text);
+	void execQuery(const std::string &text);
+
+	void closeQuery();
 
 private:
 
 	CL_SqliteConnection mConnection;
+	CL_DBReader         mReader;
 };
 
 #endif

@@ -24,6 +24,7 @@ function onInit()
 	-- make aliases to singleton objects
 	application = Application:getSingleton()
 	balance = Balance:getSingleton()
+	database = Database:getSingleton()
 	graphics = Graphics:getSingleton()
 	keyboard = Keyboard:getSingleton()
 	mouse = Mouse:getSingleton()
@@ -46,6 +47,7 @@ function onInit()
 	include("scripts/main_menu.lua")
 	include("scripts/message.lua")
 	include("scripts/wizard.lua")
+	include("scripts/stats.lua")
 
 	-- load the system profile
 	profile = Profile("")
@@ -59,6 +61,29 @@ function onInit()
 	-- set the current language
 	setLanguage(profile:getInt("language", 0))
 
+	-- create a balance table
+	database:execQuery("CREATE TABLE IF NOT EXISTS Balance(" ..
+		"Time TEXT PRIMARY KEY, " ..
+		"User INTEGER, " ..
+		"Mode INTEGER, " ..
+		"Layout INTEGER, " ..
+		"Width REAL, " ..
+		"Diam REAL, " ..
+		"Ofs INTEGER, " ..
+		"Split INTEGER, " ..
+		"NumSpikes INTEGER, " ..
+		"Weight1 REAL, " ..
+		"Angle1 REAL, " ..
+		"Weight2 REAL, " ..
+		"Angle2 REAL, " ..
+		"Weight3 REAL, " ..
+		"Angle3 REAL, " ..
+		"Result INTEGER)")
+	database:closeQuery()
+
+	database:execQuery("INSERT INTO Balance VALUES(datetime('now', 'localtime'), 0, 0, 0, 6.5, 15, 140, 0, 3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1)")
+	database:closeQuery()
+
 	-- initialize the application
 	onMainScreenInit()
 	onStartScreenInit()
@@ -68,6 +93,7 @@ function onInit()
 	onBalanceProgressInit()
 	onMainMenuInit()
 	onWizardInit()
+	onStatsInit()
 	onMessageInit()
 
 	-- show/hide mouse
@@ -150,6 +176,7 @@ function onUpdate(delta)
 	onMainMenuUpdate(delta)
 	onKeyboardUpdate(delta)
 	onWizardUpdate(delta)
+	onStatsUpdate(delta)
 	onMessageUpdate(delta)
 
 	-- show current FPS
@@ -168,13 +195,15 @@ function onMouseDown(x, y, key)
 	-- dispatch the event
 	if not onMessageMouseDown(x, y, key) then
 		if not onWizardMouseDown(x, y, key) then
-			if not onKeyboardMouseDown(x, y, key) then
-				if not onMainMenuMouseDown(x, y, key) then
-					if not onBalanceProgressMouseDown(x, y, key) then
-						if not onDiskMenuMouseDown(x, y, key) then
-							if not onLayoutMenuMouseDown(x, y, key) then
-								if not onStartScreenMouseDown(x, y, key) then
-									onMainScreenMouseDown(x, y, key)
+			if not onStatsMouseDown(x, y, key) then
+				if not onKeyboardMouseDown(x, y, key) then
+					if not onMainMenuMouseDown(x, y, key) then
+						if not onBalanceProgressMouseDown(x, y, key) then
+							if not onDiskMenuMouseDown(x, y, key) then
+								if not onLayoutMenuMouseDown(x, y, key) then
+									if not onStartScreenMouseDown(x, y, key) then
+										onMainScreenMouseDown(x, y, key)
+									end
 								end
 							end
 						end
@@ -197,13 +226,15 @@ function onMouseUp(x, y, key)
 	-- dispatch the event
 	if not onMessageMouseUp(x, y, key) then
 		if not onWizardMouseUp(x, y, key) then
-			if not onKeyboardMouseUp(x, y, key) then
-				if not onMainMenuMouseUp(x, y, key) then
-					if not onBalanceProgressMouseUp(x, y, key) then
-						if not onDiskMenuMouseUp(x, y, key) then
-							if not onLayoutMenuMouseUp(x, y, key) then
-								if not onStartScreenMouseUp(x, y, key) then
-									onMainScreenMouseUp(x, y, key)
+			if not onStatsMouseUp(x, y, key) then
+				if not onKeyboardMouseUp(x, y, key) then
+					if not onMainMenuMouseUp(x, y, key) then
+						if not onBalanceProgressMouseUp(x, y, key) then
+							if not onDiskMenuMouseUp(x, y, key) then
+								if not onLayoutMenuMouseUp(x, y, key) then
+									if not onStartScreenMouseUp(x, y, key) then
+										onMainScreenMouseUp(x, y, key)
+									end
 								end
 							end
 						end

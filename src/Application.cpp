@@ -51,7 +51,7 @@ Application::Application(const std::vector<CL_String> &args, lua_State *luaState
 
 	// initialize all game subsystems
 	mBalance = CL_SharedPtr<Balance>(new Balance(profile));
-	mDatabase = CL_SharedPtr<Database>(new Database());
+	mDatabase = CL_SharedPtr<Database>(new Database(getConfigDirectory() + getApplicationName() + ".db"));
 	mResourceManager = CL_SharedPtr<ResourceManager>(new ResourceManager());
 	mResourceQueue = CL_SharedPtr<ResourceQueue>(new ResourceQueue());
 	mGraphics = CL_SharedPtr<Graphics>(new Graphics(profile));

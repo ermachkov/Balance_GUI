@@ -1,6 +1,6 @@
 CXX = g++
 PREFIX = /usr
-PACKAGES = clanApp-2.3 clanCore-2.3 clanDisplay-2.3 clanGL-2.3 clanNetwork-2.3 clanSound-2.3 clanVorbis-2.3 lua
+PACKAGES = clanApp-2.3 clanCore-2.3 clanDatabase-2.3 clanDisplay-2.3 clanGL-2.3 clanNetwork-2.3 clanSound-2.3 clanSqlite-2.3 clanVorbis-2.3 lua
 CXXFLAGS = -DGAME_DATA_DIR=\"$(PREFIX)/share/balance\" $(shell pkg-config --cflags $(PACKAGES)) -Wall -O2 -s
 LIBS = $(shell pkg-config --libs $(PACKAGES)) -ltolua++-5.1
 BIN = balance
@@ -9,6 +9,7 @@ PCH = src/Precompiled.h.gch
 OBJ = \
 	src/Application.o \
 	src/Balance.o \
+	src/Database.o \
 	src/Font.o \
 	src/FontResource.o \
 	src/Graphics.o \

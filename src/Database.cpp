@@ -3,13 +3,18 @@
 
 template<> Database *Singleton<Database>::mSingleton = NULL;
 
-Database::Database()
-: mConnection("balance.db")
+Database::Database(const std::string &fileName)
+: mConnection(fileName)
 {
 }
 
-void Database::execCommand(const std::string &text)
+void Database::execQuery(const std::string &text)
 {
 	CL_DBCommand command = mConnection.create_command(text);
-	mConnection.execute_non_query(command);
+	mReader = mConnection.execute_reader(command);
+}
+
+void Database::closeQuery()
+{
+	mReader.close();
 }

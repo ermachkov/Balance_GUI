@@ -631,6 +631,12 @@ local function initMenus()
 				icon = spriteErrorIcon,
 				header = tr("{errors_header}"),
 				text = tr("{errors_text}")
+			},
+			{
+				icon = spriteErrorIcon,
+				header = tr("{stats_header}"),
+				text = tr("{stats_text}"),
+				onClick = function() hideMainMenu(); showStats() end
 			}
 		},
 

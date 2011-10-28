@@ -85,6 +85,12 @@ function main_menu_createSprites()
 	spriteMainMenuItemText = Sprite("spriteMainMenuItemText", 682, 183)
 	spriteMainMenuItemHeader = Sprite("spriteMainMenuItemHeader", 681, 128)
 	spriteMainMenuItemIcon = Sprite("spriteMainMenuItemIcon", 517, 121)
+	spriteStatsBack1 = Sprite("spriteStatsBack1", 1118, 12)
+	spriteStatsBack0 = Sprite("spriteStatsBack0", 95, 12)
+	spriteStatsNextButton = Sprite("spriteStatsNextButton", 990, 709)
+	spriteStatsPrevButton = Sprite("spriteStatsPrevButton", 879, 709)
+	spriteStatsSelectButton = Sprite("spriteStatsSelectButton", 176, 711)
+	spriteStatsCloseButton = Sprite("spriteStatsCloseButton", 1105, 23)
 	spriteWizardBack = Sprite("spriteWizardBack", 253, 138)
 	spriteWizardText = Sprite("spriteWizardText", 458, 294)
 	spriteWizardText2 = Sprite("spriteWizardText2", 292, 387)
@@ -185,6 +191,12 @@ function main_menu_deleteSprites()
 	spriteMainMenuItemText = nil
 	spriteMainMenuItemHeader = nil
 	spriteMainMenuItemIcon = nil
+	spriteStatsBack1 = nil
+	spriteStatsBack0 = nil
+	spriteStatsNextButton = nil
+	spriteStatsPrevButton = nil
+	spriteStatsSelectButton = nil
+	spriteStatsCloseButton = nil
 	spriteWizardBack = nil
 	spriteWizardText = nil
 	spriteWizardText2 = nil

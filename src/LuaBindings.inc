@@ -1,6 +1,6 @@
 /*
 ** Lua binding: LuaBindings
-** Generated automatically by tolua++-1.0.92 on 10/25/11 13:50:18.
+** Generated automatically by tolua++-1.0.92 on 10/26/11 17:30:49.
 */
 
 #ifndef __cplusplus
@@ -65,11 +65,10 @@ static void tolua_reg_types (lua_State* tolua_S)
  tolua_usertype(tolua_S,"Database");
  tolua_usertype(tolua_S,"CFont");
  tolua_usertype(tolua_S,"Keyboard");
- tolua_usertype(tolua_S,"Sprite");
  tolua_usertype(tolua_S,"ResourceQueue");
  tolua_usertype(tolua_S,"Application");
  tolua_usertype(tolua_S,"Balance");
- tolua_usertype(tolua_S,"Singleton<Database>");
+ tolua_usertype(tolua_S,"Sprite");
  tolua_usertype(tolua_S,"Graphics");
  tolua_usertype(tolua_S,"ResourceManager");
  tolua_usertype(tolua_S,"Mouse");
@@ -735,9 +734,9 @@ static int tolua_LuaBindings_Balance_getSingleton00(lua_State* tolua_S)
 }
 #endif //#ifndef TOLUA_DISABLE
 
-/* method: execCommand of class  Database */
-#ifndef TOLUA_DISABLE_tolua_LuaBindings_Database_execCommand00
-static int tolua_LuaBindings_Database_execCommand00(lua_State* tolua_S)
+/* method: execQuery of class  Database */
+#ifndef TOLUA_DISABLE_tolua_LuaBindings_Database_execQuery00
+static int tolua_LuaBindings_Database_execQuery00(lua_State* tolua_S)
 {
 #ifndef TOLUA_RELEASE
  tolua_Error tolua_err;
@@ -753,17 +752,48 @@ static int tolua_LuaBindings_Database_execCommand00(lua_State* tolua_S)
   Database* self = (Database*)  tolua_tousertype(tolua_S,1,0);
   const std::string text = ((const std::string)  tolua_tocppstring(tolua_S,2,0));
 #ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'execCommand'", NULL);
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'execQuery'", NULL);
 #endif
   {
-   self->execCommand(text);
+   self->execQuery(text);
    tolua_pushcppstring(tolua_S,(const char*)text);
   }
  }
  return 1;
 #ifndef TOLUA_RELEASE
  tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'execCommand'.",&tolua_err);
+ tolua_error(tolua_S,"#ferror in function 'execQuery'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: closeQuery of class  Database */
+#ifndef TOLUA_DISABLE_tolua_LuaBindings_Database_closeQuery00
+static int tolua_LuaBindings_Database_closeQuery00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Database",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Database* self = (Database*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'closeQuery'", NULL);
+#endif
+  {
+   self->closeQuery();
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'closeQuery'.",&tolua_err);
  return 0;
 #endif
 }
@@ -3341,9 +3371,10 @@ TOLUA_API int tolua_LuaBindings_open (lua_State* tolua_S)
    tolua_function(tolua_S,"setFloatParam",tolua_LuaBindings_Balance_setFloatParam00);
    tolua_function(tolua_S,"getSingleton",tolua_LuaBindings_Balance_getSingleton00);
   tolua_endmodule(tolua_S);
-  tolua_cclass(tolua_S,"Database","Database","Singleton<Database>",NULL);
+  tolua_cclass(tolua_S,"Database","Database","",NULL);
   tolua_beginmodule(tolua_S,"Database");
-   tolua_function(tolua_S,"execCommand",tolua_LuaBindings_Database_execCommand00);
+   tolua_function(tolua_S,"execQuery",tolua_LuaBindings_Database_execQuery00);
+   tolua_function(tolua_S,"closeQuery",tolua_LuaBindings_Database_closeQuery00);
    tolua_function(tolua_S,"getSingleton",tolua_LuaBindings_Database_getSingleton00);
   tolua_endmodule(tolua_S);
   #ifdef __cplusplus

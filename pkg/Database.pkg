@@ -1,8 +1,10 @@
 $#include "Database.h"
 
-class Database : public Singleton<Database>
+class Database
 {
-	void execCommand(const std::string &text);
+	void execQuery(const std::string &text);
+
+	void closeQuery();
 
 	static Database &getSingleton();
 };

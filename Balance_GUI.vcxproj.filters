@@ -43,6 +43,9 @@
     <Filter Include="Source Files\Profile">
       <UniqueIdentifier>{5f116841-3366-4d74-876e-4ad6b22eca87}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Database">
+      <UniqueIdentifier>{a6ea916d-52d5-42be-8ecd-433b2125f370}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp">
@@ -103,7 +106,7 @@
       <Filter>Source Files\Profile</Filter>
     </ClCompile>
     <ClCompile Include="src\Database.cpp">
-      <Filter>Source Files\Balance</Filter>
+      <Filter>Source Files\Database</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -174,7 +177,7 @@
       <Filter>Source Files\Profile</Filter>
     </ClInclude>
     <ClInclude Include="src\Database.h">
-      <Filter>Source Files\Balance</Filter>
+      <Filter>Source Files\Database</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
