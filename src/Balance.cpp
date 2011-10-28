@@ -16,7 +16,7 @@ const std::string Balance::PARAMS[MAX_PARAMS] =
 	"v2", "v3", "v4", "v5", "va0", "va1", "va2", "va3", "va4", "va5",
 	"va6", "va7", "w0", "w1", "w2", "w3", "freqcoeff", "rstick", "c0", "c1",
 	"c2", "c3", "c4", "c5", "r0", "r1", "errors0", "errors1", "errors2", "wheeldist",
-	"autoaluflag", "realstick", "keycal0", "cheatepsilon", "result", "rulercal0", "rulercal1", "rulercal2", "rulercal3", "rulercalf",
+	"autoaluflag", "realstick", "result", "keycal0", "cheatepsilon", "rulercal0", "rulercal1", "rulercal2", "rulercal3", "rulercalf",
 	"cal0", "cal1", "cal2", "cal3", "testdrv", "loaddef", "loadref", "saveref", "passwd", "start",
 	"stop", "enter", "osc", "rotate", "c-meter"
 };
@@ -26,6 +26,7 @@ Balance::Balance(Profile &profile)
 {
 	for (int i = 0; i < MAX_PARAMS; ++i)
 		mParams.insert(std::make_pair(PARAMS[i], "0"));
+	mParams["result"] = "1"; // HACK: needed to be nonzero after startup
 
 	mSocketName = CL_SocketName(profile.getString("server_addr", "192.168.0.1"), "23");
 	profile.setInt("language", profile.getInt("language", 0));

@@ -86,6 +86,7 @@ ITEM_SELECTED = 2
 balanceState = STATE_IDLE
 balanceSubstate = BALANCE_IDLE
 balanceErrors0, balanceErrors1, balanceErrors2 = 0, 0, 0
+balanceResult = 1 -- needed to be nonzero after startup
 numErrors = 0
 mousePressed = false
 profile = nil

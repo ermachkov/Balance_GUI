@@ -81,9 +81,6 @@ function onInit()
 		"Result INTEGER)")
 	database:closeQuery()
 
-	database:execQuery("INSERT INTO Balance VALUES(datetime('now', 'localtime'), 0, 0, 0, 6.5, 15, 140, 0, 3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1)")
-	database:closeQuery()
-
 	-- initialize the application
 	onMainScreenInit()
 	onStartScreenInit()
@@ -166,6 +163,20 @@ function onUpdate(delta)
 		processErrors(newBalanceErrors2, balanceErrors2, 65)
 		balanceErrors0, balanceErrors1, balanceErrors2 = newBalanceErrors0, newBalanceErrors1, newBalanceErrors2
 	end
+
+	-- track balance results
+	local newBalanceResult = balance:getIntParam("result")
+	if newBalanceResult ~= 0 and balanceResult == 0 then
+		local mode = balance:getIntParam("mode")
+		local layout = unpackLayout(balance:getIntParam("layout"), mode)
+		local query = string.format("INSERT INTO Balance VALUES(datetime('now', 'localtime'), %s, %d, %d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d)",
+			balance:getParam("user"), mode, layout, balance:getParam("width"), balance:getParam("diam"), balance:getParam("offset"),
+			balance:getParam("split"), balance:getParam("numsp"), balance:getParam("weight0"), balance:getParam("angle0"),
+			balance:getParam("weight1"), balance:getParam("angle1"), balance:getParam("weight2"), balance:getParam("angle2"), newBalanceResult)
+		database:execQuery(query)
+		database:closeQuery()
+	end
+	balanceResult = newBalanceResult
 
 	-- update modules
 	onMainScreenUpdate(delta)
