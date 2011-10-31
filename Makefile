@@ -53,9 +53,9 @@ install:
 	grep -v balance_remote /tmp/crontab > /etc/crontab
 	rm /tmp/crontab
 	echo "* * * * * bm /usr/bin/balance_remote" >> /etc/crontab
-        install files/balance_grub /etc/init.d/balance_grub
-        chmod +x /etc/init.d/balance_grub
-        ln -s /etc/init.d/balance_grub /etc/rc2.d/S20balance_grub
+	install files/balance_grub /etc/init.d/balance_grub
+	chmod +x /etc/init.d/balance_grub
+	ln -s /etc/init.d/balance_grub /etc/rc2.d/S20balance_grub
 
 uninstall:
 	rm -f $(PREFIX)/bin/$(BIN)
@@ -67,8 +67,8 @@ uninstall:
 	cp /etc/crontab /tmp/crontab
 	grep -v balance_remote /tmp/crontab > /etc/crontab
 	rm /tmp/crontab
-        rm /etc/init.d/balance_grub
-        rm /etc/rc2.d/S20balance_grub
+	rm /etc/init.d/balance_grub
+	rm /etc/rc2.d/S20balance_grub
 
 clean:
 	rm -f $(PCH) $(OBJ) $(BIN)
