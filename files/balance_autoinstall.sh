@@ -118,7 +118,7 @@ if [ "$err" -eq 0 ] ; then
             echo "Removing unneeded packets"
             yum -y remove xorg-x11-drv-elographics
             export PKG_CONFIG_PATH=/usr/lib/pkgconfig
-            yum -y install xorg-x11-proto-devel git gcc autoconf libtool automake libXi-devel gcc-c++ svn zlib-devel plymouth  plymouth-theme-scripts plymouth-plugin-script mesa-libGl-devel libmikmod-devel libvorbis-devel sqlite-devel pcre-devel libpng-dev libjpeg-turbo-devel freetype-devel fontconfig-devel lua tolua++-devel tolua++ alsa-lib-devel
+            yum -y install xorg-x11-proto-devel git gcc autoconf libtool automake libXi-devel gcc-c++ svn zlib-devel plymouth  plymouth-theme-scripts plymouth-plugin-script mesa-libGl-devel libmikmod-devel libvorbis-devel sqlite-devel pcre-devel libpng-dev libjpeg-turbo-devel freetype-devel fontconfig-devel lua tolua++-devel tolua++ alsa-lib-devel php
             echo "#Setting persist eGalax calibration"
             echo "Section \"InputClass\"" > /etc/X11/xorg.conf.d/99-calibration.conf
             echo "    Identifier      \"calibration\"" >> /etc/X11/xorg.conf.d/99-calibration.conf
