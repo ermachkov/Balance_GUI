@@ -1,0 +1,11 @@
+#!/bin/bash
+rm /tmp/grub.conf
+while read line
+do
+  if [ "`expr match \"$line\" '.*\(nvidiafb\).*'`" != "nvidiafb" ]; then
+    echo ${line/root=/video=nvidiafb vga=0x031B root=} >> /tmp/grub.conf
+  else
+    echo $line >> /tmp/grub.conf
+  fi
+done < /boot/grub/grub.conf
+mv -f /tmp/grub.conf /boot/grub/grub.conf
