@@ -3,14 +3,18 @@ local STATS_FADE_DELAY = 200
 
 local statsActive = false
 local statsTime = 0
-local mainMenuLoaded = false
 local pressedButton
+local month
+local year
+local monthNames
 
 -- Shows the stats
 function showStats()
-	if not statsActive and mainMenuLoaded then
+	if not statsActive and isMainMenuLoaded() then
 		statsActive = true
 		pressedButton = nil
+		local date = os.date("*t")
+		month, year = date.month, date.year
 
 		spriteStatsCloseButton.frame = 0
 	end
@@ -23,14 +27,12 @@ function hideStats()
 end
 
 function onStatsInit()
+	enableTranslation(false)
+	monthNames = {tr("JANUARY"), tr("FEBRUARY"), tr("MARCH"), tr("APRIL"), tr("MAY"), tr("JUNE"), tr("JULY"), tr("AUGUST"), tr("SEPTEMBER"), tr("OCTOBER"), tr("NOVEMBER"), tr("DEADCEMBER")}
+	enableTranslation(true)
 end
 
 function onStatsUpdate(delta)
-	-- check the background loading status
-	if not mainMenuLoaded and isMainMenuLoaded() then
-		mainMenuLoaded = true
-	end
-
 	-- check the stats state
 	if statsActive then
 		statsTime = math.min(statsTime + delta, STATS_FADE_DELAY)
@@ -55,6 +57,11 @@ function onStatsUpdate(delta)
 	spriteStatsBack1.alpha = alpha
 	spriteStatsBack0:draw()
 	spriteStatsBack1:draw()
+
+	-- text
+	drawCenteredText(fontMainMenuItemHeader, spriteStatsHeader, tr("HEADER"), 0, 0, 0)
+	drawCenteredText(fontMainMenuItemHeader, spriteStatsMonth, tr(monthNames[month]), 0, 0, 0)
+	drawCenteredText(fontMainMenuItemHeader, spriteStatsYear, tostring(year), 0, 0, 0)
 
 	-- buttons
 	spriteStatsSelectButton.alpha = alpha
