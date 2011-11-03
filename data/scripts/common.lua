@@ -217,3 +217,9 @@ function drawCenteredText(font, sprite, text, r, g, b, a)
 	local textWidth, textHeight = font:getTextSize(text)
 	font:drawText(sprite.x + (sprite:getWidth() - textWidth) / 2, sprite.y + (sprite:getHeight() - textHeight) / 2, text, r or 1.0, g or 1.0, b or 1.0, a or 1.0)
 end
+
+-- Draws the horizontally centered text inside the sprite
+function drawHorzCenteredText(font, sprite, text, r, g, b, a)
+	local textWidth, textHeight = font:getTextSize(text)
+	font:drawText(sprite.x + (sprite:getWidth() - textWidth) / 2, sprite.y, text, r or 1.0, g or 1.0, b or 1.0, a or 1.0)
+end

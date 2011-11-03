@@ -19,6 +19,7 @@ function main_menu_createSprites()
 	spriteRulerVertIcon = Sprite("spriteRulerVertIcon", 0, 0)
 	spriteRulerHorzIcon = Sprite("spriteRulerHorzIcon", 0, 0)
 	spriteGeometryIcon = Sprite("spriteGeometryIcon", 0, 0)
+	spriteDriverTestIcon = Sprite("spriteDriverTestIcon", 0, 0)
 	spriteErrorIcon = Sprite("spriteErrorIcon", 0, 0)
 	spriteWheelQepIcon = Sprite("spriteWheelQepIcon", 0, 0)
 	spriteResistanceIcon = Sprite("spriteResistanceIcon", 0, 0)
@@ -91,6 +92,10 @@ function main_menu_createSprites()
 	spriteStatsNextButton = Sprite("spriteStatsNextButton", 990, 709)
 	spriteStatsPrevButton = Sprite("spriteStatsPrevButton", 879, 709)
 	spriteStatsSelectButton = Sprite("spriteStatsSelectButton", 176, 711)
+	spriteStatsTextY1 = Sprite("spriteStatsTextY1", 152, 637)
+	spriteStatsTextX1 = Sprite("spriteStatsTextX1", 199, 679)
+	spriteStatsBar31 = Sprite("spriteStatsBar31", 1051, 202)
+	spriteStatsBar1 = Sprite("spriteStatsBar1", 187, 202)
 	spriteStatsYear = Sprite("spriteStatsYear", 1000, 168)
 	spriteStatsMonth = Sprite("spriteStatsMonth", 780, 168)
 	spriteStatsHeader = Sprite("spriteStatsHeader", 319, 105)
@@ -128,6 +133,7 @@ function main_menu_deleteSprites()
 	spriteRulerVertIcon = nil
 	spriteRulerHorzIcon = nil
 	spriteGeometryIcon = nil
+	spriteDriverTestIcon = nil
 	spriteErrorIcon = nil
 	spriteWheelQepIcon = nil
 	spriteResistanceIcon = nil
@@ -200,6 +206,10 @@ function main_menu_deleteSprites()
 	spriteStatsNextButton = nil
 	spriteStatsPrevButton = nil
 	spriteStatsSelectButton = nil
+	spriteStatsTextY1 = nil
+	spriteStatsTextX1 = nil
+	spriteStatsBar31 = nil
+	spriteStatsBar1 = nil
 	spriteStatsYear = nil
 	spriteStatsMonth = nil
 	spriteStatsHeader = nil

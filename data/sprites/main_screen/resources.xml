@@ -505,22 +505,22 @@
 			<grid pos="777,634" size="227,207"/>
 		</image>
 	</sprite>
-	<sprite name="spriteStatDie5">
+	<sprite name="spriteStatDie4">
 		<image file="texture11.png">
 			<grid pos="0,499" size="176,176"/>
 		</image>
 	</sprite>
-	<sprite name="spriteStatDie4">
+	<sprite name="spriteStatDie3">
 		<image file="texture11.png">
 			<grid pos="0,322" size="176,176"/>
 		</image>
 	</sprite>
-	<sprite name="spriteStatDie3">
+	<sprite name="spriteStatDie2">
 		<image file="texture11.png">
 			<grid pos="0,145" size="176,176"/>
 		</image>
 	</sprite>
-	<sprite name="spriteStatDie2">
+	<sprite name="spriteStatDie5">
 		<image file="texture10.png">
 			<grid pos="789,0" size="176,176"/>
 		</image>

@@ -49,6 +49,7 @@ sprites =
 	["spriteResistanceIcon", ["resistance_icon"]],
 	["spriteWheelQepIcon", ["wheel_qep_icon"]],
 	["spriteErrorIcon", ["error_icon"]],
+	["spriteDriverTestIcon", ["driver_test_icon"]],
 
 	["spriteGeometryIcon", ["geometry_icon"]],
 	["spriteRulerHorzIcon", ["ruler_horz_icon"]],

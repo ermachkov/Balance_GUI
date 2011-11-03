@@ -636,7 +636,13 @@ local function initMenus()
 				icon = spriteErrorIcon,
 				header = tr("{stats_header}"),
 				text = tr("{stats_text}"),
-				onClick = function() hideMainMenu(); showStats() end
+				onClick = function() showStats() end
+			},
+			{
+				icon = spriteDriverTestIcon,
+				header = tr("{driver_test_header}"),
+				text = tr("{driver_test_text}"),
+				onClick = function() hideMainMenu(); balance:setParam("testdrv") end
 			}
 		},
 
@@ -913,6 +919,9 @@ function onMainMenuUpdate(delta)
 		fontMainMenuItemHeader = CFont("fontMainMenuItemHeader")
 		fontMainMenuItemText = CFont("fontMainMenuItemText")
 		fontMainMenuItemValue = CFont("fontMainMenuItemValue")
+		fontStatsHeader = CFont("fontStatsHeader")
+		fontStatsMonth = CFont("fontStatsMonth")
+		fontStatsTextX = CFont("fontStatsTextX")
 
 		-- disable translation for menu entries to work properly
 		enableTranslation(false)
@@ -954,7 +963,7 @@ function onMainMenuUpdate(delta)
 
 	-- handle mouse movements
 	local selItem = 0
-	if menuActive and mousePressed and not isKeyboardActive() and not isMessageActive() then
+	if menuActive and mousePressed and not isKeyboardActive() and not isMessageActive() and not isStatsActive() then
 		-- retrieve current mouse position
 		local x, y = mouse:getPosition()
 

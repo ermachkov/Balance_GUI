@@ -20,6 +20,7 @@ function showBalanceProgress()
 		hideDiskMenu()
 		hideMainMenu()
 		hideKeyboard()
+		hideStats()
 
 		-- initialize the balance progress bar
 		balanceProgressActive = true
@@ -63,22 +64,24 @@ function onBalanceProgressUpdate(delta)
 
 	-- update the balance progress
 	local currFreq = balance:getIntParam("wheelspeed") * 10.0 / NUM_ANGLES
-	if stopPressed then
-		balanceProgress = 0.0
-	elseif balanceSubstate >= BALANCE_START and balanceSubstate < BALANCE_DECEL then
-		-- increment the elapsed time
-		balanceTime = balanceTime + delta / 1000.0
+	if balance:getIntParam("testmode") == 0 then
+		if stopPressed then
+			balanceProgress = 0.0
+		elseif balanceSubstate >= BALANCE_START and balanceSubstate < BALANCE_DECEL then
+			-- increment the elapsed time
+			balanceTime = balanceTime + delta / 1000.0
 
-		-- estimate the acceleration time
-		if balanceSubstate < BALANCE_MEASURE and currFreq > 0.01 then
-			accelTime = balanceTime * balanceFreq / currFreq
+			-- estimate the acceleration time
+			if balanceSubstate < BALANCE_MEASURE and currFreq > 0.01 then
+				accelTime = balanceTime * balanceFreq / currFreq
+			end
+
+			-- estimate the balance progress
+			local progress = balanceTime / (accelTime + measureTime)
+			balanceProgress = clamp(progress, balanceProgress, 1.0)
+		elseif balanceSubstate >= BALANCE_DECEL then
+			balanceProgress = 1.0
 		end
-
-		-- estimate the balance progress
-		local progress = balanceTime / (accelTime + measureTime)
-		balanceProgress = clamp(progress, balanceProgress, 1.0)
-	elseif balanceSubstate >= BALANCE_DECEL then
-		balanceProgress = 1.0
 	end
 
 	-- fade the main screen

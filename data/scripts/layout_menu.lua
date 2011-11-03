@@ -41,7 +41,7 @@ end
 function onLayoutMenuInit()
 	-- initialize sprite tables
 	dynDies = {spriteDynDie15, spriteDynDie25, spriteDynDie14, spriteDynDie13, spriteDynDie23, spriteDynDie24}
-	statDies = {spriteStatDie1, spriteStatDie2, spriteStatDie3, spriteStatDie4, spriteStatDie5}
+	statDies = {spriteStatDie1, spriteStatDie5, spriteStatDie2, spriteStatDie3, spriteStatDie4}
 
 	-- initialize dyn dies
 	for i, die in ipairs(dynDies) do
@@ -62,6 +62,7 @@ function onLayoutMenuInit()
 		die.layout = i - 1
 		die.time = 0
 	end
+	statDies[1].layout, statDies[2].layout, statDies[3].layout, statDies[4].layout, statDies[5].layout = LAYOUT_1, LAYOUT_5, LAYOUT_2, LAYOUT_3, LAYOUT_4
 end
 
 function onLayoutMenuUpdate(delta)
@@ -93,7 +94,7 @@ function onLayoutMenuUpdate(delta)
 		else
 			-- check small dies
 			local dies = selDynMode and dynDies or statDies
-			local maxDies = (not selDynMode or mode == MODE_ALU or mode == MODE_STAT) and #dies or 1
+			local maxDies = (mode == MODE_ALU or mode == MODE_STAT) and #dies or (selDynMode and 1 or 2)
 			local currDie = nil
 			for i = 1, maxDies do
 				local die = dies[i]
@@ -136,7 +137,7 @@ function onLayoutMenuUpdate(delta)
 
 	-- small dies
 	local dies = selDynMode and dynDies or statDies
-	local maxDies = (not selDynMode or mode == MODE_ALU or mode == MODE_STAT) and #dies or 1
+	local maxDies = (mode == MODE_ALU or mode == MODE_STAT) and #dies or (selDynMode and 1 or 2)
 	for i = 1, maxDies do
 		local die = dies[i]
 		if die ~= selDie and die ~= prevSelDie then

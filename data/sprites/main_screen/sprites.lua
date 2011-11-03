@@ -65,10 +65,10 @@ function main_screen_createSprites()
 	spriteLayoutMenu = Sprite("spriteLayoutMenu", 62, 32)
 	spriteLayoutSubmenu = Sprite("spriteLayoutSubmenu", 77, 72)
 	spriteStatMenuDie = Sprite("spriteStatMenuDie", 98, 464)
-	spriteStatDie5 = Sprite("spriteStatDie5", 620, 542)
-	spriteStatDie4 = Sprite("spriteStatDie4", 390, 542)
-	spriteStatDie3 = Sprite("spriteStatDie3", 850, 322)
-	spriteStatDie2 = Sprite("spriteStatDie2", 620, 322)
+	spriteStatDie4 = Sprite("spriteStatDie4", 620, 542)
+	spriteStatDie3 = Sprite("spriteStatDie3", 391, 542)
+	spriteStatDie2 = Sprite("spriteStatDie2", 851, 322)
+	spriteStatDie5 = Sprite("spriteStatDie5", 620, 323)
 	spriteStatDie1 = Sprite("spriteStatDie1", 390, 322)
 	spriteStatMenuText = Sprite("spriteStatMenuText", 120, 691)
 	spriteDynMenuDie = Sprite("spriteDynMenuDie", 98, 93)
@@ -262,10 +262,10 @@ function main_screen_deleteSprites()
 	spriteLayoutMenu = nil
 	spriteLayoutSubmenu = nil
 	spriteStatMenuDie = nil
-	spriteStatDie5 = nil
 	spriteStatDie4 = nil
 	spriteStatDie3 = nil
 	spriteStatDie2 = nil
+	spriteStatDie5 = nil
 	spriteStatDie1 = nil
 	spriteStatMenuText = nil
 	spriteDynMenuDie = nil

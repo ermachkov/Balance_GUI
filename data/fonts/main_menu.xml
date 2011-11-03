@@ -12,4 +12,13 @@
 	<font name="fontMainMenuItemValue">
 		<freetype file="LiberationSans-Bold.ttf" height="50"/>
 	</font>
+	<font name="fontStatsHeader">
+		<freetype file="LiberationSans-Bold.ttf" height="35"/>
+	</font>
+	<font name="fontStatsMonth">
+		<freetype file="LiberationSans-Bold.ttf" height="40"/>
+	</font>
+	<font name="fontStatsTextX">
+		<freetype file="LiberationSans-Bold.ttf" height="23"/>
+	</font>
 </resources>

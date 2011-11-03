@@ -6,6 +6,12 @@ sprites =
 	["spriteStatsMonth", ["stats_month"]],
 	["spriteStatsYear", ["stats_year"]],
 
+	["spriteStatsBar1", ["stats_bar_1"]],
+	["spriteStatsBar31", ["stats_bar_31"]],
+
+	["spriteStatsTextX1", ["stats_text_x_1"]],
+	["spriteStatsTextY1", ["stats_text_y_1"]],
+
 	["spriteStatsSelectButton", ["stats_select_button_normal", "stats_select_button_pressed"]],
 	["spriteStatsPrevButton", ["stats_prev_button_normal", "stats_prev_button_pressed"]],
 	["spriteStatsNextButton", ["stats_next_button_normal", "stats_next_button_pressed"]],
