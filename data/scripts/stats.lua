@@ -6,34 +6,47 @@ local MONTHS = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
 
 local statsActive = false
 local statsTime = 0
+local statsMode, statsSubmode
 local pressedButton
 local day, month, year
 local currMonth, currYear
 local currDate = {}
-local monthNames
+local statsTitles, statsModes, monthNames
 local stats = {}
-local numDays
+local numValues
 
 -- Updates the statistics
 local function updateStats()
-	-- calculate current number of days
-	if currMonth == month and currYear == year then
-		numDays = day
-	elseif currMonth == 2 and currYear % 4 == 0 then
-		numDays = 29
+	if statsMode == STATS_DISKS or statsMode == STATS_WEIGHTS then
+		-- calculate current number of days
+		if currMonth == month and currYear == year then
+			numValues = day
+		elseif currMonth == 2 and currYear % 4 == 0 then
+			numValues = 29
+		else
+			numValues = MONTHS[currMonth]
+		end
+
+		-- fill the current statistics
+		for i = 1, numValues do
+			-- determine the value
+			stats[i].text = tostring(i)
+			stats[i].value = math.random()
+
+			-- determine the weekend
+			currDate.day, currDate.month, currDate.year = i, currMonth, currYear
+			local date = os.date("*t", os.time(currDate))
+			stats[i].weekend = date.wday == 1 or date.wday == 7
+		end
 	else
-		numDays = MONTHS[currMonth]
-	end
-
-	-- fill the current statistics
-	for i = 1, numDays do
-		-- determine the weekend
-		currDate.day, currDate.month, currDate.year = i, currMonth, currYear
-		local date = os.date("*t", os.time(currDate))
-		stats[i].weekend = date.wday == 1 or date.wday == 7
-
-		-- determine the value
-		stats[i].value = math.random()
+		-- set up inches
+		numValues = 13
+		for i = 1, numValues do
+			-- determine the value
+			stats[i].text = tostring(i + 11)
+			stats[i].value = math.random()
+			stats[i].weekend = false
+		end
 	end
 end
 
@@ -43,9 +56,10 @@ function isStatsActive()
 end
 
 -- Shows the stats
-function showStats()
+function showStats(mode)
 	if not statsActive and isMainMenuLoaded() then
 		statsActive = true
+		statsMode, statsSubmode = mode, 0
 		pressedButton = nil
 		local date = os.date("*t")
 		day, month, year = date.day, date.month, date.year
@@ -65,7 +79,9 @@ end
 
 function onStatsInit()
 	enableTranslation(false)
-	monthNames = {tr("JANUARY"), tr("FEBRUARY"), tr("MARCH"), tr("APRIL"), tr("MAY"), tr("JUNE"), tr("JULY"), tr("AUGUST"), tr("SEPTEMBER"), tr("OCTOBER"), tr("NOVEMBER"), tr("DEADCEMBER")}
+	statsTitles = {tr("{stats_disks_title}"), tr("{stats_inches_title}"), tr("{stats_weights_title}")}
+	statsModes = {{tr("{stats_all}"), tr("{stats_alu}"), tr("{stats_steel}")}, {tr("{stats_all}"), tr("{stats_alu}"), tr("{stats_steel}")}, {tr("{stats_all}"), tr("{stats_normal}"), tr("{stats_stick}")}}
+	monthNames = {tr("JANUARY"), tr("FEBRUARY"), tr("MARCH"), tr("APRIL"), tr("MAY"), tr("JUNE"), tr("JULY"), tr("AUGUST"), tr("SEPTEMBER"), tr("OCTOBER"), tr("NOVEMBER"), tr("DECEMBER")}
 	enableTranslation(true)
 
 	for i = 1, 31 do
@@ -100,21 +116,21 @@ function onStatsUpdate(delta)
 	spriteStatsBack1:draw()
 
 	-- text
-	drawHorzCenteredText(fontStatsHeader, spriteStatsHeader, tr("HEADER"), 110 / 255, 110 / 255, 110 / 255)
+	drawHorzCenteredText(fontStatsHeader, spriteStatsHeader, tr(statsTitles[statsMode + 1]), 110 / 255, 110 / 255, 110 / 255)
 	drawHorzCenteredText(fontStatsMonth, spriteStatsMonth, tr(monthNames[currMonth]), 80 / 255, 80 / 255, 80 / 255)
 	drawHorzCenteredText(fontStatsMonth, spriteStatsYear, tostring(currYear), 80 / 255, 80 / 255, 80 / 255)
 
 	-- bars
 	local left = spriteStatsBar1.x
-	local step = (spriteStatsBar31.x - spriteStatsBar1.x) / 30
-	for i = 1, numDays do
+	local step = (spriteStatsBar31.x - spriteStatsBar1.x) / ((statsMode == STATS_DISKS or statsMode == STATS_WEIGHTS) and 30 or (numValues - 1))
+	for i = 1, numValues do
 		-- bar
 		local value = 1.0 - stats[i].value
 		local barWidth, barHeight = spriteStatsBar1:getWidth(), spriteStatsBar1:getHeight()
 		spriteStatsBar1:draw(left, spriteStatsBar1.y + value * barHeight, left + barWidth, spriteStatsBar1.y + barHeight, 0, value * barHeight, barWidth, barHeight)
 
 		-- text
-		local text = tostring(i)
+		local text = stats[i].text
 		local textWidth, textHeight = fontStatsTextX:getTextSize(text)
 		if stats[i].weekend then
 			fontStatsTextX:drawText(left + (spriteStatsBar1:getWidth() - textWidth) / 2, spriteStatsTextX1.y + (spriteStatsTextX1:getHeight() - textHeight) / 2, text, 1.0, 0.0, 0.0)
@@ -135,6 +151,9 @@ function onStatsUpdate(delta)
 	spriteStatsNextButton:draw()
 	spriteStatsCloseButton.alpha = alpha
 	spriteStatsCloseButton:draw()
+
+	-- submode
+	drawCenteredText(fontStatsMode, spriteStatsSelectButton, tr(statsModes[statsMode + 1][statsSubmode + 1]), 1.0, 1.0, 1.0)
 end
 
 function onStatsMouseDown(x, y, key)
@@ -176,6 +195,11 @@ function onStatsMouseUp(x, y, key)
 		-- check pressed buttons
 		if pressedButton:isPointInside(x, y) then
 			if pressedButton == spriteStatsSelectButton then
+				-- increment submode
+				statsSubmode = statsSubmode + 1
+				if statsSubmode > 2 then
+					statsSubmode = 0
+				end
 			elseif pressedButton == spriteStatsPrevButton then
 				-- decrement current month
 				if currYear > 2010 or currMonth > 1 then

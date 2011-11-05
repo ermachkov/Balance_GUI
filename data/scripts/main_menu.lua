@@ -636,7 +636,24 @@ local function initMenus()
 				icon = spriteErrorIcon,
 				header = tr("{stats_header}"),
 				text = tr("{stats_text}"),
-				onClick = function() showStats() end
+				{
+					icon = spriteStatsDisksIcon,
+					header = tr("{stats_disks_header}"),
+					text = tr("{stats_disks_text}"),
+					onClick = function() showStats(STATS_DISKS) end
+				},
+				{
+					icon = spriteStatsInchesIcon,
+					header = tr("{stats_inches_header}"),
+					text = tr("{stats_inches_text}"),
+					onClick = function() showStats(STATS_INCHES) end
+				},
+				{
+					icon = spriteErrorIcon,
+					header = tr("{stats_weights_header}"),
+					text = tr("{stats_weights_text}"),
+					onClick = function() showStats(STATS_WEIGHTS) end
+				}
 			},
 			{
 				icon = spriteDriverTestIcon,
@@ -921,6 +938,7 @@ function onMainMenuUpdate(delta)
 		fontMainMenuItemValue = CFont("fontMainMenuItemValue")
 		fontStatsHeader = CFont("fontStatsHeader")
 		fontStatsMonth = CFont("fontStatsMonth")
+		fontStatsMode = CFont("fontStatsMode")
 		fontStatsTextX = CFont("fontStatsTextX")
 
 		-- disable translation for menu entries to work properly

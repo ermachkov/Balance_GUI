@@ -51,6 +51,9 @@ sprites =
 	["spriteErrorIcon", ["error_icon"]],
 	["spriteDriverTestIcon", ["driver_test_icon"]],
 
+	["spriteStatsDisksIcon", ["stats_disks_icon"]],
+	["spriteStatsInchesIcon", ["stats_inches_icon"]],
+
 	["spriteGeometryIcon", ["geometry_icon"]],
 	["spriteRulerHorzIcon", ["ruler_horz_icon"]],
 	["spriteRulerVertIcon", ["ruler_vert_icon"]],

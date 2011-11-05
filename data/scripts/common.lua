@@ -82,6 +82,11 @@ ITEM_NORMAL = 0
 ITEM_PRESSED = 1
 ITEM_SELECTED = 2
 
+-- Statistics modes
+STATS_DISKS = 0
+STATS_INCHES = 1
+STATS_WEIGHTS = 2
+
 -- Globals
 balanceState = STATE_IDLE
 balanceSubstate = BALANCE_IDLE

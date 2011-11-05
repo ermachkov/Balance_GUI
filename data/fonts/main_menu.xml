@@ -18,6 +18,9 @@
 	<font name="fontStatsMonth">
 		<freetype file="LiberationSans-Bold.ttf" height="40"/>
 	</font>
+	<font name="fontStatsMode">
+		<freetype file="LiberationSans-Bold.ttf" height="32"/>
+	</font>
 	<font name="fontStatsTextX">
 		<freetype file="LiberationSans-Bold.ttf" height="23"/>
 	</font>
