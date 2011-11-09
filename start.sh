@@ -11,7 +11,7 @@ if [ `grep -i mouse -c /tmp/lsusb` -eq 0 ]; then
   export MOUSE="0"
 fi
 
-if [ `grep -i egalax -c /tmp/lsusb` -gt 0 ]; then
+if [ `grep -i egalax -c /tmp/lsusb` -gt 0 ] || [ `grep -i 1aad:0001 -c /tmp/lsusb` -gt 0 ]; then
     export MOUSE="2";
 fi
 
