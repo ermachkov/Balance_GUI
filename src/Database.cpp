@@ -14,6 +14,26 @@ void Database::execQuery(const std::string &text)
 	mReader = mConnection.execute_reader(command);
 }
 
+bool Database::nextRow()
+{
+	return mReader.retrieve_row();
+}
+
+std::string Database::getString(const std::string &column)
+{
+	return mReader.get_column_string(column);
+}
+
+int Database::getInt(const std::string &column)
+{
+	return mReader.get_column_int(column);
+}
+
+double Database::getFloat(const std::string &column)
+{
+	return mReader.get_column_double(column);
+}
+
 void Database::closeQuery()
 {
 	mReader.close();

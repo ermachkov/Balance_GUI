@@ -1,6 +1,6 @@
 /*
 ** Lua binding: LuaBindings
-** Generated automatically by tolua++-1.0.92 on 10/26/11 17:30:49.
+** Generated automatically by tolua++-1.0.92 on 11/09/11 13:25:38.
 */
 
 #ifndef __cplusplus
@@ -763,6 +763,143 @@ static int tolua_LuaBindings_Database_execQuery00(lua_State* tolua_S)
 #ifndef TOLUA_RELEASE
  tolua_lerror:
  tolua_error(tolua_S,"#ferror in function 'execQuery'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: nextRow of class  Database */
+#ifndef TOLUA_DISABLE_tolua_LuaBindings_Database_nextRow00
+static int tolua_LuaBindings_Database_nextRow00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Database",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Database* self = (Database*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'nextRow'", NULL);
+#endif
+  {
+   bool tolua_ret = (bool)  self->nextRow();
+   tolua_pushboolean(tolua_S,(bool)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'nextRow'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: getString of class  Database */
+#ifndef TOLUA_DISABLE_tolua_LuaBindings_Database_getString00
+static int tolua_LuaBindings_Database_getString00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Database",0,&tolua_err) ||
+     !tolua_iscppstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Database* self = (Database*)  tolua_tousertype(tolua_S,1,0);
+  const std::string column = ((const std::string)  tolua_tocppstring(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'getString'", NULL);
+#endif
+  {
+   std::string tolua_ret = (std::string)  self->getString(column);
+   tolua_pushcppstring(tolua_S,(const char*)tolua_ret);
+   tolua_pushcppstring(tolua_S,(const char*)column);
+  }
+ }
+ return 2;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'getString'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: getInt of class  Database */
+#ifndef TOLUA_DISABLE_tolua_LuaBindings_Database_getInt00
+static int tolua_LuaBindings_Database_getInt00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Database",0,&tolua_err) ||
+     !tolua_iscppstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Database* self = (Database*)  tolua_tousertype(tolua_S,1,0);
+  const std::string column = ((const std::string)  tolua_tocppstring(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'getInt'", NULL);
+#endif
+  {
+   int tolua_ret = (int)  self->getInt(column);
+   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+   tolua_pushcppstring(tolua_S,(const char*)column);
+  }
+ }
+ return 2;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'getInt'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: getFloat of class  Database */
+#ifndef TOLUA_DISABLE_tolua_LuaBindings_Database_getFloat00
+static int tolua_LuaBindings_Database_getFloat00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Database",0,&tolua_err) ||
+     !tolua_iscppstring(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Database* self = (Database*)  tolua_tousertype(tolua_S,1,0);
+  const std::string column = ((const std::string)  tolua_tocppstring(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'getFloat'", NULL);
+#endif
+  {
+   double tolua_ret = (double)  self->getFloat(column);
+   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+   tolua_pushcppstring(tolua_S,(const char*)column);
+  }
+ }
+ return 2;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'getFloat'.",&tolua_err);
  return 0;
 #endif
 }
@@ -3374,6 +3511,10 @@ TOLUA_API int tolua_LuaBindings_open (lua_State* tolua_S)
   tolua_cclass(tolua_S,"Database","Database","",NULL);
   tolua_beginmodule(tolua_S,"Database");
    tolua_function(tolua_S,"execQuery",tolua_LuaBindings_Database_execQuery00);
+   tolua_function(tolua_S,"nextRow",tolua_LuaBindings_Database_nextRow00);
+   tolua_function(tolua_S,"getString",tolua_LuaBindings_Database_getString00);
+   tolua_function(tolua_S,"getInt",tolua_LuaBindings_Database_getInt00);
+   tolua_function(tolua_S,"getFloat",tolua_LuaBindings_Database_getFloat00);
    tolua_function(tolua_S,"closeQuery",tolua_LuaBindings_Database_closeQuery00);
    tolua_function(tolua_S,"getSingleton",tolua_LuaBindings_Database_getSingleton00);
   tolua_endmodule(tolua_S);

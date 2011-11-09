@@ -633,7 +633,7 @@ local function initMenus()
 				text = tr("{errors_text}")
 			},
 			{
-				icon = spriteErrorIcon,
+				icon = spriteStatsIcon,
 				header = tr("{stats_header}"),
 				text = tr("{stats_text}"),
 				{
@@ -649,7 +649,7 @@ local function initMenus()
 					onClick = function() showStats(STATS_INCHES) end
 				},
 				{
-					icon = spriteErrorIcon,
+					icon = spriteStatsWeightsIcon,
 					header = tr("{stats_weights_header}"),
 					text = tr("{stats_weights_text}"),
 					onClick = function() showStats(STATS_WEIGHTS) end
@@ -939,7 +939,7 @@ function onMainMenuUpdate(delta)
 		fontStatsHeader = CFont("fontStatsHeader")
 		fontStatsMonth = CFont("fontStatsMonth")
 		fontStatsMode = CFont("fontStatsMode")
-		fontStatsTextX = CFont("fontStatsTextX")
+		fontStatsAxis = CFont("fontStatsAxis")
 
 		-- disable translation for menu entries to work properly
 		enableTranslation(false)

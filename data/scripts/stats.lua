@@ -4,6 +4,13 @@ local STATS_FADE_DELAY = 200
 -- Number of days in months
 local MONTHS = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
 
+-- Maximum values table
+local MAX_VALUES = {{10, 5}, {12, 6}, {15, 5}, {18, 6}, {20, 4}, {30, 6}, {40, 4}, {50, 5}, {60, 6}, {80, 4}, {90, 6}}
+
+-- Inches range
+local MIN_INCHES = 12
+local MAX_INCHES = 24
+
 local statsActive = false
 local statsTime = 0
 local statsMode, statsSubmode
@@ -13,7 +20,22 @@ local currMonth, currYear
 local currDate = {}
 local statsTitles, statsModes, monthNames
 local stats = {}
+local counters = {}
 local numValues
+local maxValue, numMarkers
+
+-- Finds the nearest maximum value
+local function findMaxValue(value)
+	local scale = 1
+	while true do
+		for i, pair in ipairs(MAX_VALUES) do
+			if value <= pair[1] * scale then
+				return pair[1] * scale, pair[2]
+			end
+		end
+		scale = scale * 10
+	end
+end
 
 -- Updates the statistics
 local function updateStats()
@@ -27,11 +49,33 @@ local function updateStats()
 			numValues = MONTHS[currMonth]
 		end
 
+		-- perform SQL query
+		local query = string.format("SELECT * FROM Balance WHERE (Time BETWEEN '%04d-%02d-01 00:00:00' AND '%04d-%02d-31 23:59:59') AND (Result = 1)", currYear, currMonth, currYear, currMonth)
+		database:execQuery(query)
+
+		local maxCount = 0
+		for i = 1, numValues do
+			counters[i] = 0
+		end
+
+		while database:nextRow() do
+			local date = database:getString("Time")
+			local day = tonumber(date:sub(9, 10))
+			counters[day] = counters[day] + 1
+			if counters[day] > maxCount then
+				maxCount = counters[day]
+			end
+		end
+
+		database:closeQuery()
+
+		maxValue, numMarkers = findMaxValue(maxCount)
+
 		-- fill the current statistics
 		for i = 1, numValues do
 			-- determine the value
 			stats[i].text = tostring(i)
-			stats[i].value = math.random()
+			stats[i].value = counters[i] / maxValue
 
 			-- determine the weekend
 			currDate.day, currDate.month, currDate.year = i, currMonth, currYear
@@ -39,12 +83,35 @@ local function updateStats()
 			stats[i].weekend = date.wday == 1 or date.wday == 7
 		end
 	else
-		-- set up inches
-		numValues = 13
+		-- determine the number of inches
+		numValues = MAX_INCHES - MIN_INCHES + 1
+
+		-- perform SQL query
+		local query = string.format("SELECT * FROM Balance WHERE (Time BETWEEN '%04d-%02d-01 00:00:00' AND '%04d-%02d-31 23:59:59') AND (Result = 1)", currYear, currMonth, currYear, currMonth)
+		database:execQuery(query)
+
+		local maxCount = 0
 		for i = 1, numValues do
-			-- determine the value
-			stats[i].text = tostring(i + 11)
-			stats[i].value = math.random()
+			counters[i] = 0
+		end
+
+		while database:nextRow() do
+			local diam = database:getFloat("Diam")
+			local index = clamp(math.floor(diam + 0.5) - MIN_INCHES + 1, 1, numValues)
+			counters[index] = counters[index] + 1
+			if counters[index] > maxCount then
+				maxCount = counters[index]
+			end
+		end
+
+		database:closeQuery()
+
+		maxValue, numMarkers = findMaxValue(maxCount)
+
+		-- set up inches
+		for i = 1, numValues do
+			stats[i].text = tostring(i + MIN_INCHES - 1)
+			stats[i].value = counters[i] / maxValue
 			stats[i].weekend = false
 		end
 	end
@@ -80,7 +147,9 @@ end
 function onStatsInit()
 	enableTranslation(false)
 	statsTitles = {tr("{stats_disks_title}"), tr("{stats_inches_title}"), tr("{stats_weights_title}")}
-	statsModes = {{tr("{stats_all}"), tr("{stats_alu}"), tr("{stats_steel}")}, {tr("{stats_all}"), tr("{stats_alu}"), tr("{stats_steel}")}, {tr("{stats_all}"), tr("{stats_normal}"), tr("{stats_stick}")}}
+	statsModes = {{tr("{stats_disks_all}"), tr("{stats_disks_alu}"), tr("{stats_disks_steel}")},
+		{tr("{stats_inches_all}"), tr("{stats_inches_alu}"), tr("{stats_inches_steel}")},
+		{tr("{stats_weights_all}"), tr("{stats_weights_clip}"), tr("{stats_weights_stick}")}}
 	monthNames = {tr("JANUARY"), tr("FEBRUARY"), tr("MARCH"), tr("APRIL"), tr("MAY"), tr("JUNE"), tr("JULY"), tr("AUGUST"), tr("SEPTEMBER"), tr("OCTOBER"), tr("NOVEMBER"), tr("DECEMBER")}
 	enableTranslation(true)
 
@@ -120,26 +189,43 @@ function onStatsUpdate(delta)
 	drawHorzCenteredText(fontStatsMonth, spriteStatsMonth, tr(monthNames[currMonth]), 80 / 255, 80 / 255, 80 / 255)
 	drawHorzCenteredText(fontStatsMonth, spriteStatsYear, tostring(currYear), 80 / 255, 80 / 255, 80 / 255)
 
-	-- bars
-	local left = spriteStatsBar1.x
-	local step = (spriteStatsBar31.x - spriteStatsBar1.x) / ((statsMode == STATS_DISKS or statsMode == STATS_WEIGHTS) and 30 or (numValues - 1))
+	-- X axis and bars
+	local bar, step
+	if statsMode == STATS_DISKS or statsMode == STATS_WEIGHTS then
+		bar = spriteStatsBar1
+		step = (spriteStatsBar31.x - spriteStatsBar1.x) / 30
+	else
+		bar = spriteStatsBar1Thick
+		step = (spriteStatsBar13Thick.x - spriteStatsBar1Thick.x) / (numValues - 1)
+	end
+	local left = bar.x
 	for i = 1, numValues do
 		-- bar
 		local value = 1.0 - stats[i].value
-		local barWidth, barHeight = spriteStatsBar1:getWidth(), spriteStatsBar1:getHeight()
-		spriteStatsBar1:draw(left, spriteStatsBar1.y + value * barHeight, left + barWidth, spriteStatsBar1.y + barHeight, 0, value * barHeight, barWidth, barHeight)
+		local barWidth, barHeight = bar:getWidth(), bar:getHeight()
+		bar:draw(left, bar.y + value * barHeight, left + barWidth, bar.y + barHeight, 0, value * barHeight, barWidth, barHeight)
 
 		-- text
 		local text = stats[i].text
-		local textWidth, textHeight = fontStatsTextX:getTextSize(text)
+		local textWidth, textHeight = fontStatsAxis:getTextSize(text)
 		if stats[i].weekend then
-			fontStatsTextX:drawText(left + (spriteStatsBar1:getWidth() - textWidth) / 2, spriteStatsTextX1.y + (spriteStatsTextX1:getHeight() - textHeight) / 2, text, 1.0, 0.0, 0.0)
+			fontStatsAxis:drawText(left + (bar:getWidth() - textWidth) / 2, spriteStatsTextX1.y + (spriteStatsTextX1:getHeight() - textHeight) / 2, text, 1.0, 0.0, 0.0)
 		else
-			fontStatsTextX:drawText(left + (spriteStatsBar1:getWidth() - textWidth) / 2, spriteStatsTextX1.y + (spriteStatsTextX1:getHeight() - textHeight) / 2, text, 0.0, 0.0, 0.0)
+			fontStatsAxis:drawText(left + (bar:getWidth() - textWidth) / 2, spriteStatsTextX1.y + (spriteStatsTextX1:getHeight() - textHeight) / 2, text, 0.0, 0.0, 0.0)
 		end
 
-		-- increment the bar coordinate
+		-- increment bar coordinate
 		left = left + step
+	end
+
+	-- Y axis
+	local step = (spriteStatsBar1.y + spriteStatsBar1:getHeight() - spriteStatsTextYLast.y) / numMarkers
+	local top = spriteStatsBar1.y + spriteStatsBar1:getHeight() - step
+	for i = 1, numMarkers do
+		local text = tostring(i * maxValue / numMarkers)
+		local textWidth, textHeight = fontStatsAxis:getTextSize(text)
+		fontStatsAxis:drawText(spriteStatsTextY1.x + (spriteStatsTextY1:getWidth() - textWidth) / 2, top, text, 1.0, 1.0, 1.0)
+		top = top - step
 	end
 
 	-- buttons
