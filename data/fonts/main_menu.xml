@@ -21,7 +21,7 @@
 	<font name="fontStatsMode">
 		<freetype file="LiberationSans-Bold.ttf" height="32"/>
 	</font>
-	<font name="fontStatsTextX">
+	<font name="fontStatsAxis">
 		<freetype file="LiberationSans-Bold.ttf" height="23"/>
 	</font>
 </resources>

@@ -11,6 +11,14 @@ public:
 
 	void execQuery(const std::string &text);
 
+	bool nextRow();
+
+	std::string getString(const std::string &column);
+
+	int getInt(const std::string &column);
+
+	double getFloat(const std::string &column);
+
 	void closeQuery();
 
 private:
