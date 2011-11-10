@@ -37,7 +37,7 @@ Balance::Balance(Profile &profile)
 	profile.setString("dns", profile.getString("dns", "127.0.0.1"));
 	profile.setBool("remote_control", profile.getBool("remote_control", true));
 	profile.setInt("input_dev", profile.getInt("input_dev", 1));
-	profile.setString("cal_command", profile.getString("cal_command", "eGalaxTouch"));
+	profile.setString("cal_command", profile.getString("cal_command", "balance_xinput_calibrator"));
 
 	mSlotUpdate = Application::getSingleton().getSigUpdate().connect(this, &Balance::onUpdate);
 

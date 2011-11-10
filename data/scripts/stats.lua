@@ -39,7 +39,7 @@ end
 
 -- Updates the statistics
 local function updateStats()
-	if statsMode == STATS_DISKS or statsMode == STATS_WEIGHTS then
+	if statsMode == STATS_DISKS or statsMode == STATS_WEIGHTS or statsMode == STATS_TIME then
 		-- calculate current number of days
 		if currMonth == month and currYear == year then
 			numValues = day
@@ -51,6 +51,13 @@ local function updateStats()
 
 		-- perform SQL query
 		local query = string.format("SELECT * FROM Balance WHERE (Time BETWEEN '%04d-%02d-01 00:00:00' AND '%04d-%02d-31 23:59:59') AND (Result = 1)", currYear, currMonth, currYear, currMonth)
+		if statsMode == STATS_DISKS then
+			if statsSubmode == 1 then
+				query = query .. " AND (Mode = 0)"
+			elseif statsSubmode == 2 then
+				query = query .. " AND (Mode = 1)"
+			end
+		end
 		database:execQuery(query)
 
 		local maxCount = 0
@@ -88,6 +95,11 @@ local function updateStats()
 
 		-- perform SQL query
 		local query = string.format("SELECT * FROM Balance WHERE (Time BETWEEN '%04d-%02d-01 00:00:00' AND '%04d-%02d-31 23:59:59') AND (Result = 1)", currYear, currMonth, currYear, currMonth)
+		if statsSubmode == 1 then
+			query = query .. " AND (Mode = 0)"
+		elseif statsSubmode == 2 then
+			query = query .. " AND (Mode = 1)"
+		end
 		database:execQuery(query)
 
 		local maxCount = 0
@@ -146,10 +158,11 @@ end
 
 function onStatsInit()
 	enableTranslation(false)
-	statsTitles = {tr("{stats_disks_title}"), tr("{stats_inches_title}"), tr("{stats_weights_title}")}
+	statsTitles = {tr("{stats_disks_title}"), tr("{stats_inches_title}"), tr("{stats_weights_title}"), tr("{stats_time_title}")}
 	statsModes = {{tr("{stats_disks_all}"), tr("{stats_disks_alu}"), tr("{stats_disks_steel}")},
 		{tr("{stats_inches_all}"), tr("{stats_inches_alu}"), tr("{stats_inches_steel}")},
-		{tr("{stats_weights_all}"), tr("{stats_weights_clip}"), tr("{stats_weights_stick}")}}
+		{tr("{stats_weights_all}"), tr("{stats_weights_clip}"), tr("{stats_weights_stick}")},
+		{tr("{stats_time_total}"), tr("{stats_time_work}"), tr("{stats_time_idle}")}}
 	monthNames = {tr("JANUARY"), tr("FEBRUARY"), tr("MARCH"), tr("APRIL"), tr("MAY"), tr("JUNE"), tr("JULY"), tr("AUGUST"), tr("SEPTEMBER"), tr("OCTOBER"), tr("NOVEMBER"), tr("DECEMBER")}
 	enableTranslation(true)
 
@@ -191,7 +204,7 @@ function onStatsUpdate(delta)
 
 	-- X axis and bars
 	local bar, step
-	if statsMode == STATS_DISKS or statsMode == STATS_WEIGHTS then
+	if statsMode == STATS_DISKS or statsMode == STATS_WEIGHTS or statsMode == STATS_TIME then
 		bar = spriteStatsBar1
 		step = (spriteStatsBar31.x - spriteStatsBar1.x) / 30
 	else
@@ -286,6 +299,7 @@ function onStatsMouseUp(x, y, key)
 				if statsSubmode > 2 then
 					statsSubmode = 0
 				end
+				updateStats()
 			elseif pressedButton == spriteStatsPrevButton then
 				-- decrement current month
 				if currYear > 2010 or currMonth > 1 then

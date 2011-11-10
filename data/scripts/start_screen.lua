@@ -106,7 +106,7 @@ function onStartScreenMouseUp(x, y, key)
 				balance:setParam("keycal0")
 				hideStartScreen()
 			elseif pressedButton == spriteTouchscreenCalibrationButton then
-				os.execute(profile:getString("cal_command", "eGalaxTouch"))
+				os.execute(profile:getString("cal_command", "balance_xinput_calibrator"))
 			end
 		end
 		pressedButton.frame = 0

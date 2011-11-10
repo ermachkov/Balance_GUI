@@ -20,6 +20,7 @@ function main_menu_createSprites()
 	spriteRulerHorzIcon = Sprite("spriteRulerHorzIcon", 0, 0)
 	spriteGeometryIcon = Sprite("spriteGeometryIcon", 0, 0)
 	spriteDriverTestIcon = Sprite("spriteDriverTestIcon", 0, 0)
+	spriteStatsTimeIcon = Sprite("spriteStatsTimeIcon", 0, 0)
 	spriteStatsWeightsIcon = Sprite("spriteStatsWeightsIcon", 0, 0)
 	spriteStatsInchesIcon = Sprite("spriteStatsInchesIcon", 0, 0)
 	spriteStatsDisksIcon = Sprite("spriteStatsDisksIcon", 0, 0)
@@ -141,6 +142,7 @@ function main_menu_deleteSprites()
 	spriteRulerHorzIcon = nil
 	spriteGeometryIcon = nil
 	spriteDriverTestIcon = nil
+	spriteStatsTimeIcon = nil
 	spriteStatsWeightsIcon = nil
 	spriteStatsInchesIcon = nil
 	spriteStatsDisksIcon = nil

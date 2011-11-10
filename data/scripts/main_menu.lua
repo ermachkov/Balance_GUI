@@ -653,6 +653,12 @@ local function initMenus()
 					header = tr("{stats_weights_header}"),
 					text = tr("{stats_weights_text}"),
 					onClick = function() showStats(STATS_WEIGHTS) end
+				},
+				{
+					icon = spriteStatsTimeIcon,
+					header = tr("{stats_time_header}"),
+					text = tr("{stats_time_text}"),
+					onClick = function() showStats(STATS_TIME) end
 				}
 			},
 			{

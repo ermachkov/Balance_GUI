@@ -55,6 +55,7 @@ sprites =
 	["spriteStatsDisksIcon", ["stats_disks_icon"]],
 	["spriteStatsInchesIcon", ["stats_inches_icon"]],
 	["spriteStatsWeightsIcon", ["stats_weights_icon"]],
+	["spriteStatsTimeIcon", ["stats_time_icon"]],
 
 	["spriteGeometryIcon", ["geometry_icon"]],
 	["spriteRulerHorzIcon", ["ruler_horz_icon"]],
