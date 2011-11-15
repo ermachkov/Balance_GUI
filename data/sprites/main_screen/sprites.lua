@@ -156,10 +156,12 @@ function main_screen_createSprites()
 	spriteSpeedometerArrow = Sprite("spriteSpeedometerArrow", 922, 408)
 	spriteSpeedometerCenter = Sprite("spriteSpeedometerCenter", 954, 437)
 	spriteProgressText = Sprite("spriteProgressText", 220, 377)
-	spriteCoverMessageBack = Sprite("spriteCoverMessageBack", 258, 314)
-	spriteCoverMessageText = Sprite("spriteCoverMessageText", 522, 427)
-	spriteAboutMessageBack = Sprite("spriteAboutMessageBack", 265, 216)
-	spriteAboutMessageText = Sprite("spriteAboutMessageText", 626, 422)
+	spriteWheelMessageBack = Sprite("spriteWheelMessageBack", 249, 313)
+	spriteWheelMessageText = Sprite("spriteWheelMessageText", 502, 405)
+	spriteCoverMessageBack = Sprite("spriteCoverMessageBack", 250, 314)
+	spriteCoverMessageText = Sprite("spriteCoverMessageText", 514, 427)
+	spriteAboutMessageBack = Sprite("spriteAboutMessageBack", 254, 216)
+	spriteAboutMessageText = Sprite("spriteAboutMessageText", 615, 422)
 	spriteStartPanel1 = Sprite("spriteStartPanel1", 1116, 496)
 	spriteStartPanel0 = Sprite("spriteStartPanel0", 93, 496)
 	spriteMouseStatusIcon = Sprite("spriteMouseStatusIcon", 994, 741)
@@ -353,6 +355,8 @@ function main_screen_deleteSprites()
 	spriteSpeedometerArrow = nil
 	spriteSpeedometerCenter = nil
 	spriteProgressText = nil
+	spriteWheelMessageBack = nil
+	spriteWheelMessageText = nil
 	spriteCoverMessageBack = nil
 	spriteCoverMessageText = nil
 	spriteAboutMessageBack = nil

@@ -7,7 +7,7 @@ end
 local function processErrors(newErrors, oldErrors, offset)
 	for i = 0, 31 do
 		local code = i + offset
-		if code < 5 or code > 7 then
+		if (code < 5 or code > 7) and (code ~= 19) then
 			local newErr = math.floor(newErrors / 2 ^ i) % 2 ~= 0
 			local oldErr = math.floor(oldErrors / 2 ^ i) % 2 ~= 0
 			if newErr then

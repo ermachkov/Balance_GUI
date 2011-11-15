@@ -12,6 +12,9 @@ sprites =
 	["spriteCoverMessageBack", ["cover_message_back"]],
 	["spriteCoverMessageText", ["cover_message_text"]],
 
+	["spriteWheelMessageBack", ["wheel_message_back"]],
+	["spriteWheelMessageText", ["wheel_message_text"]],
+
 	["spriteAboutMessageBack", ["about_message_back"]],
 	["spriteAboutMessageText", ["about_message_text"]]
 ]

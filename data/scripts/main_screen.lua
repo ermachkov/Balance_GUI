@@ -479,16 +479,22 @@ function onMainScreenUpdate(delta)
 		end
 	end
 
+	-- draw about message
+	if showAboutMessage then
+		spriteAboutMessageBack:draw()
+		fontMessageText:drawText(spriteAboutMessageText.x, spriteAboutMessageText.y, aboutMessage, 73 / 255, 73 / 255, 73 / 255)
+	end
+
 	-- draw cover message
 	if (balanceState == STATE_BALANCE or (balanceState >= STATE_BALANCE_CAL0 and balanceState <= STATE_BALANCE_CAL3)) and balanceSubstate == BALANCE_WAIT_COVER then
 		spriteCoverMessageBack:draw()
 		drawCenteredText(fontSizes, spriteCoverMessageText, tr("PUSH COVER!"), 69 / 255, 69 / 255, 69 / 255)
 	end
 
-	-- draw about message
-	if showAboutMessage then
-		spriteAboutMessageBack:draw()
-		fontMessageText:drawText(spriteAboutMessageText.x, spriteAboutMessageText.y, aboutMessage, 73 / 255, 73 / 255, 73 / 255)
+	-- draw wheel message
+	if math.floor(balanceErrors0 / (2 ^ 18)) % 2 ~= 0 then
+		spriteWheelMessageBack:draw()
+		drawCenteredText(fontSizes, spriteWheelMessageText, tr("ROTATE WHEEL!"), 69 / 255, 69 / 255, 69 / 255)
 	end
 end
 
