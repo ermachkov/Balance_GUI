@@ -151,8 +151,16 @@ function drawRightWeight()
 		spriteRightTopAngle.frame, spriteRightBottomAngle.frame, spriteRightTopArrow.frame, spriteRightBottomArrow.frame = 0, 0, 0, 0
 	end
 
+	-- HACK: suppress green indicators when secondary weight is active
+	if not showPrimaryAngle and spriteRightTopAngle.frame == 8 and spriteRightBottomAngle.frame == 8 then
+		spriteRightTopAngle.frame, spriteRightBottomAngle.frame = 0, 0
+		drawHorzSplittedSprite(spriteRightTopAngle, spriteRightBottomAngle)
+		spriteRightTopAngle.frame, spriteRightBottomAngle.frame = 8, 8
+	else
+		drawHorzSplittedSprite(spriteRightTopAngle, spriteRightBottomAngle)
+	end
+
 	local showWeight2 = balance:getIntParam("mode") == MODE_ALU and balance:getIntParam("split") ~= 0
-	drawHorzSplittedSprite(spriteRightTopAngle, spriteRightBottomAngle)
 	if showWeight2 then
 		spriteRightBack2:draw()
 	end
@@ -213,6 +221,7 @@ function onMainScreenInit()
 	fontWheel = CFont("fontWheel")
 	fontMessageHeader = CFont("fontMessageHeader")
 	fontMessageText = CFont("fontMessageText")
+	fontMessageBox = CFont("fontMessageBox")
 	fontKeyboardDisplay = CFont("fontKeyboardDisplay")
 	fontSpeedometer = CFont("fontSpeedometer")
 
@@ -488,13 +497,13 @@ function onMainScreenUpdate(delta)
 	-- draw cover message
 	if (balanceState == STATE_BALANCE or (balanceState >= STATE_BALANCE_CAL0 and balanceState <= STATE_BALANCE_CAL3)) and balanceSubstate == BALANCE_WAIT_COVER then
 		spriteCoverMessageBack:draw()
-		drawCenteredText(fontSizes, spriteCoverMessageText, tr("PUSH COVER!"), 69 / 255, 69 / 255, 69 / 255)
+		drawCenteredText(fontMessageBox, spriteCoverMessageText, tr("PUSH COVER!"), 69 / 255, 69 / 255, 69 / 255)
 	end
 
 	-- draw wheel message
 	if math.floor(balanceErrors0 / (2 ^ 18)) % 2 ~= 0 then
 		spriteWheelMessageBack:draw()
-		drawCenteredText(fontSizes, spriteWheelMessageText, tr("ROTATE WHEEL!"), 69 / 255, 69 / 255, 69 / 255)
+		drawCenteredText(fontMessageBox, spriteWheelMessageText, tr("ROTATE WHEEL!"), 69 / 255, 69 / 255, 69 / 255)
 	end
 end
 

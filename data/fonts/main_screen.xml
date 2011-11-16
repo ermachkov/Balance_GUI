@@ -15,6 +15,9 @@
 	<font name="fontMessageText">
 		<freetype file="LiberationSans-Bold.ttf" height="28"/>
 	</font>
+	<font name="fontMessageBox">
+		<freetype file="LiberationSans-Bold.ttf" height="48"/>
+	</font>
 	<font name="fontKeyboardDisplay">
 		<freetype file="DS-DIGIB.TTF" height="85"/>
 	</font>
