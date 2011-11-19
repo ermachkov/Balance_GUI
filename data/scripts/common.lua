@@ -188,6 +188,11 @@ function clamp(value, minValue, maxValue)
 	return math.max(minValue, math.min(maxValue, value))
 end
 
+-- Subtracts two 32-bit unsigned integer numbers
+function sub32(x, y)
+	return (x >= y) and (x - y) or (x - y + 4294967296);
+end
+
 -- Updates text sprites language
 function updateSpritesLanguage()
 	spriteMenuButtonText.frame = lang * 3 + 1

@@ -49,33 +49,51 @@ local function updateStats()
 			numValues = MONTHS[currMonth]
 		end
 
+		-- initialize counters
+		for i = 1, numValues do
+			counters[i] = 0
+		end
+
 		-- perform SQL query
-		local query = string.format("SELECT * FROM Balance WHERE (Time BETWEEN '%04d-%02d-01 00:00:00' AND '%04d-%02d-31 23:59:59') AND (Result = 1)", currYear, currMonth, currYear, currMonth)
 		if statsMode == STATS_DISKS then
+			local query = string.format("SELECT * FROM Balance WHERE (Time BETWEEN '%04d-%02d-01 00:00:00' AND '%04d-%02d-%02d 23:59:59') AND (Result = 1)", currYear, currMonth, currYear, currMonth, numValues)
 			if statsSubmode == 1 then
 				query = query .. " AND (Mode = 0)"
 			elseif statsSubmode == 2 then
 				query = query .. " AND (Mode = 1)"
 			end
-		end
-		database:execQuery(query)
+			database:execQuery(query)
 
-		local maxCount = 0
-		for i = 1, numValues do
-			counters[i] = 0
-		end
-
-		while database:nextRow() do
-			local date = database:getString("Time")
-			local day = tonumber(date:sub(9, 10))
-			counters[day] = counters[day] + 1
-			if counters[day] > maxCount then
-				maxCount = counters[day]
+			while database:nextRow() do
+				local date = database:getString("Time")
+				local day = tonumber(date:sub(9, 10))
+				counters[day] = counters[day] + 1
+			end
+		elseif statsMode == STATS_WEIGHTS then
+		else
+			database:execQuery(string.format("SELECT * FROM Time WHERE (Date BETWEEN '%04d-%02d-01' AND '%04d-%02d-%02d')", currYear, currMonth, currYear, currMonth, numValues))
+			while database:nextRow() do
+				local date = database:getString("Date")
+				local day = tonumber(date:sub(9, 10))
+				if statsSubmode == 0 then
+					counters[day] = counters[day] + database:getFloat("TotalTime")
+				elseif statsSubmode == 1 then
+					counters[day] = counters[day] + database:getFloat("BalanceTime") + database:getFloat("WorkTime")
+				else
+					counters[day] = counters[day] + database:getFloat("IdleTime")
+				end
 			end
 		end
 
 		database:closeQuery()
 
+		-- find the maximum value
+		local maxCount = 0
+		for i = 1, numValues do
+			if counters[i] > maxCount then
+				maxCount = counters[i]
+			end
+		end
 		maxValue, numMarkers = findMaxValue(maxCount)
 
 		-- fill the current statistics
@@ -93,6 +111,11 @@ local function updateStats()
 		-- determine the number of inches
 		numValues = MAX_INCHES - MIN_INCHES + 1
 
+		-- initialize counters
+		for i = 1, numValues do
+			counters[i] = 0
+		end
+
 		-- perform SQL query
 		local query = string.format("SELECT * FROM Balance WHERE (Time BETWEEN '%04d-%02d-01 00:00:00' AND '%04d-%02d-31 23:59:59') AND (Result = 1)", currYear, currMonth, currYear, currMonth)
 		if statsSubmode == 1 then
@@ -102,22 +125,21 @@ local function updateStats()
 		end
 		database:execQuery(query)
 
-		local maxCount = 0
-		for i = 1, numValues do
-			counters[i] = 0
-		end
-
 		while database:nextRow() do
 			local diam = database:getFloat("Diam")
 			local index = clamp(math.floor(diam + 0.5) - MIN_INCHES + 1, 1, numValues)
 			counters[index] = counters[index] + 1
-			if counters[index] > maxCount then
-				maxCount = counters[index]
-			end
 		end
 
 		database:closeQuery()
 
+		-- find the maximum value
+		local maxCount = 0
+		for i = 1, numValues do
+			if counters[i] > maxCount then
+				maxCount = counters[i]
+			end
+		end
 		maxValue, numMarkers = findMaxValue(maxCount)
 
 		-- set up inches

@@ -1,3 +1,6 @@
+local statsTime = 0
+local oldTotalTime, oldIdleTime, oldBalanceTime, oldWorkTime = 0, 0, 0, 0
+
 -- Improved version of dofile()
 function include(name)
 	dofile(application:getDataDirectory() .. name)
@@ -79,6 +82,15 @@ function onInit()
 		"Weight3 REAL, " ..
 		"Angle3 REAL, " ..
 		"Result INTEGER)")
+	database:closeQuery()
+
+	-- create a time table
+	database:execQuery("CREATE TABLE IF NOT EXISTS Time(" ..
+		"Date TEXT PRIMARY KEY, " ..
+		"TotalTime REAL, " ..
+		"IdleTime REAL, " ..
+		"BalanceTime REAL, " ..
+		"WorkTime REAL)")
 	database:closeQuery()
 
 	-- initialize the application
@@ -177,6 +189,29 @@ function onUpdate(delta)
 		database:closeQuery()
 	end
 	balanceResult = newBalanceResult
+
+	-- write current time
+	statsTime = statsTime + delta
+	if statsTime >= 10000 then
+		statsTime = 0
+		local newTotalTime, newIdleTime, newBalanceTime, newWorkTime = balance:getIntParam("totaltime"), balance:getIntParam("idletime"), balance:getIntParam("balancetime"), balance:getIntParam("worktime")
+
+		local date = os.date("%Y-%m-%d")
+		database:execQuery(string.format("SELECT * FROM Time WHERE Date = '%s'", date))
+		if database:nextRow() then
+			local totalTime, idleTime, balanceTime, workTime = database:getFloat("TotalTime"), database:getFloat("IdleTime"), database:getFloat("BalanceTime"), database:getFloat("WorkTime")
+			totalTime, idleTime, balanceTime, workTime = totalTime + sub32(newTotalTime, oldTotalTime) / 1000.0, idleTime + sub32(newIdleTime, oldIdleTime) / 1000.0, balanceTime + sub32(newBalanceTime, oldBalanceTime) / 1000.0, workTime + sub32(newWorkTime, oldWorkTime) / 1000.0
+			database:closeQuery()
+			database:execQuery(string.format("UPDATE Time SET TotalTime = %f, IdleTime = %f, BalanceTime = %f, WorkTime = %f WHERE Date = '%s'", totalTime, idleTime, balanceTime, workTime, date))
+		else
+			local totalTime, idleTime, balanceTime, workTime = sub32(newTotalTime, oldTotalTime) / 1000.0, sub32(newIdleTime, oldIdleTime) / 1000.0, sub32(newBalanceTime, oldBalanceTime) / 1000.0, sub32(newWorkTime, oldWorkTime) / 1000.0
+			database:closeQuery()
+			database:execQuery(string.format("INSERT INTO Time VALUES('%s', %f, %f, %f, %f)", date, totalTime, idleTime, balanceTime, workTime))
+		end
+		database:closeQuery()
+
+		oldTotalTime, oldIdleTime, oldBalanceTime, oldWorkTime = newTotalTime, newIdleTime, newBalanceTime, newWorkTime
+	end
 
 	-- update modules
 	onMainScreenUpdate(delta)
