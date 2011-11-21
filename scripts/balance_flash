@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import sys,  socket,  re,  os
+import sys,  socket,  re,  os,  time
 import subprocess as sub
 
 #Get firmware version from file
@@ -138,8 +138,16 @@ if (hwver[0] == ver[0]):
         os.popen("cd /tmp/tmpbsfw/ && wget "+ip+" --header=\"666:filename=balance.ini\" --post-file=balance.ini -O /dev/null > /dev/null 2> /dev/null")
         print "balance.ini flashed"
         os.popen("rm -rf /tmp/tmpbsfw/ > /dev/null 2> /dev/null")
-        print "done"
+        #Going in flash mode
+        MB.send('softpart\r\n')
+        data = MB.recv(1024)
         DisconnectMB(MB)
+        print("Waiting for flash mode")
+        time.sleep(5)
+        MB = ConnectMB(ip)
+        MB.send('writehware\r\n')
+        data = MB.recv(1024)
+        print "done"
         print "MB Disconnected"
         print "\nReboot Balance please"
     else:
