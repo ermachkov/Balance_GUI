@@ -5,6 +5,8 @@ TRANSLATION_RU =
     ["Calibration"] = "Калибровка",
     ["Diagnostics"] = "Диагностика",
     ["Options"] = "Настройки",
+    ["{test_progress_text}"] = "ТЕСТ ПРИВОДА...",
+    ["{cal_progress_text}"] = "ИДЁТ КАЛИБРОВКА...",
 
     ["V"] = "В",
     ["PUSH COVER!"] = "ОПУСТИТЕ КРЫШКУ!",
