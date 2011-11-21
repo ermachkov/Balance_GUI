@@ -91,12 +91,22 @@ function onBalanceProgressUpdate(delta)
 	-- progress bar
 	spriteProgressBack.alpha = alpha
 	spriteProgressBack:draw()
-	spriteProgressText.alpha = alpha
-	spriteProgressText:draw()
 	local sprite = spriteProgressFront
 	local width, height = sprite:getWidth() * balanceProgress, sprite:getHeight()
 	sprite.alpha = alpha
 	sprite:draw(sprite.x, sprite.y, sprite.x + width, sprite.y + height, 0, 0, width, height)
+
+	-- text
+	if balanceState == STATE_BALANCE then
+		if balance:getIntParam("testmode") == 0 then
+			spriteProgressText.alpha = alpha
+			spriteProgressText:draw()
+		else
+			fontSizes:drawText(spriteProgressText.x, spriteProgressText.y, tr("{test_progress_text}"), 1.0, 1.0, 1.0, alpha)
+		end
+	elseif balanceState >= STATE_BALANCE_CAL0 and balanceState <= STATE_BALANCE_CAL3 then
+		fontSizes:drawText(spriteProgressText.x, spriteProgressText.y, tr("{cal_progress_text}"), 1.0, 1.0, 1.0, alpha)
+	end
 
 	-- speedometer
 	local angle = math.max(currFreq / balanceFreq * 1.5 * math.pi, 0)

@@ -192,7 +192,7 @@ function onUpdate(delta)
 
 	-- write current time
 	statsTime = statsTime + delta
-	if statsTime >= 10000 then
+	if statsTime >= 120000 then
 		statsTime = 0
 		local newTotalTime, newIdleTime, newBalanceTime, newWorkTime = balance:getIntParam("totaltime"), balance:getIntParam("idletime"), balance:getIntParam("balancetime"), balance:getIntParam("worktime")
 

@@ -24,75 +24,75 @@
 		<image file="texture4.png">
 			<grid pos="853,926" size="162,43"/>
 		</image>
-		<image file="texture5.png">
-			<grid pos="161,985" size="160,33"/>
+		<image file="texture3.png">
+			<grid pos="721,866" size="160,33"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="4" y="9"/>
 	</sprite>
 	<sprite name="spriteAluDie14">
-		<image file="texture11.png">
-			<grid pos="802,0" size="176,176"/>
+		<image file="texture12.png">
+			<grid pos="0,708" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteAluDie13">
-		<image file="texture11.png">
-			<grid pos="625,0" size="176,176"/>
+		<image file="texture12.png">
+			<grid pos="0,531" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteAluDie12">
-		<image file="texture11.png">
-			<grid pos="448,0" size="176,176"/>
+		<image file="texture12.png">
+			<grid pos="0,354" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteAluDie11">
-		<image file="texture11.png">
-			<grid pos="271,0" size="176,176"/>
+		<image file="texture12.png">
+			<grid pos="0,177" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteAluDie10">
-		<image file="texture11.png">
-			<grid pos="790,314" size="176,176"/>
+		<image file="texture12.png">
+			<grid pos="0,0" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteAluDie9">
 		<image file="texture11.png">
-			<grid pos="613,314" size="176,176"/>
+			<grid pos="802,157" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteAluDie8">
 		<image file="texture11.png">
-			<grid pos="436,314" size="176,176"/>
+			<grid pos="625,157" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteAluDie7">
 		<image file="texture11.png">
-			<grid pos="259,314" size="176,176"/>
+			<grid pos="448,157" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteAluDie6">
 		<image file="texture11.png">
-			<grid pos="708,590" size="176,176"/>
+			<grid pos="271,157" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteAluDie5">
 		<image file="texture11.png">
-			<grid pos="531,590" size="176,176"/>
+			<grid pos="786,459" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteAluDie4">
 		<image file="texture11.png">
-			<grid pos="354,590" size="176,176"/>
+			<grid pos="609,459" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteAluDie3">
 		<image file="texture11.png">
-			<grid pos="177,590" size="176,176"/>
+			<grid pos="432,459" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteAluDie">
 		<image file="texture11.png">
-			<grid pos="708,767" size="176,176"/>
+			<grid pos="255,459" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteAbsHighlight">
@@ -109,8 +109,8 @@
 		<image file="texture0.png">
 			<grid pos="903,778" size="119,44"/>
 		</image>
-		<image file="texture3.png">
-			<grid pos="560,860" size="240,33"/>
+		<image file="texture2.png">
+			<grid pos="602,970" size="240,33"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="-55" y="10"/>
@@ -126,11 +126,11 @@
 		</image>
 	</sprite>
 	<sprite name="spriteTruckMenuText">
-		<image file="texture3.png">
-			<grid pos="801,860" size="200,44"/>
-		</image>
 		<image file="texture4.png">
-			<grid pos="0,985" size="235,33"/>
+			<grid pos="0,979" size="200,44"/>
+		</image>
+		<image file="texture3.png">
+			<grid pos="488,984" size="235,33"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="-16" y="10"/>
@@ -146,8 +146,8 @@
 		</image>
 	</sprite>
 	<sprite name="spriteSteelMenuText">
-		<image file="texture6.png">
-			<grid pos="529,978" size="181,44"/>
+		<image file="texture2.png">
+			<grid pos="843,970" size="181,44"/>
 		</image>
 		<image file="texture2.png">
 			<grid pos="866,125" size="151,33"/>
@@ -162,40 +162,40 @@
 	</sprite>
 	<sprite name="spriteKeyClear">
 		<image file="texture12.png">
-			<grid pos="651,915" size="92,83"/>
+			<grid pos="177,708" size="92,83"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="558,915" size="92,83"/>
+			<grid pos="930,885" size="92,83"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteKeyClearText">
 		<image file="texture8.png">
-			<grid pos="706,975" size="44,48"/>
+			<grid pos="64,975" size="44,48"/>
 		</image>
-		<image file="texture9.png">
-			<grid pos="697,957" size="43,47"/>
+		<image file="texture8.png">
+			<grid pos="109,975" size="43,47"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="1" y="2"/>
 	</sprite>
 	<sprite name="spriteKeyBackspace">
 		<image file="texture12.png">
-			<grid pos="465,915" size="92,83"/>
+			<grid pos="837,885" size="92,83"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="372,915" size="92,83"/>
+			<grid pos="744,885" size="92,83"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteKeyBackspaceText">
-		<image file="texture8.png">
-			<grid pos="445,975" size="66,44"/>
+		<image file="texture7.png">
+			<grid pos="828,270" size="66,44"/>
 		</image>
-		<image file="texture8.png">
-			<grid pos="512,975" size="65,42"/>
+		<image file="texture7.png">
+			<grid pos="895,270" size="65,42"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="1" y="2"/>
@@ -211,8 +211,8 @@
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteKeyEnterText">
-		<image file="texture3.png">
-			<grid pos="952,649" size="58,68"/>
+		<image file="texture9.png">
+			<grid pos="954,947" size="58,68"/>
 		</image>
 		<image file="texture9.png">
 			<grid pos="68,957" size="57,66"/>
@@ -222,10 +222,10 @@
 	</sprite>
 	<sprite name="spriteKeyPoint">
 		<image file="texture12.png">
-			<grid pos="279,915" size="92,84"/>
+			<grid pos="651,885" size="92,84"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="186,915" size="92,84"/>
+			<grid pos="558,885" size="92,84"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
@@ -242,170 +242,170 @@
 	</sprite>
 	<sprite name="spriteKey9">
 		<image file="texture12.png">
-			<grid pos="93,915" size="92,83"/>
+			<grid pos="465,885" size="92,83"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="0,915" size="92,83"/>
+			<grid pos="372,885" size="92,83"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteKey9Text">
 		<image file="texture6.png">
-			<grid pos="973,664" size="44,56"/>
+			<grid pos="973,607" size="44,56"/>
 		</image>
 		<image file="texture9.png">
-			<grid pos="394,957" size="43,55"/>
+			<grid pos="349,957" size="43,55"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="1" y="2"/>
 	</sprite>
 	<sprite name="spriteKey8">
 		<image file="texture12.png">
-			<grid pos="0,831" size="92,83"/>
+			<grid pos="279,885" size="92,83"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="0,747" size="92,83"/>
+			<grid pos="186,885" size="92,83"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteKey8Text">
 		<image file="texture6.png">
-			<grid pos="973,607" size="43,56"/>
+			<grid pos="973,550" size="43,56"/>
 		</image>
 		<image file="texture9.png">
-			<grid pos="351,957" size="42,55"/>
+			<grid pos="306,957" size="42,55"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="1" y="2"/>
 	</sprite>
 	<sprite name="spriteKey7">
 		<image file="texture12.png">
-			<grid pos="0,663" size="92,83"/>
+			<grid pos="93,885" size="92,83"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="0,579" size="92,83"/>
+			<grid pos="0,885" size="92,83"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteKey7Text">
 		<image file="texture9.png">
-			<grid pos="573,957" size="43,54"/>
+			<grid pos="528,957" size="43,54"/>
 		</image>
 		<image file="texture9.png">
-			<grid pos="617,957" size="42,53"/>
+			<grid pos="572,957" size="42,53"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="1" y="2"/>
 	</sprite>
 	<sprite name="spriteKey6">
-		<image file="texture12.png">
-			<grid pos="0,495" size="92,83"/>
+		<image file="texture11.png">
+			<grid pos="893,0" size="92,83"/>
 		</image>
-		<image file="texture12.png">
-			<grid pos="0,411" size="92,83"/>
+		<image file="texture11.png">
+			<grid pos="800,0" size="92,83"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteKey6Text">
 		<image file="texture6.png">
-			<grid pos="973,550" size="44,56"/>
+			<grid pos="973,493" size="44,56"/>
 		</image>
 		<image file="texture9.png">
-			<grid pos="307,957" size="43,55"/>
+			<grid pos="262,957" size="43,55"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="1" y="2"/>
 	</sprite>
 	<sprite name="spriteKey5">
-		<image file="texture12.png">
-			<grid pos="0,327" size="92,83"/>
+		<image file="texture11.png">
+			<grid pos="707,0" size="92,83"/>
 		</image>
-		<image file="texture12.png">
-			<grid pos="0,243" size="92,83"/>
+		<image file="texture11.png">
+			<grid pos="614,0" size="92,83"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteKey5Text">
 		<image file="texture9.png">
-			<grid pos="262,957" size="44,55"/>
+			<grid pos="217,957" size="44,55"/>
 		</image>
 		<image file="texture9.png">
-			<grid pos="529,957" size="43,54"/>
+			<grid pos="484,957" size="43,54"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="1" y="2"/>
 	</sprite>
 	<sprite name="spriteKey4">
 		<image file="texture11.png">
-			<grid pos="910,491" size="92,83"/>
+			<grid pos="521,0" size="92,83"/>
 		</image>
 		<image file="texture11.png">
-			<grid pos="817,491" size="92,83"/>
+			<grid pos="908,636" size="92,83"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteKey4Text">
 		<image file="texture9.png">
-			<grid pos="214,957" size="47,55"/>
+			<grid pos="169,957" size="47,55"/>
 		</image>
 		<image file="texture9.png">
-			<grid pos="482,957" size="46,54"/>
+			<grid pos="437,957" size="46,54"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="1" y="2"/>
 	</sprite>
 	<sprite name="spriteKey3">
 		<image file="texture11.png">
-			<grid pos="724,491" size="92,83"/>
+			<grid pos="815,636" size="92,83"/>
 		</image>
 		<image file="texture11.png">
-			<grid pos="631,491" size="92,83"/>
+			<grid pos="722,636" size="92,83"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteKey3Text">
 		<image file="texture6.png">
-			<grid pos="973,493" size="43,56"/>
+			<grid pos="973,436" size="43,56"/>
 		</image>
 		<image file="texture9.png">
-			<grid pos="171,957" size="42,55"/>
+			<grid pos="126,957" size="42,55"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="1" y="2"/>
 	</sprite>
 	<sprite name="spriteKey2">
 		<image file="texture11.png">
-			<grid pos="538,491" size="92,83"/>
+			<grid pos="629,636" size="92,83"/>
 		</image>
 		<image file="texture11.png">
-			<grid pos="445,491" size="92,83"/>
+			<grid pos="536,636" size="92,83"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteKey2Text">
-		<image file="texture9.png">
-			<grid pos="126,957" size="44,55"/>
+		<image file="texture6.png">
+			<grid pos="973,664" size="44,55"/>
 		</image>
 		<image file="texture9.png">
-			<grid pos="438,957" size="43,54"/>
+			<grid pos="393,957" size="43,54"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="1" y="2"/>
 	</sprite>
 	<sprite name="spriteKey1">
 		<image file="texture11.png">
-			<grid pos="352,491" size="92,83"/>
+			<grid pos="443,636" size="92,83"/>
 		</image>
 		<image file="texture11.png">
-			<grid pos="259,491" size="92,83"/>
+			<grid pos="350,636" size="92,83"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
@@ -414,8 +414,8 @@
 		<image file="texture2.png">
 			<grid pos="992,868" size="31,55"/>
 		</image>
-		<image file="texture3.png">
-			<grid pos="994,726" size="30,54"/>
+		<image file="texture6.png">
+			<grid pos="989,761" size="30,54"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="1" y="2"/>
@@ -431,18 +431,18 @@
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteKey0Text">
-		<image file="texture2.png">
-			<grid pos="973,939" size="44,57"/>
+		<image file="texture3.png">
+			<grid pos="970,550" size="44,57"/>
 		</image>
 		<image file="texture6.png">
-			<grid pos="973,436" size="43,56"/>
+			<grid pos="671,968" size="43,56"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="2" y="3"/>
 	</sprite>
 	<sprite name="spriteKeyboardDisplayPassword">
 		<image file="texture3.png">
-			<grid pos="560,550" size="391,92"/>
+			<grid pos="560,633" size="391,92"/>
 		</image>
 	</sprite>
 	<sprite name="spriteKeyboardDisplay">
@@ -452,7 +452,7 @@
 	</sprite>
 	<sprite name="spriteKeyboardDisplayBack">
 		<image file="texture3.png">
-			<grid pos="560,726" size="363,56"/>
+			<grid pos="560,809" size="363,56"/>
 		</image>
 	</sprite>
 	<sprite name="spriteKeyboardDisplayText">
@@ -507,27 +507,27 @@
 	</sprite>
 	<sprite name="spriteStatDie4">
 		<image file="texture11.png">
-			<grid pos="531,767" size="176,176"/>
+			<grid pos="708,721" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteStatDie3">
 		<image file="texture11.png">
-			<grid pos="354,767" size="176,176"/>
+			<grid pos="531,721" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteStatDie2">
 		<image file="texture11.png">
-			<grid pos="177,767" size="176,176"/>
+			<grid pos="354,721" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteStatDie5">
 		<image file="texture11.png">
-			<grid pos="0,767" size="176,176"/>
+			<grid pos="177,721" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteStatDie1">
 		<image file="texture11.png">
-			<grid pos="0,590" size="176,176"/>
+			<grid pos="0,721" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteStatMenuText">
@@ -572,7 +572,7 @@
 	</sprite>
 	<sprite name="spriteDynDie15">
 		<image file="texture7.png">
-			<grid pos="828,0" size="176,176"/>
+			<grid pos="828,93" size="176,176"/>
 		</image>
 	</sprite>
 	<sprite name="spriteDynMenuText">
@@ -606,18 +606,18 @@
 		</image>
 	</sprite>
 	<sprite name="spriteRightBottomArrow2">
-		<image file="texture12.png">
-			<grid pos="744,915" size="56,86"/>
-		</image>
 		<image file="texture11.png">
-			<grid pos="967,401" size="56,86"/>
+			<grid pos="963,459" size="56,86"/>
+		</image>
+		<image file="texture6.png">
+			<grid pos="961,919" size="56,86"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteRightTopArrow2">
-		<image file="texture11.png">
-			<grid pos="967,314" size="56,86"/>
+		<image file="texture3.png">
+			<grid pos="952,633" size="56,86"/>
 		</image>
 		<image file="texture1.png">
 			<grid pos="963,594" size="56,86"/>
@@ -738,10 +738,10 @@
 	</sprite>
 	<sprite name="spriteRightWeight">
 		<image file="texture7.png">
-			<grid pos="830,542" size="183,92"/>
+			<grid pos="828,0" size="183,92"/>
 		</image>
 		<image file="texture7.png">
-			<grid pos="830,449" size="183,92"/>
+			<grid pos="830,542" size="183,92"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
@@ -841,18 +841,18 @@
 		<image file="texture9.png">
 			<grid pos="954,848" size="65,98"/>
 		</image>
-		<image file="texture3.png">
-			<grid pos="952,550" size="65,98"/>
+		<image file="texture8.png">
+			<grid pos="945,208" size="65,98"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteLeftWeight">
-		<image file="texture6.png">
-			<grid pos="753,325" size="183,92"/>
+		<image file="texture7.png">
+			<grid pos="830,449" size="183,92"/>
 		</image>
 		<image file="texture6.png">
-			<grid pos="529,885" size="183,92"/>
+			<grid pos="753,325" size="183,92"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
@@ -873,11 +873,11 @@
 		<frame nr="1" x="0" y="1"/>
 	</sprite>
 	<sprite name="spriteOfsIcon">
-		<image file="texture12.png">
-			<grid pos="0,143" size="86,99"/>
+		<image file="texture11.png">
+			<grid pos="434,0" size="86,99"/>
 		</image>
 		<image file="texture11.png">
-			<grid pos="905,177" size="85,99"/>
+			<grid pos="936,334" size="85,99"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="1"/>
@@ -889,7 +889,7 @@
 	</sprite>
 	<sprite name="spriteOfsIconRed">
 		<image file="texture11.png">
-			<grid pos="818,177" size="86,99"/>
+			<grid pos="849,334" size="86,99"/>
 		</image>
 	</sprite>
 	<sprite name="spriteWidthStickBack">
@@ -899,7 +899,7 @@
 	</sprite>
 	<sprite name="spriteWidthStickButton">
 		<image file="texture6.png">
-			<grid pos="564,728" size="136,77"/>
+			<grid pos="554,885" size="136,77"/>
 		</image>
 		<image file="texture2.png">
 			<grid pos="866,790" size="136,77"/>
@@ -909,20 +909,20 @@
 	</sprite>
 	<sprite name="spriteStickIcon">
 		<image file="texture11.png">
-			<grid pos="732,177" size="85,99"/>
+			<grid pos="763,334" size="85,99"/>
 		</image>
 		<image file="texture11.png">
-			<grid pos="646,177" size="85,99"/>
+			<grid pos="677,334" size="85,99"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteWidthIcon">
 		<image file="texture11.png">
-			<grid pos="560,177" size="85,99"/>
+			<grid pos="591,334" size="85,99"/>
 		</image>
 		<image file="texture11.png">
-			<grid pos="474,177" size="85,99"/>
+			<grid pos="505,334" size="85,99"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
@@ -933,13 +933,13 @@
 		</image>
 	</sprite>
 	<sprite name="spriteStickIconRed">
-		<image file="texture11.png">
-			<grid pos="388,177" size="85,99"/>
+		<image file="texture10.png">
+			<grid pos="913,177" size="85,99"/>
 		</image>
 	</sprite>
 	<sprite name="spriteWidthIconRed">
-		<image file="texture10.png">
-			<grid pos="913,177" size="85,99"/>
+		<image file="texture9.png">
+			<grid pos="911,208" size="85,99"/>
 		</image>
 	</sprite>
 	<sprite name="spriteDiamBack">
@@ -949,56 +949,56 @@
 	</sprite>
 	<sprite name="spriteDiamIcon">
 		<image file="texture9.png">
-			<grid pos="911,208" size="85,99"/>
-		</image>
-		<image file="texture9.png">
 			<grid pos="913,531" size="85,99"/>
+		</image>
+		<image file="texture6.png">
+			<grid pos="937,325" size="85,99"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteDiamButton">
 		<image file="texture8.png">
-			<grid pos="771,208" size="135,76"/>
-		</image>
-		<image file="texture8.png">
 			<grid pos="771,554" size="135,76"/>
+		</image>
+		<image file="texture6.png">
+			<grid pos="564,805" size="135,76"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteDiamIconRed">
-		<image file="texture6.png">
-			<grid pos="937,325" size="85,99"/>
+		<image file="texture3.png">
+			<grid pos="932,726" size="85,99"/>
 		</image>
 	</sprite>
 	<sprite name="spriteDiamButtonRed">
 		<image file="texture6.png">
-			<grid pos="564,806" size="135,76"/>
+			<grid pos="564,728" size="135,76"/>
 		</image>
 	</sprite>
 	<sprite name="spriteDiskButton">
 		<image file="texture11.png">
-			<grid pos="0,459" size="254,130"/>
+			<grid pos="0,590" size="254,130"/>
 		</image>
-		<image file="texture6.png">
-			<grid pos="274,885" size="254,130"/>
+		<image file="texture11.png">
+			<grid pos="0,459" size="254,130"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="1"/>
 	</sprite>
 	<sprite name="spriteDiskButtonText">
-		<image file="texture5.png">
-			<grid pos="322,985" size="103,33"/>
+		<image file="texture3.png">
+			<grid pos="882,866" size="103,33"/>
 		</image>
 		<image file="texture5.png">
-			<grid pos="426,985" size="102,32"/>
+			<grid pos="0,985" size="102,32"/>
 		</image>
 		<image file="texture0.png">
 			<grid pos="903,823" size="116,40"/>
 		</image>
 		<image file="texture4.png">
-			<grid pos="398,985" size="115,39"/>
+			<grid pos="201,979" size="115,39"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="1" y="2"/>
@@ -1007,55 +1007,55 @@
 	</sprite>
 	<sprite name="spriteDiskIcon">
 		<image file="texture12.png">
-			<grid pos="176,747" size="80,82"/>
+			<grid pos="602,708" size="80,82"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="93,747" size="82,82"/>
+			<grid pos="519,708" size="82,82"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="257,747" size="81,81"/>
+			<grid pos="683,708" size="81,81"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="923,831" size="82,81"/>
+			<grid pos="436,708" size="82,81"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="339,747" size="80,80"/>
+			<grid pos="765,708" size="80,80"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="840,831" size="82,82"/>
+			<grid pos="353,708" size="82,82"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="757,831" size="82,82"/>
+			<grid pos="270,708" size="82,82"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="674,831" size="82,82"/>
+			<grid pos="924,792" size="82,82"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="591,831" size="82,82"/>
+			<grid pos="841,792" size="82,82"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="508,831" size="82,82"/>
+			<grid pos="758,792" size="82,82"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="425,831" size="82,82"/>
+			<grid pos="675,792" size="82,82"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="342,831" size="82,82"/>
+			<grid pos="592,792" size="82,82"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="259,831" size="82,82"/>
+			<grid pos="509,792" size="82,82"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="176,831" size="82,82"/>
+			<grid pos="426,792" size="82,82"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="93,831" size="82,82"/>
+			<grid pos="343,792" size="82,82"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="884,915" size="82,82"/>
+			<grid pos="260,792" size="82,82"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="801,915" size="82,82"/>
+			<grid pos="177,792" size="82,82"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="-1" y="0"/>
@@ -1086,11 +1086,11 @@
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteLayoutButtonText">
-		<image file="texture4.png">
-			<grid pos="236,985" size="161,33"/>
+		<image file="texture3.png">
+			<grid pos="724,984" size="161,33"/>
 		</image>
-		<image file="texture5.png">
-			<grid pos="0,985" size="160,32"/>
+		<image file="texture3.png">
+			<grid pos="560,866" size="160,32"/>
 		</image>
 		<image file="texture0.png">
 			<grid pos="870,969" size="152,33"/>
@@ -1105,37 +1105,37 @@
 	</sprite>
 	<sprite name="spriteLayoutIcon">
 		<image file="texture12.png">
-			<grid pos="247,663" size="76,75"/>
+			<grid pos="639,607" size="76,75"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="170,663" size="76,75"/>
+			<grid pos="562,607" size="76,75"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="93,663" size="76,75"/>
+			<grid pos="485,607" size="76,75"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="882,747" size="76,75"/>
+			<grid pos="408,607" size="76,75"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="805,747" size="76,75"/>
+			<grid pos="331,607" size="76,75"/>
 		</image>
 		<image file="texture10.png">
 			<grid pos="0,951" size="76,72"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="728,747" size="76,75"/>
+			<grid pos="254,607" size="76,75"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="651,747" size="76,75"/>
+			<grid pos="177,607" size="76,75"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="574,747" size="76,75"/>
+			<grid pos="177,531" size="76,75"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="497,747" size="76,75"/>
+			<grid pos="923,708" size="76,75"/>
 		</image>
 		<image file="texture12.png">
-			<grid pos="420,747" size="76,75"/>
+			<grid pos="846,708" size="76,75"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
@@ -1160,17 +1160,17 @@
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteStopButtonText">
-		<image file="texture7.png">
-			<grid pos="0,965" size="160,48"/>
+		<image file="texture6.png">
+			<grid pos="350,968" size="160,48"/>
 		</image>
-		<image file="texture7.png">
-			<grid pos="161,965" size="159,47"/>
+		<image file="texture6.png">
+			<grid pos="511,968" size="159,47"/>
 		</image>
 		<image file="texture4.png">
 			<grid pos="853,970" size="161,48"/>
 		</image>
 		<image file="texture6.png">
-			<grid pos="716,967" size="160,47"/>
+			<grid pos="189,968" size="160,47"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="2" y="2"/>
@@ -1188,17 +1188,17 @@
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteStartButtonText">
-		<image file="texture6.png">
-			<grid pos="0,962" size="189,48"/>
+		<image file="texture4.png">
+			<grid pos="354,949" size="189,48"/>
 		</image>
 		<image file="texture6.png">
-			<grid pos="716,919" size="188,47"/>
+			<grid pos="0,968" size="188,47"/>
 		</image>
 		<image file="texture5.png">
 			<grid pos="803,972" size="192,47"/>
 		</image>
-		<image file="texture5.png">
-			<grid pos="803,647" size="191,46"/>
+		<image file="texture4.png">
+			<grid pos="354,902" size="191,46"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="2" y="2"/>
@@ -1207,13 +1207,13 @@
 	</sprite>
 	<sprite name="spriteHelpButton">
 		<image file="texture11.png">
-			<grid pos="625,944" size="124,74"/>
+			<grid pos="750,898" size="124,74"/>
 		</image>
 		<image file="texture11.png">
-			<grid pos="500,944" size="124,74"/>
+			<grid pos="625,898" size="124,74"/>
 		</image>
 		<image file="texture11.png">
-			<grid pos="375,944" size="124,74"/>
+			<grid pos="500,898" size="124,74"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
@@ -1224,7 +1224,7 @@
 			<grid pos="904,709" size="83,24"/>
 		</image>
 		<image file="texture4.png">
-			<grid pos="633,1001" size="82,23"/>
+			<grid pos="546,1001" size="82,23"/>
 		</image>
 		<image file="texture4.png">
 			<grid pos="820,709" size="83,24"/>
@@ -1232,8 +1232,8 @@
 		<image file="texture3.png">
 			<grid pos="291,996" size="92,24"/>
 		</image>
-		<image file="texture3.png">
-			<grid pos="384,996" size="91,23"/>
+		<image file="texture2.png">
+			<grid pos="463,1001" size="91,23"/>
 		</image>
 		<image file="texture3.png">
 			<grid pos="198,996" size="92,24"/>
@@ -1247,27 +1247,27 @@
 	</sprite>
 	<sprite name="spriteMenuButton">
 		<image file="texture11.png">
-			<grid pos="250,944" size="124,74"/>
+			<grid pos="375,898" size="124,74"/>
 		</image>
 		<image file="texture11.png">
-			<grid pos="125,944" size="124,74"/>
+			<grid pos="250,898" size="124,74"/>
 		</image>
 		<image file="texture11.png">
-			<grid pos="0,944" size="124,74"/>
+			<grid pos="125,898" size="124,74"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 		<frame nr="2" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteMenuButtonText">
-		<image file="texture3.png">
-			<grid pos="906,905" size="87,24"/>
+		<image file="texture4.png">
+			<grid pos="354,998" size="87,24"/>
 		</image>
 		<image file="texture4.png">
-			<grid pos="546,1001" size="86,23"/>
+			<grid pos="442,998" size="86,23"/>
 		</image>
 		<image file="texture3.png">
-			<grid pos="898,993" size="87,24"/>
+			<grid pos="384,996" size="87,24"/>
 		</image>
 		<image file="texture3.png">
 			<grid pos="99,996" size="98,24"/>
@@ -1297,32 +1297,32 @@
 	</sprite>
 	<sprite name="spriteUser2">
 		<image file="texture11.png">
-			<grid pos="271,177" size="116,116"/>
+			<grid pos="388,334" size="116,116"/>
 		</image>
 		<image file="texture11.png">
-			<grid pos="885,590" size="116,116"/>
+			<grid pos="271,334" size="116,116"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteUser2Text">
 		<image file="texture9.png">
-			<grid pos="660,957" size="36,51"/>
+			<grid pos="615,957" size="36,51"/>
 		</image>
 	</sprite>
 	<sprite name="spriteUser1">
 		<image file="texture11.png">
-			<grid pos="885,892" size="116,116"/>
+			<grid pos="885,721" size="116,116"/>
 		</image>
-		<image file="texture8.png">
-			<grid pos="907,208" size="116,116"/>
+		<image file="texture11.png">
+			<grid pos="875,898" size="116,116"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteUser1Text">
 		<image file="texture6.png">
-			<grid pos="989,761" size="34,50"/>
+			<grid pos="989,816" size="34,50"/>
 		</image>
 	</sprite>
 	<sprite name="spriteErrorPopupBack">
@@ -1332,7 +1332,7 @@
 	</sprite>
 	<sprite name="spriteErrorPopupIcon">
 		<image file="texture11.png">
-			<grid pos="750,944" size="94,80"/>
+			<grid pos="255,636" size="94,80"/>
 		</image>
 	</sprite>
 	<sprite name="spriteErrorPopupText">
@@ -1371,17 +1371,17 @@
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteMessageOkButtonText">
-		<image file="texture8.png">
-			<grid pos="378,975" size="66,33"/>
+		<image file="texture7.png">
+			<grid pos="697,965" size="66,33"/>
 		</image>
-		<image file="texture8.png">
-			<grid pos="311,975" size="66,32"/>
+		<image file="texture7.png">
+			<grid pos="630,965" size="66,32"/>
 		</image>
-		<image file="texture8.png">
-			<grid pos="244,975" size="66,33"/>
+		<image file="texture5.png">
+			<grid pos="937,647" size="66,33"/>
 		</image>
-		<image file="texture8.png">
-			<grid pos="177,975" size="66,32"/>
+		<image file="texture5.png">
+			<grid pos="870,647" size="66,32"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="3"/>
@@ -1400,16 +1400,16 @@
 	</sprite>
 	<sprite name="spriteMessageNoButtonText">
 		<image file="texture8.png">
-			<grid pos="642,975" size="63,33"/>
-		</image>
-		<image file="texture8.png">
-			<grid pos="578,975" size="63,32"/>
-		</image>
-		<image file="texture8.png">
-			<grid pos="0,975" size="88,33"/>
+			<grid pos="0,975" size="63,33"/>
 		</image>
 		<image file="texture7.png">
-			<grid pos="917,285" size="88,32"/>
+			<grid pos="961,270" size="63,32"/>
+		</image>
+		<image file="texture5.png">
+			<grid pos="281,985" size="88,33"/>
+		</image>
+		<image file="texture5.png">
+			<grid pos="192,985" size="88,32"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="3"/>
@@ -1427,17 +1427,17 @@
 		<frame nr="1" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteMessageYesButtonText">
-		<image file="texture7.png">
-			<grid pos="828,285" size="88,33"/>
+		<image file="texture5.png">
+			<grid pos="103,985" size="88,33"/>
 		</image>
-		<image file="texture6.png">
-			<grid pos="905,919" size="88,32"/>
+		<image file="texture3.png">
+			<grid pos="932,826" size="88,32"/>
 		</image>
-		<image file="texture7.png">
-			<grid pos="699,965" size="66,40"/>
+		<image file="texture5.png">
+			<grid pos="803,647" size="66,40"/>
 		</image>
-		<image file="texture6.png">
-			<grid pos="190,962" size="66,39"/>
+		<image file="texture5.png">
+			<grid pos="458,985" size="66,39"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="3"/>
@@ -1449,7 +1449,7 @@
 			<grid pos="866,159" size="149,131"/>
 		</image>
 		<image file="texture11.png">
-			<grid pos="885,767" size="124,124"/>
+			<grid pos="0,898" size="124,124"/>
 		</image>
 		<image file="texture2.png">
 			<grid pos="866,471" size="141,103"/>
@@ -1470,7 +1470,7 @@
 	</sprite>
 	<sprite name="spriteSpeedometerSpeed">
 		<image file="texture2.png">
-			<grid pos="463,1001" size="45,22"/>
+			<grid pos="555,1001" size="45,22"/>
 		</image>
 	</sprite>
 	<sprite name="spriteSpeedometerText">
@@ -1485,7 +1485,7 @@
 	</sprite>
 	<sprite name="spriteSpeedometerArrow">
 		<image file="texture3.png">
-			<grid pos="924,726" size="69,118"/>
+			<grid pos="934,905" size="69,118"/>
 		</image>
 	</sprite>
 	<sprite name="spriteSpeedometerCenter">
@@ -1498,10 +1498,10 @@
 			<grid pos="0,873" size="623,45"/>
 		</image>
 		<image file="texture2.png">
-			<grid pos="0,939" size="526,61"/>
+			<grid pos="0,939" size="601,61"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
-		<frame nr="1" x="28" y="-8"/>
+		<frame nr="1" x="24" y="-8"/>
 	</sprite>
 	<sprite name="spriteWheelMessageBack">
 		<image file="texture1.png">
@@ -1509,8 +1509,8 @@
 		</image>
 	</sprite>
 	<sprite name="spriteWheelMessageText">
-		<image file="texture2.png">
-			<grid pos="527,939" size="445,78"/>
+		<image file="texture3.png">
+			<grid pos="488,905" size="445,78"/>
 		</image>
 	</sprite>
 	<sprite name="spriteCoverMessageBack">
@@ -1519,8 +1519,8 @@
 		</image>
 	</sprite>
 	<sprite name="spriteCoverMessageText">
-		<image file="texture3.png">
-			<grid pos="488,905" size="417,30"/>
+		<image file="texture2.png">
+			<grid pos="602,939" size="417,30"/>
 		</image>
 	</sprite>
 	<sprite name="spriteAboutMessageBack">
@@ -1562,8 +1562,8 @@
 		<image file="texture2.png">
 			<grid pos="866,0" size="157,91"/>
 		</image>
-		<image file="texture7.png">
-			<grid pos="828,177" size="173,107"/>
+		<image file="texture8.png">
+			<grid pos="771,208" size="173,107"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="-8" y="-8"/>
@@ -1577,15 +1577,15 @@
 		<image file="texture2.png">
 			<grid pos="866,291" size="148,125"/>
 		</image>
-		<image file="texture12.png">
-			<grid pos="0,0" size="162,142"/>
+		<image file="texture11.png">
+			<grid pos="271,0" size="162,142"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="-8" y="-8"/>
 	</sprite>
 	<sprite name="spriteStartWorkText">
-		<image file="texture8.png">
-			<grid pos="89,975" size="87,39"/>
+		<image file="texture5.png">
+			<grid pos="370,985" size="87,39"/>
 		</image>
 	</sprite>
 	<sprite name="spriteStartWorkButton">
@@ -1604,28 +1604,28 @@
 		</image>
 	</sprite>
 	<sprite name="spriteWheelTarget5">
-		<image file="texture9.png">
-			<grid pos="954,947" size="42,37"/>
+		<image file="texture8.png">
+			<grid pos="239,975" size="42,37"/>
 		</image>
 	</sprite>
 	<sprite name="spriteWheelTarget4">
 		<image file="texture8.png">
-			<grid pos="857,285" size="42,37"/>
+			<grid pos="196,975" size="42,37"/>
 		</image>
 	</sprite>
 	<sprite name="spriteWheelTarget3">
 		<image file="texture8.png">
-			<grid pos="814,285" size="42,37"/>
+			<grid pos="153,975" size="42,37"/>
 		</image>
 	</sprite>
 	<sprite name="spriteWheelTarget2">
-		<image file="texture8.png">
-			<grid pos="771,285" size="42,37"/>
+		<image file="texture6.png">
+			<grid pos="973,720" size="42,37"/>
 		</image>
 	</sprite>
 	<sprite name="spriteWheelTarget1">
-		<image file="texture6.png">
-			<grid pos="973,721" size="42,37"/>
+		<image file="texture3.png">
+			<grid pos="886,984" size="42,37"/>
 		</image>
 	</sprite>
 	<sprite name="spriteWheelWeight5">
@@ -1639,28 +1639,28 @@
 		<frame nr="1" x="0" y="-1"/>
 	</sprite>
 	<sprite name="spriteWheelWeight4">
-		<image file="texture4.png">
-			<grid pos="820,343" size="39,15"/>
+		<image file="texture2.png">
+			<grid pos="766,1004" size="39,15"/>
 		</image>
-		<image file="texture4.png">
-			<grid pos="716,1001" size="41,17"/>
+		<image file="texture2.png">
+			<grid pos="644,1004" size="41,17"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="-1" y="-1"/>
 	</sprite>
 	<sprite name="spriteWheelWeight3">
-		<image file="texture4.png">
-			<grid pos="798,1001" size="39,15"/>
+		<image file="texture2.png">
+			<grid pos="726,1004" size="39,15"/>
 		</image>
 		<image file="texture2.png">
-			<grid pos="973,997" size="41,17"/>
+			<grid pos="602,1004" size="41,17"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="-1" y="-1"/>
 	</sprite>
 	<sprite name="spriteWheelWeight2">
-		<image file="texture4.png">
-			<grid pos="758,1001" size="39,15"/>
+		<image file="texture2.png">
+			<grid pos="686,1004" size="39,15"/>
 		</image>
 		<image file="texture0.png">
 			<grid pos="977,1003" size="41,17"/>
@@ -1680,24 +1680,24 @@
 	</sprite>
 	<sprite name="spriteWheelArrowInstall3">
 		<image file="texture3.png">
-			<grid pos="560,643" size="371,82"/>
+			<grid pos="560,726" size="371,82"/>
 		</image>
 		<image file="texture3.png">
-			<grid pos="488,936" size="409,82"/>
+			<grid pos="560,550" size="409,82"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="-44" y="0"/>
 	</sprite>
 	<sprite name="spriteWheelArrowBackwardText3">
 		<image file="texture7.png">
-			<grid pos="573,965" size="125,56"/>
+			<grid pos="504,965" size="125,56"/>
 		</image>
 	</sprite>
 	<sprite name="spriteWheelArrowInstall2">
-		<image file="texture5.png">
-			<grid pos="0,902" size="279,82"/>
+		<image file="texture6.png">
+			<grid pos="0,885" size="279,82"/>
 		</image>
-		<image file="texture4.png">
+		<image file="texture5.png">
 			<grid pos="0,902" size="279,82"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
@@ -1705,14 +1705,14 @@
 	</sprite>
 	<sprite name="spriteWheelArrowBackwardText2">
 		<image file="texture7.png">
-			<grid pos="447,965" size="125,56"/>
+			<grid pos="378,965" size="125,56"/>
 		</image>
 	</sprite>
 	<sprite name="spriteWheelArrowInstall1">
-		<image file="texture5.png">
-			<grid pos="280,902" size="244,82"/>
+		<image file="texture6.png">
+			<grid pos="716,919" size="244,82"/>
 		</image>
-		<image file="texture4.png">
+		<image file="texture5.png">
 			<grid pos="280,902" size="244,82"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
@@ -1720,17 +1720,17 @@
 	</sprite>
 	<sprite name="spriteWheelArrowBackwardText1">
 		<image file="texture7.png">
-			<grid pos="321,965" size="125,56"/>
+			<grid pos="252,965" size="125,56"/>
 		</image>
 	</sprite>
 	<sprite name="spriteWheelArrowForwardText3">
-		<image file="texture6.png">
-			<grid pos="877,967" size="125,56"/>
+		<image file="texture7.png">
+			<grid pos="126,965" size="125,56"/>
 		</image>
 	</sprite>
 	<sprite name="spriteWheelArrowForwardText2">
-		<image file="texture3.png">
-			<grid pos="898,936" size="125,56"/>
+		<image file="texture7.png">
+			<grid pos="0,965" size="125,56"/>
 		</image>
 	</sprite>
 	<sprite name="spriteWheelArrowForwardText1">
@@ -1739,13 +1739,13 @@
 		</image>
 	</sprite>
 	<sprite name="spriteWheelArrowMeasure3">
-		<image file="texture3.png">
-			<grid pos="560,783" size="353,76"/>
+		<image file="texture4.png">
+			<grid pos="0,902" size="353,76"/>
 		</image>
 	</sprite>
 	<sprite name="spriteWheelArrowMeasure2">
 		<image file="texture6.png">
-			<grid pos="0,885" size="273,76"/>
+			<grid pos="280,885" size="273,76"/>
 		</image>
 	</sprite>
 	<sprite name="spriteWheelArrowMeasure1">
