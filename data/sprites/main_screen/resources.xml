@@ -232,10 +232,10 @@
 	</sprite>
 	<sprite name="spriteKeyPointText">
 		<image file="texture0.png">
-			<grid pos="1001,95" size="17,32"/>
+			<grid pos="997,735" size="17,32"/>
 		</image>
 		<image file="texture0.png">
-			<grid pos="1001,128" size="16,31"/>
+			<grid pos="1001,139" size="16,31"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="1" y="4"/>
@@ -1337,7 +1337,7 @@
 	</sprite>
 	<sprite name="spriteErrorPopupText">
 		<image file="texture0.png">
-			<grid pos="1001,181" size="16,21"/>
+			<grid pos="1001,192" size="16,21"/>
 		</image>
 	</sprite>
 	<sprite name="spriteAutoAluPopupBack">
@@ -1490,7 +1490,7 @@
 	</sprite>
 	<sprite name="spriteSpeedometerCenter">
 		<image file="texture0.png">
-			<grid pos="1001,160" size="21,20"/>
+			<grid pos="1001,171" size="21,20"/>
 		</image>
 	</sprite>
 	<sprite name="spriteProgressText">
@@ -1630,53 +1630,73 @@
 	</sprite>
 	<sprite name="spriteWheelWeight5">
 		<image file="texture0.png">
-			<grid pos="997,733" size="23,43"/>
+			<grid pos="1001,95" size="23,43"/>
+		</image>
+		<image file="texture4.png">
+			<grid pos="317,979" size="25,45"/>
 		</image>
 		<image file="texture0.png">
-			<grid pos="997,642" size="25,45"/>
+			<grid pos="997,689" size="25,45"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="0" y="-1"/>
+		<frame nr="2" x="0" y="0"/>
 	</sprite>
 	<sprite name="spriteWheelWeight4">
+		<image file="texture4.png">
+			<grid pos="669,1001" size="39,15"/>
+		</image>
 		<image file="texture2.png">
-			<grid pos="766,1004" size="39,15"/>
+			<grid pos="770,1004" size="41,17"/>
+		</image>
+		<image file="texture2.png">
+			<grid pos="728,1004" size="41,17"/>
+		</image>
+		<frame nr="0" x="0" y="0"/>
+		<frame nr="1" x="-1" y="-1"/>
+		<frame nr="2" x="-1" y="0"/>
+	</sprite>
+	<sprite name="spriteWheelWeight3">
+		<image file="texture4.png">
+			<grid pos="629,1001" size="39,15"/>
+		</image>
+		<image file="texture2.png">
+			<grid pos="686,1004" size="41,17"/>
 		</image>
 		<image file="texture2.png">
 			<grid pos="644,1004" size="41,17"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="-1" y="-1"/>
+		<frame nr="2" x="-1" y="0"/>
 	</sprite>
-	<sprite name="spriteWheelWeight3">
-		<image file="texture2.png">
-			<grid pos="726,1004" size="39,15"/>
+	<sprite name="spriteWheelWeight2">
+		<image file="texture3.png">
+			<grid pos="970,608" size="39,15"/>
 		</image>
 		<image file="texture2.png">
 			<grid pos="602,1004" size="41,17"/>
-		</image>
-		<frame nr="0" x="0" y="0"/>
-		<frame nr="1" x="-1" y="-1"/>
-	</sprite>
-	<sprite name="spriteWheelWeight2">
-		<image file="texture2.png">
-			<grid pos="686,1004" size="39,15"/>
 		</image>
 		<image file="texture0.png">
 			<grid pos="977,1003" size="41,17"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="-1" y="-1"/>
+		<frame nr="2" x="-1" y="0"/>
 	</sprite>
 	<sprite name="spriteWheelWeight1">
+		<image file="texture5.png">
+			<grid pos="996,972" size="24,44"/>
+		</image>
 		<image file="texture0.png">
-			<grid pos="997,688" size="24,44"/>
+			<grid pos="997,642" size="26,46"/>
 		</image>
 		<image file="texture0.png">
 			<grid pos="997,595" size="26,46"/>
 		</image>
 		<frame nr="0" x="0" y="0"/>
 		<frame nr="1" x="-1" y="-1"/>
+		<frame nr="2" x="-1" y="0"/>
 	</sprite>
 	<sprite name="spriteWheelArrowInstall3">
 		<image file="texture3.png">

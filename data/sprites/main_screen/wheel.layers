@@ -24,9 +24,9 @@ sprites =
 	["spriteWheelTarget4", ["wheel_target_4"]],
 	["spriteWheelTarget5", ["wheel_target_5"]],
 
-	["spriteWheelWeight1", ["wheel_weight_inactive_1", "wheel_weight_active_1"]],
-	["spriteWheelWeight2", ["wheel_weight_inactive_2", "wheel_weight_active_2"]],
-	["spriteWheelWeight3", ["wheel_weight_inactive_3", "wheel_weight_active_3"]],
-	["spriteWheelWeight4", ["wheel_weight_inactive_4", "wheel_weight_active_4"]],
-	["spriteWheelWeight5", ["wheel_weight_inactive_5", "wheel_weight_active_5"]]
+	["spriteWheelWeight1", ["wheel_weight_inactive_1", "wheel_weight_active_1", "wheel_weight_measure_1"]],
+	["spriteWheelWeight2", ["wheel_weight_inactive_2", "wheel_weight_active_2", "wheel_weight_measure_2"]],
+	["spriteWheelWeight3", ["wheel_weight_inactive_3", "wheel_weight_active_3", "wheel_weight_measure_3"]],
+	["spriteWheelWeight4", ["wheel_weight_inactive_4", "wheel_weight_active_4", "wheel_weight_measure_4"]],
+	["spriteWheelWeight5", ["wheel_weight_inactive_5", "wheel_weight_active_5", "wheel_weight_measure_5"]]
 ]

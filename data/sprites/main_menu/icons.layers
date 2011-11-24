@@ -50,6 +50,7 @@ sprites =
 	["spriteWheelQepIcon", ["wheel_qep_icon"]],
 	["spriteErrorIcon", ["error_icon"]],
 	["spriteDriverTestIcon", ["driver_test_icon"]],
+	["spriteOscilloscopeIcon", ["oscilloscope_icon"]],
 
 	["spriteStatsIcon", ["stats_icon"]],
 	["spriteStatsDisksIcon", ["stats_disks_icon"]],

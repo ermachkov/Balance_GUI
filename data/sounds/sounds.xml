@@ -4,5 +4,6 @@
 	<sample name="soundStartKey" file="start_key.wav"/>
 	<sample name="soundStopKey" file="stop_key.wav"/>
 	<sample name="soundBalanceSuccess" file="balance_success.wav"/>
+	<sample name="soundRuler" file="ruler.wav"/>
 	<sample name="soundRulerSuccess" file="ruler_success.wav"/>
 </resources>

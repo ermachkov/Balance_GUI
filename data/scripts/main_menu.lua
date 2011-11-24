@@ -666,6 +666,11 @@ local function initMenus()
 				header = tr("{driver_test_header}"),
 				text = tr("{driver_test_text}"),
 				onClick = function() hideMainMenu(); balance:setParam("testdrv") end
+			},
+			{
+				icon = spriteOscilloscopeIcon,
+				header = tr("{oscilloscope_header}"),
+				text = tr("{oscilloscope_text}")
 			}
 		},
 
