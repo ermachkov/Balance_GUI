@@ -33,6 +33,12 @@ function onStartScreenUpdate(delta)
 		return
 	end
 
+	-- exit from start screen if not idle
+	if balanceState ~= STATE_IDLE then
+		hideStartScreen()
+		return
+	end
+
 	-- handle currently pressed button
 	if pressedButton then
 		local x, y = mouse:getPosition()
