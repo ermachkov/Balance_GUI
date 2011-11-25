@@ -1,7 +1,6 @@
 #!/bin/bash
 
-SCARDNUM=$(expr "`aplay -l | grep \"USB Audio\"`" : "card \([0-9]*\)")
-amixer -c ${SCARDNUM} -q set PCM 100%
+amixer sset Master 100
 
 export MOUSE="1"
 
