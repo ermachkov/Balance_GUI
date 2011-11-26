@@ -1,6 +1,7 @@
 sprites =
 [
 	["spriteOscBack", ["osc_back"]],
+	["spriteOscDisplay", ["osc_display"]],
 
 	["spriteVertScaleUpIcon", ["vert_scale_up_icon_normal", "vert_scale_up_icon_pressed"]],
 	["spriteVertScaleUpButton", ["vert_scale_up_button_normal", "vert_scale_up_button_pressed"]],
@@ -34,6 +35,9 @@ sprites =
 
 	["spriteOscStopIcon", ["osc_stop_icon_normal", "osc_stop_icon_pressed"]],
 	["spriteOscStopButton", ["osc_stop_button_normal", "osc_stop_button_pressed"]],
+
+	["spriteOscCloseButtonBack", ["osc_close_button_back"]],
+	["spriteOscCloseButton", ["osc_close_button_normal", "osc_close_button_pressed"]],
 
 	["spriteOscVertScaleIcon", ["osc_vert_scale_icon"]],
 	["spriteOscHorzScaleIcon", ["osc_horz_scale_icon"]],

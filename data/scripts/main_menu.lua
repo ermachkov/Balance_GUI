@@ -670,7 +670,8 @@ local function initMenus()
 			{
 				icon = spriteOscilloscopeIcon,
 				header = tr("{oscilloscope_header}"),
-				text = tr("{oscilloscope_text}")
+				text = tr("{oscilloscope_text}"),
+				onClick = function() hideMainMenu(); showOscilloscope() end
 			}
 		},
 

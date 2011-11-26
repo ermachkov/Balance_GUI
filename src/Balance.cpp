@@ -22,7 +22,7 @@ const std::string Balance::PARAMS[MAX_PARAMS] =
 };
 
 Balance::Balance(Profile &profile)
-: mProtocolValid(true), mSocketNameChanged(false)
+: mProtocolValid(true), mSocketNameChanged(false), mOscMode(0)
 {
 	for (int i = 0; i < MAX_PARAMS; ++i)
 		mParams.insert(std::make_pair(PARAMS[i], "0"));
@@ -71,6 +71,11 @@ void Balance::setServerAddr(const std::string &addr)
 {
 	mNewSocketName = CL_SocketName(addr, "23");
 	mSocketNameChanged = true;
+}
+
+void Balance::setOscMode(int mode)
+{
+	mOscMode = mode;
 }
 
 std::string Balance::getParam(const std::string &name) const
@@ -146,14 +151,17 @@ void Balance::onUpdate(int delta)
 	}
 
 	mReplies.clear();
-	mutexSection.unlock();
 }
 
 void Balance::run()
 {
 	CL_ConsoleWindow console("Balance", 80, 100);
+#ifdef WIN32
+	ShowWindow(GetConsoleWindow(), SW_SHOW);
+	ShowWindow(GetConsoleWindow(), SW_SHOW);
+#endif
 
-	for (;;)
+	while (mStopThread.get() == 0)
 	{
 		try
 		{
@@ -169,31 +177,25 @@ void Balance::run()
 			CL_Console::write_line("Connecting...");
 			mConnected.set(0);
 			mRequests.clear();
-			CL_TCPConnection connection = CL_TCPConnection(mSocketName);
+			CL_TCPConnection connection(mSocketName);
 			mConnected.set(1);
 			CL_Console::write_line("*** OK ***");
 
+			CL_SocketName serverSocketName(mSocketName.get_address(), "16666");
+			CL_UDPSocket socket(CL_SocketName("16679"));
+
 			unsigned startTime = CL_System::get_time();
 			int numRetries = 0;
+			int oscMode = 0;
 			std::string data;
-			for (;;)
+			unsigned short oldIndex = 0xFFFF;
+			while (mStopThread.get() == 0 && numRetries <= MAX_RETRIES && !mSocketNameChanged)
 			{
-				if (mStopThread.get() != 0)
-					return;
-
-				if (mSocketNameChanged)
-					break;
-
 				int elapsedTime = CL_System::get_time() - startTime;
 				if (elapsedTime >= POLL_INTERVAL)
 				{
 					startTime += POLL_INTERVAL;
-
-					if (++numRetries > MAX_RETRIES)
-					{
-						CL_Console::write_line("*** TIMEOUT ***");
-						break;
-					}
+					++numRetries;
 
 					// first send all pending requests in the queue
 					CL_MutexSection mutexSection(&mRequestMutex);
@@ -207,14 +209,33 @@ void Balance::run()
 					mRequests.clear();
 					mutexSection.unlock();
 
-					// finally send the polling request
-					std::string request = "state\r\n";
-					CL_Console::write_line("> " + request.substr(0, request.length() - 2));
-					connection.write(request.c_str(), request.length());
+					// finally send the polling/oscilloscope request
+					if (oscMode != mOscMode)
+					{
+						std::string request = cl_format("osc %1\r\n", mOscMode);
+						CL_Console::write_line("> " + request.substr(0, request.length() - 2));
+						connection.write(request.c_str(), request.length());
+
+						if (oscMode == 0)
+						{
+							CL_System::sleep(500);
+							char ch = '1';
+							socket.send(&ch, sizeof(ch), serverSocketName);
+						}
+
+						oscMode = mOscMode;
+					}
+					else if (oscMode == 0)
+					{
+						std::string request = "state\r\n";
+						CL_Console::write_line("> " + request.substr(0, request.length() - 2));
+						connection.write(request.c_str(), request.length());
+					}
 				}
 				else
 				{
-					if (connection.get_read_event().wait(POLL_INTERVAL - elapsedTime))
+					// read data from TCP socket
+					if (connection.get_read_event().wait(oscMode == 0 ? POLL_INTERVAL - elapsedTime : 0))
 					{
 						// append received data to the data buffer
 						char buf[1024];
@@ -233,8 +254,29 @@ void Balance::run()
 							mReplies.push_back(reply);
 						}
 					}
+
+					// read data from UDP socket
+					if (socket.get_read_event().wait(oscMode != 0 ? POLL_INTERVAL - elapsedTime : 0))
+					{
+						// receive data
+						unsigned char buf[2048];
+						CL_SocketName sender;
+						int size = socket.receive(buf, sizeof(buf), sender);
+						if (sender.get_address() != serverSocketName.get_address() || size < 4 || buf[0] != 'P' || buf[1] != 'S')
+							continue;
+						numRetries = 0;
+
+						// check for packet loss
+						unsigned short newIndex = buf[2] | buf[3] << 8;
+						if (newIndex != ((oldIndex + 1) & 0xFFFF))
+							CL_Console::write_line(cl_format("Packet lost: %1", (oldIndex + 1) & 0xFFFF));
+						oldIndex = newIndex;
+					}
 				}
 			}
+
+			if (oscMode != 0)
+				connection.write("osc 0\r\n", 7);
 		}
 		catch (const std::exception &exception)
 		{

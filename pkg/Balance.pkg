@@ -12,6 +12,9 @@ class Balance
 	// Sets the balance address
 	void setServerAddr(const std::string &addr);
 
+	// Sets the oscilloscope mode
+	void setOscMode(int mode);
+
 	// Returns the balance parameter
 	std::string getParam(const std::string &name) const;
 

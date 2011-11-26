@@ -51,6 +51,7 @@ function onInit()
 	include("scripts/message.lua")
 	include("scripts/wizard.lua")
 	include("scripts/stats.lua")
+	include("scripts/oscilloscope.lua")
 
 	-- load the system profile
 	profile = Profile("")
@@ -104,6 +105,7 @@ function onInit()
 	onWizardInit()
 	onStatsInit()
 	onMessageInit()
+	onOscilloscopeInit()
 
 	-- show/hide mouse
 	if profile:getInt("input_dev") == 2 then
@@ -219,6 +221,7 @@ function onUpdate(delta)
 	-- update modules
 	onMainScreenUpdate(delta)
 	onStartScreenUpdate(delta)
+	onOscilloscopeUpdate(delta)
 	onLayoutMenuUpdate(delta)
 	onDiskMenuUpdate(delta)
 	onBalanceProgressUpdate(delta)
@@ -251,7 +254,9 @@ function onMouseDown(x, y, key)
 							if not onDiskMenuMouseDown(x, y, key) then
 								if not onLayoutMenuMouseDown(x, y, key) then
 									if not onStartScreenMouseDown(x, y, key) then
-										onMainScreenMouseDown(x, y, key)
+										if not onOscilloscopeMouseDown(x, y, key) then
+											onMainScreenMouseDown(x, y, key)
+										end
 									end
 								end
 							end
@@ -282,7 +287,9 @@ function onMouseUp(x, y, key)
 							if not onDiskMenuMouseUp(x, y, key) then
 								if not onLayoutMenuMouseUp(x, y, key) then
 									if not onStartScreenMouseUp(x, y, key) then
-										onMainScreenMouseUp(x, y, key)
+										if not onOscilloscopeMouseUp(x, y, key) then
+											onMainScreenMouseUp(x, y, key)
+										end
 									end
 								end
 							end

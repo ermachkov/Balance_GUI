@@ -259,7 +259,7 @@ end
 
 function onMainScreenUpdate(delta)
 	-- exit if not active
-	if startScreenActive then
+	if startScreenActive or oscilloscopeActive then
 		return
 	end
 
