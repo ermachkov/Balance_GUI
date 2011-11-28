@@ -1,6 +1,6 @@
 /*
 ** Lua binding: LuaBindings
-** Generated automatically by tolua++-1.0.92 on 11/09/11 13:25:38.
+** Generated automatically by tolua++-1.0.92 on 11/26/11 15:30:37.
 */
 
 #ifndef __cplusplus
@@ -458,6 +458,39 @@ static int tolua_LuaBindings_Balance_setServerAddr00(lua_State* tolua_S)
 #ifndef TOLUA_RELEASE
  tolua_lerror:
  tolua_error(tolua_S,"#ferror in function 'setServerAddr'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: setOscMode of class  Balance */
+#ifndef TOLUA_DISABLE_tolua_LuaBindings_Balance_setOscMode00
+static int tolua_LuaBindings_Balance_setOscMode00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Balance",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Balance* self = (Balance*)  tolua_tousertype(tolua_S,1,0);
+  int mode = ((int)  tolua_tonumber(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setOscMode'", NULL);
+#endif
+  {
+   self->setOscMode(mode);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'setOscMode'.",&tolua_err);
  return 0;
 #endif
 }
@@ -3499,6 +3532,7 @@ TOLUA_API int tolua_LuaBindings_open (lua_State* tolua_S)
    tolua_function(tolua_S,"isConnected",tolua_LuaBindings_Balance_isConnected00);
    tolua_function(tolua_S,"isProtocolValid",tolua_LuaBindings_Balance_isProtocolValid00);
    tolua_function(tolua_S,"setServerAddr",tolua_LuaBindings_Balance_setServerAddr00);
+   tolua_function(tolua_S,"setOscMode",tolua_LuaBindings_Balance_setOscMode00);
    tolua_function(tolua_S,"getParam",tolua_LuaBindings_Balance_getParam00);
    tolua_function(tolua_S,"getIntParam",tolua_LuaBindings_Balance_getIntParam00);
    tolua_function(tolua_S,"getFloatParam",tolua_LuaBindings_Balance_getFloatParam00);

@@ -94,6 +94,8 @@ function main_menu_createSprites()
 	spriteMainMenuItemIcon = Sprite("spriteMainMenuItemIcon", 517, 121)
 	spriteOscBack1 = Sprite("spriteOscBack1", 1023, 0)
 	spriteOscBack0 = Sprite("spriteOscBack0", 0, 0)
+	spriteOscDisplay1 = Sprite("spriteOscDisplay1", 1023, 0)
+	spriteOscDisplay0 = Sprite("spriteOscDisplay0", 0, 0)
 	spriteOscStartIcon = Sprite("spriteOscStartIcon", 931, 850)
 	spriteOscPlayIcon = Sprite("spriteOscPlayIcon", 771, 856)
 	spriteOscChannelIcon = Sprite("spriteOscChannelIcon", 458, 846)
@@ -101,6 +103,8 @@ function main_menu_createSprites()
 	spriteOscHorzScrollIcon = Sprite("spriteOscHorzScrollIcon", 446, 860)
 	spriteOscHorzScaleIcon = Sprite("spriteOscHorzScaleIcon", 276, 852)
 	spriteOscVertScaleIcon = Sprite("spriteOscVertScaleIcon", 134, 853)
+	spriteOscCloseButtonBack = Sprite("spriteOscCloseButtonBack", 1136, 0)
+	spriteOscCloseButton = Sprite("spriteOscCloseButton", 1163, 21)
 	spriteOscStopButton = Sprite("spriteOscStopButton", 1048, 760)
 	spriteOscStopIcon = Sprite("spriteOscStopIcon", 1077, 839)
 	spriteOscStartDownButton = Sprite("spriteOscStartDownButton", 887, 874)
@@ -252,6 +256,8 @@ function main_menu_deleteSprites()
 	spriteMainMenuItemIcon = nil
 	spriteOscBack1 = nil
 	spriteOscBack0 = nil
+	spriteOscDisplay1 = nil
+	spriteOscDisplay0 = nil
 	spriteOscStartIcon = nil
 	spriteOscPlayIcon = nil
 	spriteOscChannelIcon = nil
@@ -259,6 +265,8 @@ function main_menu_deleteSprites()
 	spriteOscHorzScrollIcon = nil
 	spriteOscHorzScaleIcon = nil
 	spriteOscVertScaleIcon = nil
+	spriteOscCloseButtonBack = nil
+	spriteOscCloseButton = nil
 	spriteOscStopButton = nil
 	spriteOscStopIcon = nil
 	spriteOscStartDownButton = nil

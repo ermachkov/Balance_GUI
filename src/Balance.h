@@ -25,6 +25,9 @@ public:
 	// Sets the balance address
 	void setServerAddr(const std::string &addr);
 
+	// Sets the oscilloscope mode
+	void setOscMode(int mode);
+
 	// Returns the balance parameter
 	std::string getParam(const std::string &name) const;
 
@@ -74,6 +77,8 @@ private:
 	std::vector<std::string>    mReplies;           // Reply queue
 	bool                        mSocketNameChanged; // Socket change flag
 	CL_SocketName               mNewSocketName;     // New socket name
+
+	int                         mOscMode;           // New oscilloscope mode
 };
 
 #endif
