@@ -152,7 +152,7 @@ function onUpdate(delta)
 			hideBalanceProgress()
 			hideWizard()
 		end
-	elseif newBalanceState >= STATE_RULER_CAL0 and newBalanceState <= STATE_RULER_CAL3 then
+	elseif (newBalanceState >= STATE_RULER_CAL0 and newBalanceState <= STATE_RULER_CAL3) or (newBalanceState >= STATE_RRULER_3P_CAL0 and newBalanceState <= STATE_RRULER_D_CAL1) then
 		hideBalanceProgress()
 		showWizard()
 	end

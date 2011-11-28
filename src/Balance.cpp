@@ -18,7 +18,8 @@ const std::string Balance::PARAMS[MAX_PARAMS] =
 	"c2", "c3", "c4", "c5", "r0", "r1", "errors0", "errors1", "errors2", "wheeldist",
 	"autoaluflag", "realstick", "result", "totaltime", "idletime", "balancetime", "worktime", "keycal0", "cheatepsilon", "rulercal0",
 	"rulercal1", "rulercal2", "rulercal3", "rulercalf", "cal0", "cal1", "cal2", "cal3", "testdrv", "loaddef",
-	"loadref", "saveref", "passwd", "start", "stop", "enter", "osc", "rotate", "c-meter"
+	"loadref", "saveref", "passwd", "start", "stop", "enter", "osc", "rotate", "c-meter", "rrulercal0",
+	"rrulercal1", "rrulercal2", "rrulercal3", "rrulercal4", "rrulercal5"
 };
 
 Balance::Balance(Profile &profile)

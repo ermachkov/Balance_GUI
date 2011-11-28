@@ -7,6 +7,7 @@ local mainMenuLoaded = false
 local pressedButton, pressedButtonText
 local balanceCalIcons, balanceCalHeaders, balanceCalTexts, balanceCalTexts2
 local rulerCalIcons, rulerCalHeaders, rulerCalTexts, rulerCalTexts2
+local rrulerCalIcons, rrulerCalHeaders, rrulerCalTexts, rrulerCalTexts2
 
 -- Shows the wizard
 function showWizard()
@@ -44,6 +45,11 @@ function onWizardUpdate(delta)
 		rulerCalHeaders = {tr("{wizard_ruler_cal_0_header}"), tr("{wizard_ruler_cal_1_header}"), tr("{wizard_ruler_cal_2_header}"), tr("{wizard_ruler_cal_3_header}")}
 		rulerCalTexts = {tr("{wizard_ruler_cal_0_text}"), tr("{wizard_ruler_cal_1_text}"), tr("{wizard_ruler_cal_2_text}"), tr("{wizard_ruler_cal_3_text}")}
 		rulerCalTexts2 = {tr("{wizard_ruler_cal_0_text_2}"), tr("{wizard_ruler_cal_1_text_2}"), tr("{wizard_ruler_cal_2_text_2}"), tr("{wizard_ruler_cal_3_text_2}")}
+
+		rrulerCalIcons = {spriteRulerCal0Icon, spriteRulerCal0Icon, spriteRulerCal0Icon, spriteRulerCal1Icon, spriteRulerCal2Icon}
+		rrulerCalHeaders = {tr("{wizard_rruler_cal_0_header}"), tr("{wizard_rruler_cal_1_header}"), tr("{wizard_rruler_cal_2_header}"), tr("{wizard_rruler_cal_3_header}"), tr("{wizard_rruler_cal_4_header}")}
+		rrulerCalTexts = {tr("{wizard_rruler_cal_0_text}"), tr("{wizard_rruler_cal_1_text}"), tr("{wizard_rruler_cal_2_text}"), tr("{wizard_rruler_cal_3_text}"), tr("{wizard_rruler_cal_4_text}")}
+		rrulerCalTexts2 = {tr("{wizard_rruler_cal_0_text_2}"), tr("{wizard_rruler_cal_1_text_2}"), tr("{wizard_rruler_cal_2_text_2}"), tr("{wizard_rruler_cal_3_text_2}"), tr("{wizard_rruler_cal_4_text_2}")}
 
 		enableTranslation(true)
 	end
@@ -114,6 +120,16 @@ function onWizardUpdate(delta)
 		fontMessageHeader:drawText(spriteWizardHeader.x, spriteWizardHeader.y, tr(rulerCalHeaders[index]), 0.0, 0.0, 0.0, alpha);
 		fontMessageText:drawText(spriteWizardText.x, spriteWizardText.y, tr(rulerCalTexts[index]), 0.0, 0.0, 0.0, alpha);
 		fontMessageText:drawText(spriteWizardText2.x, spriteWizardText2.y, tr(rulerCalTexts2[index]), 0.0, 0.0, 0.0, alpha);
+	elseif balanceState >= STATE_RRULER_3P_CAL0 and balanceState <= STATE_RRULER_D_CAL1 then
+		local index = balanceState - STATE_RRULER_3P_CAL0 + 1
+		local icon = rrulerCalIcons[index]
+		icon.alpha = alpha
+		icon:draw(spriteWizardIcon.x, spriteWizardIcon.y)
+		spriteWizardIconGlass:draw()
+
+		fontMessageHeader:drawText(spriteWizardHeader.x, spriteWizardHeader.y, tr(rrulerCalHeaders[index]), 0.0, 0.0, 0.0, alpha);
+		fontMessageText:drawText(spriteWizardText.x, spriteWizardText.y, tr(rrulerCalTexts[index]), 0.0, 0.0, 0.0, alpha);
+		fontMessageText:drawText(spriteWizardText2.x, spriteWizardText2.y, tr(rrulerCalTexts2[index]), 0.0, 0.0, 0.0, alpha);
 	end
 end
 

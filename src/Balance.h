@@ -52,7 +52,7 @@ private:
 	typedef std::map<std::string, std::string> ParamMap;
 
 	static const int MAX_INPUT_PARAMS = 97;         // Maximum number of input parameters
-	static const int MAX_PARAMS = 119;              // Total number of parameters
+	static const int MAX_PARAMS = 125;              // Total number of parameters
 	static const std::string PARAMS[MAX_PARAMS];    // Parameters list
 
 	static const int POLL_INTERVAL = 100;           // Polling interval
