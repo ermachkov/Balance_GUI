@@ -453,28 +453,10 @@ local function initMenus()
 					onClick = function() hideMainMenu(); balance:setParam("rrulercal0") end
 				},
 				{
-					icon = spriteRulerCal0Icon,
-					header = tr("{rruler_cal_1_header}"),
-					text = tr("{rruler_cal_1_text}"),
-					onClick = function() hideMainMenu(); balance:setParam("rrulercal1") end
-				},
-				{
-					icon = spriteRulerCal0Icon,
-					header = tr("{rruler_cal_2_header}"),
-					text = tr("{rruler_cal_2_text}"),
-					onClick = function() hideMainMenu(); balance:setParam("rrulercal2") end
-				},
-				{
-					icon = spriteRulerCal1Icon,
+					icon = spriteRulerCal2Icon,
 					header = tr("{rruler_cal_3_header}"),
 					text = tr("{rruler_cal_3_text}"),
 					onClick = function() hideMainMenu(); balance:setParam("rrulercal3") end
-				},
-				{
-					icon = spriteRulerCal2Icon,
-					header = tr("{rruler_cal_4_header}"),
-					text = tr("{rruler_cal_4_text}"),
-					onClick = function() hideMainMenu(); balance:setParam("rrulercal4") end
 				},
 				{
 					icon = spriteRulerCalDiamIcon,
