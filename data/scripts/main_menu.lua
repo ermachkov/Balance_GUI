@@ -403,38 +403,7 @@ local function initMenus()
 				header = tr("{ruler_cal_header}"),
 				text = tr("{ruler_cal_text}"),
 				password = true,
-				--[[{
-					icon = spriteRulerCal0Icon,
-					header = tr("{ruler_cal_0_header}"),
-					text = tr("{ruler_cal_0_text}"),
-					onClick = function() hideMainMenu(); balance:setParam("rulercal0") end
-				},
-				{
-					icon = spriteRulerCal1Icon,
-					header = tr("{ruler_cal_1_header}"),
-					text = tr("{ruler_cal_1_text}"),
-					onClick = function() hideMainMenu(); balance:setParam("rulercal1") end
-				},
-				{
-					icon = spriteRulerCal2Icon,
-					header = tr("{ruler_cal_2_header}"),
-					text = tr("{ruler_cal_2_text}"),
-					onClick = function() hideMainMenu(); balance:setParam("rulercal2") end
-				},
-				{
-					icon = spriteRulerCal3Icon,
-					header = tr("{ruler_cal_3_header}"),
-					text = tr("{ruler_cal_3_text}"),
-					onClick = function() hideMainMenu(); balance:setParam("rulercal3") end
-				},
-				{
-					icon = spriteRulerCalOffsetIcon,
-					header = tr("{ruler_cal_offset_header}"),
-					text = tr("{ruler_cal_offset_text}"),
-					format = "%d",
-					param = "rulerofs",
-					type = TYPE_INT
-				},]]
+				
 				{
 					icon = spriteRulerCal0Icon,
 					header = tr("{rruler_cal_0_header}"),
