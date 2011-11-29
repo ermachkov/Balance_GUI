@@ -822,7 +822,7 @@ local function initMenus()
 				header = tr("{software_update_header}"),
 				text = tr("{software_update_text}"),
 				password = true,
-				onClick = function() hideMainMenu(); graphics:minimize(); os.execute(profile:getString("update_command")); graphics:restore() end
+				onClick = function() hideMainMenu(); graphics:hide(); os.execute(profile:getString("update_command")); graphics:show() end
 			},
 			{
 				icon = spriteFactorySettingsIcon,

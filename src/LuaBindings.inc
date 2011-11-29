@@ -1,6 +1,6 @@
 /*
 ** Lua binding: LuaBindings
-** Generated automatically by tolua++-1.0.92 on 11/29/11 14:48:29.
+** Generated automatically by tolua++-1.0.92 on 11/29/11 15:16:58.
 */
 
 #ifndef __cplusplus
@@ -1227,9 +1227,9 @@ static int tolua_LuaBindings_Graphics_getVisibleRect00(lua_State* tolua_S)
 }
 #endif //#ifndef TOLUA_DISABLE
 
-/* method: minimize of class  Graphics */
-#ifndef TOLUA_DISABLE_tolua_LuaBindings_Graphics_minimize00
-static int tolua_LuaBindings_Graphics_minimize00(lua_State* tolua_S)
+/* method: show of class  Graphics */
+#ifndef TOLUA_DISABLE_tolua_LuaBindings_Graphics_show00
+static int tolua_LuaBindings_Graphics_show00(lua_State* tolua_S)
 {
 #ifndef TOLUA_RELEASE
  tolua_Error tolua_err;
@@ -1243,24 +1243,24 @@ static int tolua_LuaBindings_Graphics_minimize00(lua_State* tolua_S)
  {
   Graphics* self = (Graphics*)  tolua_tousertype(tolua_S,1,0);
 #ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'minimize'", NULL);
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'show'", NULL);
 #endif
   {
-   self->minimize();
+   self->show();
   }
  }
  return 0;
 #ifndef TOLUA_RELEASE
  tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'minimize'.",&tolua_err);
+ tolua_error(tolua_S,"#ferror in function 'show'.",&tolua_err);
  return 0;
 #endif
 }
 #endif //#ifndef TOLUA_DISABLE
 
-/* method: restore of class  Graphics */
-#ifndef TOLUA_DISABLE_tolua_LuaBindings_Graphics_restore00
-static int tolua_LuaBindings_Graphics_restore00(lua_State* tolua_S)
+/* method: hide of class  Graphics */
+#ifndef TOLUA_DISABLE_tolua_LuaBindings_Graphics_hide00
+static int tolua_LuaBindings_Graphics_hide00(lua_State* tolua_S)
 {
 #ifndef TOLUA_RELEASE
  tolua_Error tolua_err;
@@ -1274,16 +1274,16 @@ static int tolua_LuaBindings_Graphics_restore00(lua_State* tolua_S)
  {
   Graphics* self = (Graphics*)  tolua_tousertype(tolua_S,1,0);
 #ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'restore'", NULL);
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'hide'", NULL);
 #endif
   {
-   self->restore();
+   self->hide();
   }
  }
  return 0;
 #ifndef TOLUA_RELEASE
  tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'restore'.",&tolua_err);
+ tolua_error(tolua_S,"#ferror in function 'hide'.",&tolua_err);
  return 0;
 #endif
 }
@@ -3635,8 +3635,8 @@ TOLUA_API int tolua_LuaBindings_open (lua_State* tolua_S)
   tolua_beginmodule(tolua_S,"Graphics");
    tolua_function(tolua_S,"setScreenSize",tolua_LuaBindings_Graphics_setScreenSize00);
    tolua_function(tolua_S,"getVisibleRect",tolua_LuaBindings_Graphics_getVisibleRect00);
-   tolua_function(tolua_S,"minimize",tolua_LuaBindings_Graphics_minimize00);
-   tolua_function(tolua_S,"restore",tolua_LuaBindings_Graphics_restore00);
+   tolua_function(tolua_S,"show",tolua_LuaBindings_Graphics_show00);
+   tolua_function(tolua_S,"hide",tolua_LuaBindings_Graphics_hide00);
    tolua_function(tolua_S,"isVSync",tolua_LuaBindings_Graphics_isVSync00);
    tolua_function(tolua_S,"setVSync",tolua_LuaBindings_Graphics_setVSync00);
    tolua_function(tolua_S,"getFPS",tolua_LuaBindings_Graphics_getFPS00);
