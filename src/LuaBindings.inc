@@ -1,6 +1,6 @@
 /*
 ** Lua binding: LuaBindings
-** Generated automatically by tolua++-1.0.92 on 11/26/11 15:30:37.
+** Generated automatically by tolua++-1.0.92 on 11/29/11 14:48:29.
 */
 
 #ifndef __cplusplus
@@ -1222,6 +1222,68 @@ static int tolua_LuaBindings_Graphics_getVisibleRect00(lua_State* tolua_S)
 #ifndef TOLUA_RELEASE
  tolua_lerror:
  tolua_error(tolua_S,"#ferror in function 'getVisibleRect'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: minimize of class  Graphics */
+#ifndef TOLUA_DISABLE_tolua_LuaBindings_Graphics_minimize00
+static int tolua_LuaBindings_Graphics_minimize00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Graphics",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Graphics* self = (Graphics*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'minimize'", NULL);
+#endif
+  {
+   self->minimize();
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'minimize'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: restore of class  Graphics */
+#ifndef TOLUA_DISABLE_tolua_LuaBindings_Graphics_restore00
+static int tolua_LuaBindings_Graphics_restore00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Graphics",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Graphics* self = (Graphics*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'restore'", NULL);
+#endif
+  {
+   self->restore();
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'restore'.",&tolua_err);
  return 0;
 #endif
 }
@@ -3573,6 +3635,8 @@ TOLUA_API int tolua_LuaBindings_open (lua_State* tolua_S)
   tolua_beginmodule(tolua_S,"Graphics");
    tolua_function(tolua_S,"setScreenSize",tolua_LuaBindings_Graphics_setScreenSize00);
    tolua_function(tolua_S,"getVisibleRect",tolua_LuaBindings_Graphics_getVisibleRect00);
+   tolua_function(tolua_S,"minimize",tolua_LuaBindings_Graphics_minimize00);
+   tolua_function(tolua_S,"restore",tolua_LuaBindings_Graphics_restore00);
    tolua_function(tolua_S,"isVSync",tolua_LuaBindings_Graphics_isVSync00);
    tolua_function(tolua_S,"setVSync",tolua_LuaBindings_Graphics_setVSync00);
    tolua_function(tolua_S,"getFPS",tolua_LuaBindings_Graphics_getFPS00);

@@ -39,6 +39,7 @@ Balance::Balance(Profile &profile)
 	profile.setBool("remote_control", profile.getBool("remote_control", true));
 	profile.setInt("input_dev", profile.getInt("input_dev", 1));
 	profile.setString("cal_command", profile.getString("cal_command", "balance_xinput_calibrator"));
+	profile.setString("update_command", profile.getString("update_command", "lxterminal -e \"sleep 5\""));
 
 	mSlotUpdate = Application::getSingleton().getSigUpdate().connect(this, &Balance::onUpdate);
 
@@ -156,8 +157,8 @@ void Balance::onUpdate(int delta)
 
 void Balance::run()
 {
-	CL_ConsoleWindow console("Balance", 80, 100);
 #ifdef WIN32
+	CL_ConsoleWindow console("Balance", 80, 100);
 	ShowWindow(GetConsoleWindow(), SW_SHOW);
 	ShowWindow(GetConsoleWindow(), SW_SHOW);
 #endif

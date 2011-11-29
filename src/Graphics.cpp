@@ -91,6 +91,16 @@ void Graphics::getVisibleRect(float *x1, float *y1, float *x2, float *y2) const
 	*y2 = mVisibleRect.bottom;
 }
 
+void Graphics::minimize()
+{
+	mWindow.minimize();
+}
+
+void Graphics::restore()
+{
+	mWindow.restore();
+}
+
 bool Graphics::isVSync() const
 {
 	return mVSync;

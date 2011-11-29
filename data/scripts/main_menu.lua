@@ -821,7 +821,8 @@ local function initMenus()
 				icon = spriteSoftwareUpdateIcon,
 				header = tr("{software_update_header}"),
 				text = tr("{software_update_text}"),
-				password = true
+				password = true,
+				onClick = function() hideMainMenu(); graphics:minimize(); os.execute(profile:getString("update_command")); graphics:restore() end
 			},
 			{
 				icon = spriteFactorySettingsIcon,

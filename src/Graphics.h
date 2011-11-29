@@ -38,6 +38,12 @@ public:
 	// Returns the visible rectangle on the virtual screen
 	void getVisibleRect(float *x1 = NULL, float *y1 = NULL, float *x2 = NULL, float *y2 = NULL) const;
 
+	// Minimizes the display window
+	void minimize();
+
+	// Restores the display window
+	void restore();
+
 	// Returns the current vertical synchronization flag
 	bool isVSync() const;
 
