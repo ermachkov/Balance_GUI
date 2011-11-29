@@ -11,7 +11,7 @@ local mainMenuLoaded = false
 local blinkTime = 0
 local pressedButton
 local pressedButtonText
-local autoAluPopup, errorPopup
+local autoAluPopup, errorPopup, updatePopup
 local popups
 local showAboutMessage = false
 local aboutMessage = ""
@@ -50,6 +50,15 @@ local function getAngleIndices(currAngle, targetAngle)
 
 	-- return angle and arrow indices
 	return index1, index2, index1 ~= 1 and 1 or 0, index2 ~= 1 and 1 or 0
+end
+
+-- Asks for password on update
+local function askForUpdatePassword()
+	local left = (SCREEN_WIDTH - (spriteRightFasteners.x + spriteRightFasteners:getWidth())) / 2
+	local top = SCREEN_HEIGHT - (spriteBottomFasteners.y + spriteBottomFasteners:getHeight())
+	showKeyboard(left, top, left, SCREEN_HEIGHT, "passwd", TYPE_PASSWORD, spriteBottomFasteners, nil,
+		function(value) if checkPassword(value) then local str = profile:getString("available_update_version"); profile:setString("ignored_update_version", str); profile:save();
+		graphics:hide(); os.execute(profile:getString("update_command")); graphics:show() end end)
 end
 
 function showAutoAluWeights()
@@ -245,7 +254,8 @@ function onMainScreenInit()
 	-- init popups
 	autoAluPopup = {back = spriteAutoAluPopupBack, icon = spriteAutoAluPopupIcon, active = false, time = 0}
 	errorPopup = {back = spriteErrorPopupBack, icon = spriteErrorPopupIcon, label = spriteErrorPopupText, active = false, time = 0, text = "13"}
-	popups = {autoAluPopup, errorPopup}
+	updatePopup = {back = spriteUpdatePopupBack, icon = spriteUpdatePopupIcon, active = false, time = 0}
+	popups = {autoAluPopup, errorPopup, updatePopup}
 
 	-- read "About" message from the file
 	local file = io.open("/etc/bminfo")
@@ -503,6 +513,7 @@ function onMainScreenUpdate(delta)
 	autoAluPopup.active = balance:getIntParam("autoaluflag") ~= 0
 	errorPopup.active = numErrors ~= 0
 	errorPopup.text = tostring(numErrors)
+	updatePopup.active = profile:getString("available_update_version") > profile:getString("ignored_update_version")
 
 	-- popups
 	for i, popup in ipairs(popups) do
@@ -642,8 +653,14 @@ function onMainScreenMouseUp(x, y, key)
 		pressedButton, pressedButtonText = nil, nil
 	end
 
-	-- show error journal on popup click
+	-- show error journal on error popup click
 	if errorPopup.active and errorPopup.back:isPointInside(x, y) then
 		showErrorJournal()
+	end
+
+	-- execute update command on update popup click
+	if updatePopup.active and updatePopup.back:isPointInside(x, y) then
+		showMessage(tr("{update_message_text}"), MESSAGE_YES_NO, MESSAGE_WARNING, askForUpdatePassword,
+			function() local str = profile:getString("available_update_version"); profile:setString("ignored_update_version", str); profile:save() end)
 	end
 end

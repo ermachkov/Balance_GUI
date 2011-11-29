@@ -94,6 +94,7 @@ void Graphics::getVisibleRect(float *x1, float *y1, float *x2, float *y2) const
 void Graphics::show()
 {
 	mWindow.show();
+	mWindow.bring_to_front();
 }
 
 void Graphics::hide()

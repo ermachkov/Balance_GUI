@@ -221,6 +221,17 @@ function updateSpritesLanguage()
 	spriteSpeedometerText.frame = lang
 end
 
+-- Checks the entered password
+function checkPassword(value)
+	if value == profile:getString("password", "679") then
+		password = value
+		return true
+	else
+		showMessage(tr("{invalid_password}"), MESSAGE_OK, MESSAGE_ERROR)
+		return false
+	end
+end
+
 -- Draws horizontally splitted sprite
 function drawHorzSplittedSprite(sprite1, sprite2)
 	sprite1:draw(sprite1.x, sprite1.y, sprite1.x + sprite1:getWidth(), sprite1.y + sprite1:getHeight() - 1, 0, 0, sprite1:getWidth(), sprite1:getHeight() - 1)

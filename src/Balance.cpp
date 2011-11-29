@@ -40,6 +40,8 @@ Balance::Balance(Profile &profile)
 	profile.setInt("input_dev", profile.getInt("input_dev", 1));
 	profile.setString("cal_command", profile.getString("cal_command", "balance_xinput_calibrator"));
 	profile.setString("update_command", profile.getString("update_command", "lxterminal -e \"sleep 5\""));
+	profile.setString("available_update_version", profile.getString("available_update_version", ""));
+	profile.setString("ignored_update_version", profile.getString("ignored_update_version", ""));
 
 	mSlotUpdate = Application::getSingleton().getSigUpdate().connect(this, &Balance::onUpdate);
 

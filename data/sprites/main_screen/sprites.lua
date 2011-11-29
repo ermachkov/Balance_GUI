@@ -140,6 +140,8 @@ function main_screen_createSprites()
 	spriteErrorPopupText = Sprite("spriteErrorPopupText", 663, 79)
 	spriteAutoAluPopupBack = Sprite("spriteAutoAluPopupBack", 377, 0)
 	spriteAutoAluPopupIcon = Sprite("spriteAutoAluPopupIcon", 413, 23)
+	spriteUpdatePopupBack = Sprite("spriteUpdatePopupBack", 714, 0)
+	spriteUpdatePopupIcon = Sprite("spriteUpdatePopupIcon", 754, 23)
 	spriteMessageBack = Sprite("spriteMessageBack", 283, 303)
 	spriteMessageText = Sprite("spriteMessageText", 466, 331)
 	spriteMessageOkButton = Sprite("spriteMessageOkButton", 562, 486)
@@ -339,6 +341,8 @@ function main_screen_deleteSprites()
 	spriteErrorPopupText = nil
 	spriteAutoAluPopupBack = nil
 	spriteAutoAluPopupIcon = nil
+	spriteUpdatePopupBack = nil
+	spriteUpdatePopupIcon = nil
 	spriteMessageBack = nil
 	spriteMessageText = nil
 	spriteMessageOkButton = nil

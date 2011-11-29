@@ -46,17 +46,6 @@ local function showProfileValue(item)
 	return profile:getString(item.param)
 end
 
--- Checks the entered password
-local function checkPassword(value)
-	if value == profile:getString("password", "679") then
-		password = value
-		return true
-	else
-		showMessage(tr("{invalid_password}"), MESSAGE_OK, MESSAGE_ERROR)
-		return false
-	end
-end
-
 -- Disables the capacitance measurements
 local function disableCapacitance()
 	if capacitanceActive then
