@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Balance
 Comment=Balance machine GUI application
-Exec=/home/bm/Balance_GUI/start.sh
+Exec=balance_start
 Icon=/usr/share/pixmaps/balance.png
 Terminal=false
 Type=Application
