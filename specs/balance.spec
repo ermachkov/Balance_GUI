@@ -1,6 +1,6 @@
 Name:           balance
 Version:        0.1
-Release:        1%{?dist} 
+Release:        2%{?dist} 
 Summary:        KonsulM Balance GUI
 
 Group:          Applications/System
@@ -10,6 +10,8 @@ Source0:        %{name}-%{version}.tbz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      x86_64
+
+Requires:       clanlib-2.3.3
 
 %description
 KonsulM Balance GUI
@@ -39,7 +41,6 @@ mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 install -pm 755 balance $RPM_BUILD_ROOT%{_bindir}/
 install -pm 755 files/balance_remote $RPM_BUILD_ROOT%{_bindir}
 install -pm 755 files/balance_xinput_calibrator $RPM_BUILD_ROOT%{_bindir}/
-install -pm 755 files/balance_grub $RPM_BUILD_ROOT%{_sysconfdir}/init.d/
 install -pm 755 balance_start $RPM_BUILD_ROOT%{_bindir}/
 
 install -pm 644 data/scripts/wizard.lua $RPM_BUILD_ROOT%{_datadir}/%{name}/scripts/
@@ -53,14 +54,15 @@ install -pm 644 data/scripts/main_screen.lua $RPM_BUILD_ROOT%{_datadir}/%{name}/
 install -pm 644 data/scripts/disk_menu.lua $RPM_BUILD_ROOT%{_datadir}/%{name}/scripts/
 install -pm 644 data/scripts/layout_menu.lua $RPM_BUILD_ROOT%{_datadir}/%{name}/scripts/
 install -pm 644 data/scripts/message.lua $RPM_BUILD_ROOT%{_datadir}/%{name}/scripts/
+install -pm 644 data/scripts/oscilloscope.lua $RPM_BUILD_ROOT%{_datadir}/%{name}/scripts/
 install -pm 644 data/sprites/main_screen/texture1.png $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_screen/
 install -pm 644 data/sprites/main_screen/texture10.png $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_screen/
 install -pm 644 data/sprites/main_screen/texture8.png $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_screen/
+install -pm 644 data/sprites/main_screen/texture9.png $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_screen/
 install -pm 644 data/sprites/main_screen/texture7.png $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_screen/
 install -pm 644 data/sprites/main_screen/sprites.lua $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_screen/
 install -pm 644 data/sprites/main_screen/texture2.png $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_screen/
 install -pm 644 data/sprites/main_screen/texture3.png $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_screen/
-install -pm 644 data/sprites/main_screen/texture9.png $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_screen/
 install -pm 644 data/sprites/main_screen/texture11.png $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_screen/
 install -pm 644 data/sprites/main_screen/texture4.png $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_screen/
 install -pm 644 data/sprites/main_screen/texture0.jpg $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_screen/
@@ -90,6 +92,8 @@ install -pm 644 data/sprites/main_menu/texture0.jpg $RPM_BUILD_ROOT%{_datadir}/%
 install -pm 644 data/sprites/main_menu/main_menu.layers $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_menu/
 install -pm 644 data/sprites/main_menu/texture6.png $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_menu/
 install -pm 644 data/sprites/main_menu/texture0.png $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_menu/
+install -pm 644 data/sprites/main_menu/texture8.png $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_menu/
+install -pm 644 data/sprites/main_menu/texture9.png $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_menu/
 install -pm 644 data/sprites/main_menu/wizard.layers $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_menu/
 install -pm 644 data/sprites/main_menu/resources.xml $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_menu/
 install -pm 644 data/sprites/main_menu/texture5.png $RPM_BUILD_ROOT%{_datadir}/%{name}/sprites/main_menu/
@@ -138,6 +142,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/scripts/disk_menu.lua
 %{_datadir}/%{name}/scripts/layout_menu.lua
 %{_datadir}/%{name}/scripts/message.lua
+%{_datadir}/%{name}/scripts/oscilloscope.lua
 %{_datadir}/%{name}/sprites/main_screen/texture1.png
 %{_datadir}/%{name}/sprites/main_screen/texture10.png
 %{_datadir}/%{name}/sprites/main_screen/texture8.png
@@ -172,6 +177,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/sprites/main_menu/texture3.png
 %{_datadir}/%{name}/sprites/main_menu/texture4.png
 %{_datadir}/%{name}/sprites/main_menu/texture0.jpg
+%{_datadir}/%{name}/sprites/main_menu/texture8.png
+%{_datadir}/%{name}/sprites/main_menu/texture9.png
 %{_datadir}/%{name}/sprites/main_menu/main_menu.layers
 %{_datadir}/%{name}/sprites/main_menu/texture6.png
 %{_datadir}/%{name}/sprites/main_menu/texture0.png
@@ -207,17 +214,19 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %dir %{_sysconfdir}
 %{_sysconfdir}/bminfo
-%{_sysconfdir}/init.d/balance_grub
 
 %post
 cp /etc/crontab /tmp/crontab
 grep -v balance_remote /tmp/crontab > /etc/crontab
 rm /tmp/crontab
 echo "* * * * * root /usr/bin/balance_remote" >> /etc/crontab
-ln -s /etc/init.d/balance_grub /etc/rc2.d/S20balance_grub
 
 %postun
 cp /etc/crontab /tmp/crontab
 grep -v balance_remote /tmp/crontab > /etc/crontab
 rm /tmp/crontab
-rm /etc/rc2.d/S20balance_grub
+
+%_signature gpg
+%_gpg_name Sibek
+
+

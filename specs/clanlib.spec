@@ -20,7 +20,7 @@
 
 Name:           clanlib
 Version:        2.3.3
-Release:        23.1
+Release:        23.1.fc16
 License:        Other uncritical OpenSource License
 Summary:        A Portable Interface for Writing Games
 URL:            http://www.clanlib.org/
@@ -49,7 +49,6 @@ ClanLib delivers a platform-independent interface for writing games.
 Summary:        A portable interface for writing games
 Group:          Development/Libraries/X11
 Requires:       %{name} = %{version}
-Requires:       Mesa-devel
 Requires:       libstdc++-devel
 
 %description     devel
@@ -362,3 +361,6 @@ cp -a Examples %{buildroot}%{_datadir}/doc/clanlib-%{clan_ver}
 - added Requires field for libpng
 * Tue Dec 28 1999 sndirsch@suse.de
 - created clanlib package
+
+%_signature gpg
+%_gpg_name Sibek
